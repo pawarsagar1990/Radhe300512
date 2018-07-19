@@ -1,0 +1,82 @@
+/*// Custom Style Sheet for Product Slider Owl Carousel//*
+////////////////Created by: Swapnil Chavan////////////////
+/////////////////////////////////////////////////////////*
+/*[Product Slider]
+-----------------------------------------------------------
+*/
+.product-slider{
+	margin-top:50px;
+	margin-bottom:50px;
+}
+.product-slider-title{
+	font-family:Gabriola;
+	font-size:36px;
+	color:black;
+}
+.prod-slid-nm{
+	font-family:Calibri;
+	font-size:18px;
+	font-weight:bold;
+	color:black;
+	text-align:center;
+	padding:5px;
+	overflow:hidden;
+	white-space: nowrap; 
+	text-overflow: ellipsis;
+}
+.prod-slid-nm:hover {
+    overflow: visible;
+}
+.prod-slid-prc{
+	font-family:Montserrat-Regular;
+	font-size:15px;
+	color:black;
+	text-align:center;
+	padding:5px;
+}
+.prod-slid-btn{
+	padding:5px;
+	background:red;
+	border:none;
+}
+
+.card{
+	position:relative;
+	border:none;
+}
+.card img{
+	border: 1px solid black;
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+}
+.card img:hover{
+	opacity: .8; 
+	transition: .5s;
+}
+.card-body{
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+.card:hover:after{
+	opacity: .9;
+}
+.item{
+	border:none;
+}
+
+
+.owl-carousel {
+	position: relative;
+}
+.owl-prev,
+.owl-next {
+	position: absolute;
+	top: 30%;
+}
+.owl-prev {
+	left: 0;
+}
+.owl-next {
+	right: 0;
+}
