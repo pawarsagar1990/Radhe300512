@@ -1,0 +1,5 @@
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

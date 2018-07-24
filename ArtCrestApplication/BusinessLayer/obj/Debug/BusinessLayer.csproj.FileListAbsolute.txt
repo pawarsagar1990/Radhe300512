@@ -1,0 +1,7 @@
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\bin\Debug\BusinessLayer.dll
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\bin\Debug\BusinessLayer.pdb
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\obj\Debug\BusinessLayer.dll
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\obj\Debug\BusinessLayer.pdb
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\bin\Debug\DataAccessLayer.dll
+G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\bin\Debug\DataAccessLayer.pdb
