@@ -12,7 +12,7 @@ using DataAccessLayer;
 
 namespace ArtCrestApplication.acsupport
 {
-    public partial class ProductEntry : System.Web.UI.Page
+    public partial class ProductEdit : System.Web.UI.Page
     {
         BusinessLayer.BusinessLayer objBusinessL = new BusinessLayer.BusinessLayer();
         protected void Page_Load(object sender, EventArgs e)
@@ -20,25 +20,26 @@ namespace ArtCrestApplication.acsupport
             if (!IsPostBack)
             {
                 bindSuperCategory();
-                bindCategory();
-                bindSubCategory();
-                bindVendor();
+                bindCategory(0);
+                bindSubCategory(0);
+                //bindVendor();
+                EditSection.Visible = false;
             }
         }
 
         protected void btnSaveProduct_Click(object sender, EventArgs e)
         {
-            lblErrorMsg.Text = "";
-            int ProductID = 0;
+            lblErrorMsg.Text = "";            
             try
             {
+                int ProductID = Convert.ToInt32(productID.Value);
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 decimal productSellPrice = 0;
                 decimal discountedPrice = 0;
                 decimal productBaseMarginPrice = Convert.ToDecimal(txtProductBasePrice.Text) + (Convert.ToDecimal(txtMarginPercent.Text) / 100 * Convert.ToDecimal(txtProductBasePrice.Text));
                 productSellPrice = productBaseMarginPrice + (((Convert.ToDecimal(txtCGST.Text) + Convert.ToDecimal(txtSGST.Text)) / 100) * productBaseMarginPrice);
                 discountedPrice = productSellPrice - (productSellPrice * (Convert.ToDecimal(txtDiscountPercent.Text) / 100));
-
+                parameters.Add("pProdID", ProductID.ToString());
                 parameters.Add("pName", txtProductName.Text);
                 parameters.Add("pdesc", txtProductDesc.Text);
                 parameters.Add("pFeatures", txtProductFeatures.Text);
@@ -56,71 +57,53 @@ namespace ArtCrestApplication.acsupport
                 parameters.Add("pSearchAlias", txtSearchAlias.Text);
                 parameters.Add("pVendor", drpVendor.SelectedValue);
                 parameters.Add("pIsActive", chkIsActive.Checked.ToString());
-                parameters.Add("pReturnPolicy", drpReturnPolicy.SelectedValue);
-                parameters.Add("pCreatedBy", Session["SupportLoginID"].ToString());
-              //  DateTime dtDate  =  DateTime.ParseExact(DateTime.Now.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                parameters.Add("pCreatedDate", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
+                parameters.Add("pReturnPolicy", drpReturnPolicy.SelectedValue);                                             
                 parameters.Add("pUpdatedBy", Session["SupportLoginID"].ToString());
                 parameters.Add("pUpdatedDate", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
 
-                string query = "INSERT INTO [dbo].[Product] ([ProductName],[ProductDesc],[ProductFeatures],[fkProductSuperCategoryID],[fkProductCategoryID]," +
-                                "[fkProductSubCategoryID],[ProductBasePrice],[ACMarginPercent],[CGSTPercent]" +
-                                ",[SGSTPercent],[DiscountPercent],[ProductSellPrice],[ProductDiscountPrce],[ProductQuantity]," +
-                                "[ProductSearchAlias],[fkVendorID],[IsActive],[fkReturnPolicyID],[CreatedBy],[CreatedDate],[UpdatedBy],[UpdatedDate])" +
-                                "VALUES(@pName,@pdesc,@pFeatures,@pSupCat,@pCat,@pSubCat,@pBasrPrice,@pMarginPercent,@pCGST,@pSGST,@pDiscountPercent,@pSellPrice,@pDiscountedPrice," +
-                                "@pQuantity,@pSearchAlias,@pVendor,@pIsActive,@pReturnPolicy,@pCreatedBy,@pCreatedDate,@pUpdatedBy,@pUpdatedDate);";
+                string query = "Update [dbo].[Product] SET [ProductName] = @pName,[ProductDesc] = @pdesc,[ProductFeatures] = @pFeatures,[fkProductSuperCategoryID] = @pSupCat,[fkProductCategoryID] = @pCat," +
+                                "[fkProductSubCategoryID] = @pSubCat,[ProductBasePrice] = @pBasrPrice,[ACMarginPercent] = @pMarginPercent,[CGSTPercent] = @pCGST" +
+                                ",[SGSTPercent] = @pSGST,[DiscountPercent] = @pDiscountPercent,[ProductSellPrice] = @pSellPrice,[ProductDiscountPrce] = @pDiscountedPrice,[ProductQuantity] = @pQuantity," +
+                                "[ProductSearchAlias] = @pSearchAlias,[fkVendorID] = @pVendor,[IsActive] = @pIsActive,[fkReturnPolicyID] = @pReturnPolicy,[UpdatedBy] = @pUpdatedBy,[UpdatedDate] = @pUpdatedDate" +
+                                " WHERE ProductID = @pProdID;";
 
-                int insertResult = DataAccessLayer.DataAccessLayer.ExecuteNonQuery(query, parameters);
-                if (insertResult > 0)
+                int updateResult = DataAccessLayer.DataAccessLayer.ExecuteNonQuery(query, parameters);
+                if (updateResult > 0)
                 {
-                    Dictionary<string, string> Productparameters = new Dictionary<string, string>();
-                    Productparameters.Add("productName", txtProductName.Text);                    
-                    string productgetquery = "select * from product where ProductName = @productName";
-                    DataTable dtProduct = DataAccessLayer.DataAccessLayer.getDataFromQueryWithParameters(productgetquery, Productparameters);
-                    if (dtProduct != null & dtProduct.Rows.Count > 0)
-                    {
-                        ProductID = Convert.ToInt32(dtProduct.Rows[0]["ProductID"]);
-                    }
                     Dictionary<string, string> parametersImageSave = new Dictionary<string, string>();
                     string imageQuery = "";
-                    string imageQueryValues = "";
                     if (imageUpload1.HasFile)
                     {
                         parametersImageSave.Add("piImageLink1", saveFileIntoFolder(ProductID, txtProductName.Text, imageUpload1));
-                        imageQuery = "[ImageLink1],";
-                        imageQueryValues = "@piImageLink1,";
+                        imageQuery = "[ImageLink1] = @piImageLink1,";
                     }
                     if (imageUpload2.HasFile)
                     {
                         parametersImageSave.Add("piImageLink2", saveFileIntoFolder(ProductID, txtProductName.Text, imageUpload2));
-                        imageQuery = imageQuery != string.Empty ? imageQuery + "[ImageLink2]," : "[ImageLink2],";
-                        imageQueryValues = imageQueryValues != string.Empty ? imageQueryValues + "@piImageLink2," : "@piImageLink2,";                        
+                        imageQuery = imageQuery != string.Empty ? imageQuery + "[ImageLink2] = @piImageLink2," : "[ImageLink2] = @piImageLink2,";
                     }
-                    if (imageUpload3.HasFile)
+                    if (imageUpload1.HasFile)
                     {
                         parametersImageSave.Add("piImageLink3", saveFileIntoFolder(ProductID, txtProductName.Text, imageUpload3));
-                        imageQuery = imageQuery != string.Empty ? imageQuery + "[ImageLink3]," : "[ImageLink3],";
-                        imageQueryValues = imageQueryValues != string.Empty ? imageQueryValues + "@piImageLink3," : "@piImageLink3,";
+                        imageQuery = imageQuery != string.Empty ? imageQuery + "[ImageLink3] = @piImageLink3," : "[ImageLink3] = @piImageLink3,";
                     }
                     parametersImageSave.Add("piFkProductID", ProductID.ToString());
-                    parametersImageSave.Add("piCreatedBy", Session["SupportLoginID"].ToString());
-                    parametersImageSave.Add("piCreatedDate", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
                     parametersImageSave.Add("piUpdatedBy", Session["SupportLoginID"].ToString());
                     parametersImageSave.Add("piUpdatedDate", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
-                    string productImageQuery = "INSERT INTO[dbo].[ProductImage]("+ imageQuery + " [fkProductID],[CreatedBy],[CreatedDate]" +
-                                                ",[UpdatedBy],[UpdatedDate]) VALUES("+ imageQueryValues + " @piFkProductID,@piCreatedBy,@piCreatedDate,@piUpdatedBy,@piUpdatedDate);";
-
+                    string productImageQuery = "UPDATE [dbo].[ProductImage] SET " + imageQuery +
+                                                "[UpdatedBy] = @piUpdatedBy,[UpdatedDate] = @piUpdatedDate WHERE fkProductID = @piFkProductID;";
+                    
                     int productImageResult = DataAccessLayer.DataAccessLayer.ExecuteNonQuery(productImageQuery, parametersImageSave);
                     if (productImageResult <= 0)
                     {
-                        ShowErrorMsg("Product Save Completed but there is an error while product image save, please check with Administrator.", true);
+                        ShowErrorMsg("Product Update Completed but there is an error while product image save, please check with Administrator.", true);
                     }
                     else
-                    { ShowErrorMsg("Product Save Completed.", false); }
+                    { ShowErrorMsg("Product Update Completed.", false); }
                     
                 }
                 else
-                { ShowErrorMsg("There is an error while product creation, please check with Administrator.", true); }
+                { ShowErrorMsg("There is an error while product updation, please check with Administrator.", true); }
 
             }
             catch (Exception ex)
@@ -146,39 +129,22 @@ namespace ArtCrestApplication.acsupport
 
         public void bindSuperCategory()
         {
-            DataTable dtSuperCategory = objBusinessL.getDataFromQuery("select * from ProductSuperCategory where isactive = 1 order by 1 asc");
+            DataTable dtSuperCategory = objBusinessL.GetSuperCategory();
             if (dtSuperCategory != null && dtSuperCategory.Rows.Count > 0)
             {
                 drpSuperCategory.DataSource = dtSuperCategory;
                 drpSuperCategory.DataTextField = "ProductSuperCategoryName";
                 drpSuperCategory.DataValueField = "ProductSuperCategoryID";
                 drpSuperCategory.DataBind();
-            }
-        }
-        public void bindCategory()
-        {
-            DataTable dtCategory = objBusinessL.getDataFromQuery("select * from ProductCategory where isactive = 1 order by 1 asc");
-            if (dtCategory != null && dtCategory.Rows.Count > 0)
-            {
-                drpCategory.DataSource = dtCategory;
-                drpCategory.DataTextField = "ProductCategoryName";
-                drpCategory.DataValueField = "ProductCategoryID";
-                drpCategory.DataBind();
-            }
-        }
+                drpSuperCategory.Items.Insert(0, new ListItem("Please Select", "0"));
 
-        public void bindSubCategory()
-        {
-            DataTable dtCategory = objBusinessL.getDataFromQuery("select * from ProductSubCategory where isactive = 1 order by 1 asc");
-            if (dtCategory != null && dtCategory.Rows.Count > 0)
-            {
-                drpSubCategory.DataSource = dtCategory;
-                drpSubCategory.DataTextField = "ProductSubCategoryName";
-                drpSubCategory.DataValueField = "ProductSubCategoryID";
-                drpSubCategory.DataBind();
+                drpSuperCategorySearch.DataSource = dtSuperCategory;
+                drpSuperCategorySearch.DataTextField = "ProductSuperCategoryName";
+                drpSuperCategorySearch.DataValueField = "ProductSuperCategoryID";
+                drpSuperCategorySearch.DataBind();
+                drpSuperCategorySearch.Items.Insert(0, new ListItem("Please Select", "0"));
             }
         }
-
         public void bindCategory(int productsupercategoryID)
         {
             DataTable dtCategory = objBusinessL.GetCategory(productsupercategoryID);
@@ -189,6 +155,12 @@ namespace ArtCrestApplication.acsupport
                 drpCategory.DataValueField = "ProductCategoryID";
                 drpCategory.DataBind();
                 drpCategory.Items.Insert(0, new ListItem("Please Select", "0"));
+
+                drpCategorySearch.DataSource = dtCategory;
+                drpCategorySearch.DataTextField = "ProductCategoryName";
+                drpCategorySearch.DataValueField = "ProductCategoryID";
+                drpCategorySearch.DataBind();
+                drpCategorySearch.Items.Insert(0, new ListItem("Please Select", "0"));
             }
         }
 
@@ -201,9 +173,29 @@ namespace ArtCrestApplication.acsupport
                 drpSubCategory.DataTextField = "ProductSubCategoryName";
                 drpSubCategory.DataValueField = "ProductSubCategoryID";
                 drpSubCategory.DataBind();
-                drpSubCategory.Items.Insert(0, new ListItem("Please Select", "0"));              
+                drpSubCategory.Items.Insert(0, new ListItem("Please Select", "0"));
+
+                drpSubCategorySearch.DataSource = dtSubCategory;
+                drpSubCategorySearch.DataTextField = "ProductSubCategoryName";
+                drpSubCategorySearch.DataValueField = "ProductSubCategoryID";
+                drpSubCategorySearch.DataBind();
+                drpSubCategorySearch.Items.Insert(0, new ListItem("Please Select", "0"));
             }
-        }        
+        }
+
+        public void bindProducts(int productSubCategoryID)
+        {
+            DataTable dtProduct = objBusinessL.GetProductsFromSubCategory(productSubCategoryID);
+            if (dtProduct != null && dtProduct.Rows.Count > 0)
+            {
+                drpProduct.DataSource = dtProduct;
+                drpProduct.DataTextField = "ProductName";
+                drpProduct.DataValueField = "ProductID";                
+                drpProduct.DataBind();
+                drpProduct.Items.Insert(0, new ListItem("Please Select", "0"));
+                
+            }
+        }
 
         public void bindVendor()
         {
@@ -278,6 +270,20 @@ namespace ArtCrestApplication.acsupport
             }            
             return fileLink;
         }
+                
+        protected void drpSuperCategorySearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bindCategory(Convert.ToInt32(drpSuperCategorySearch.SelectedValue));            
+        }
+        protected void drpCategorySearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bindSubCategory(Convert.ToInt32(drpCategorySearch.SelectedValue));
+        }
+
+        protected void drpSubCategorySearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bindProducts(Convert.ToInt32(drpCategorySearch.SelectedValue));
+        }
 
         protected void drpSuperCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -287,5 +293,30 @@ namespace ArtCrestApplication.acsupport
         {
             bindSubCategory(Convert.ToInt32(drpCategory.SelectedValue));
         }
+        protected void drpProductSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EditSection.Visible = true;
+            productID.Value = drpProduct.SelectedValue;
+            DataTable dtProduct = objBusinessL.GetProductDetailOnProductID(Convert.ToInt32(drpProduct.SelectedValue));
+            if (dtProduct != null && dtProduct.Rows.Count > 0)
+            {
+                txtProductName.Text = dtProduct.Rows[0]["ProductName"].ToString();
+                txtProductDesc.Text = dtProduct.Rows[0]["ProductDesc"].ToString();
+                txtProductFeatures.Text = dtProduct.Rows[0]["ProductFeatures"].ToString();
+                drpSuperCategory.SelectedValue = dtProduct.Rows[0]["fkProductSuperCategoryID"].ToString();
+                drpCategory.SelectedValue = dtProduct.Rows[0]["fkProductCategoryID"].ToString();
+                drpSubCategory.SelectedValue = dtProduct.Rows[0]["fkProductSubCategoryID"].ToString();
+                txtProductBasePrice.Text = dtProduct.Rows[0]["ProductBasePrice"].ToString();
+                txtMarginPercent.Text = dtProduct.Rows[0]["ACMarginPercent"].ToString();
+                txtCGST.Text = dtProduct.Rows[0]["CGSTPercent"].ToString();
+                txtSGST.Text = dtProduct.Rows[0]["SGSTPercent"].ToString();
+                txtDiscountPercent.Text = dtProduct.Rows[0]["DiscountPercent"].ToString();
+                txtProductQuantity.Text = dtProduct.Rows[0]["ProductQuantity"].ToString();
+                txtSearchAlias.Text = dtProduct.Rows[0]["ProductSearchAlias"].ToString();
+                drpVendor.SelectedValue = dtProduct.Rows[0]["fkVendorID"].ToString();
+                drpReturnPolicy.SelectedValue = dtProduct.Rows[0]["fkReturnPolicyID"].ToString();
+                chkIsActive.Checked = Convert.ToBoolean(dtProduct.Rows[0]["isActive"].ToString());
+            }
+        }        
     }
 }

@@ -1,12 +1,25 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ProductEntry.aspx.cs" Inherits="ArtCrestApplication.acsupport.ProductEntry" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ProductEdit.aspx.cs" Inherits="ArtCrestApplication.acsupport.ProductEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <section class="">
+        <section>
             <div class="container">
-                <div class="reg-box">
+                <div class="row">
+                    <div>
+                    <label for="uname"><b>Product Super Category</b></label>
+                    <asp:DropDownList class="login-input"  runat="server" ID="drpSuperCategorySearch" OnSelectedIndexChanged="drpSuperCategorySearch_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                    <label for="uname"><b>Product Category</b></label>
+                    <asp:DropDownList class="login-input" runat="server" ID="drpCategorySearch" OnSelectedIndexChanged="drpCategorySearch_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                    <label for="uname"><b>Product Sub Category</b></label>
+                    <asp:DropDownList class="login-input" runat="server" ID="drpSubCategorySearch" OnSelectedIndexChanged="drpSubCategorySearch_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                    <label for="uname"><b>Product Name</b></label>
+                    <asp:DropDownList class="login-input" runat="server" ID="drpProduct" OnSelectedIndexChanged="drpProductSearch_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList>
+                    <asp:HiddenField runat="server" ID="productID" />
+                    </div>
+                </div>
+                <div class="reg-box" runat="server" id="EditSection"> 
                     <label for="uname"><b>Product Name</b></label>
                     <asp:TextBox runat="server" class="login-input" placeholder="Enter Product Name" ID="txtProductName" name="txtProductName" required />
 
@@ -20,7 +33,7 @@
                     <asp:DropDownList class="login-input"  runat="server" ID="drpSuperCategory" AutoPostBack="true" OnSelectedIndexChanged="drpSuperCategory_SelectedIndexChanged"></asp:DropDownList>
 
                     <label for="uname"><b>Product Category</b></label>
-                    <asp:DropDownList class="login-input" runat="server" ID="drpCategory" AutoPostBack="true" OnSelectedIndexChanged="drpCategory_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList class="login-input" runat="server" ID="drpCategory" AutoPostBack="true" OnSelectedIndexChanged="drpCategory_SelectedIndexChanged" ></asp:DropDownList>
 
                     <label for="uname"><b>Product Sub Category</b></label>
                     <asp:DropDownList class="login-input" runat="server" ID="drpSubCategory"></asp:DropDownList>
