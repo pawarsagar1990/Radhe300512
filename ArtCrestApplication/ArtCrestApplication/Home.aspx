@@ -2,6 +2,45 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    <!--Master Slider Section-->
+	<section>
+		<div id="demo" class="carousel slide" data-ride="carousel">
+
+			<!-- Indicators -->
+			<ul class="carousel-indicators">
+				<li data-target="#demo" data-slide-to="0"></li>
+				<li data-target="#demo" data-slide-to="1"></li>
+				<li data-target="#demo" data-slide-to="2"></li>
+				<li data-target="#demo" data-slide-to="3"></li>
+			</ul>
+
+			<!-- The slideshow -->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="images/master-slide-01.jpg" alt="ms1">
+				</div>
+				<div class="carousel-item">
+					<img src="images/master-slide-02.jpg" alt="ms2">
+				</div>
+				<div class="carousel-item">
+					<img src="images/master-slide-03.jpg" alt="ms3">
+				</div>
+				<div class="carousel-item">
+					<img src="images/master-slide-04.jpg" alt="ms4">
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev" href="#demo" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+	</section>
+    
     <!--Product Slider 1-->
 	<section class="product-slider">
 		<div class="container mt-4">
@@ -21,7 +60,9 @@
 							<img src="images/item-01.jpg" alt="img" class="card-img-top">
 							<div class="card-body">
 								<h3 class="prod-slid-nm">Rakhi 1</h3>
-								<h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">149</span></h5> 
+								<h5 class="prod-slid-prc"><span class="prod_disc_prc">&#8377;&nbsp;135&nbsp;&nbsp;</span>
+                                    <span class="prod_sale_prc">&#8377;&nbsp;149</span>
+                                    <span class="prod_disc_percent">&nbsp;&nbsp;10% off</span></h5> 
 								<button class="btn btn-primary prod-slid-btn" >Add to Cart</button>
 							</div>
 						</div>
