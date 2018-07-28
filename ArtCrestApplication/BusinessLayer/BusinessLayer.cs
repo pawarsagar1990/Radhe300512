@@ -55,5 +55,83 @@ namespace BusinessLayer
             }
             return rowsInserted;
         }
+
+        public DataTable GetSuperCategory()
+        {
+            DataTable dtSuperCategory = getDataFromQuery("select * from ProductSuperCategory where isactive = 1 order by productsupercategoryname asc");            
+            return dtSuperCategory;
+        }
+        public DataTable GetCategory(int productsupercategoryID)
+        {
+            string strQuery = "";
+            if (productsupercategoryID > 0)
+            {
+                strQuery = "select * from ProductCategory where fkProductSuperCategryID = " + productsupercategoryID + " and isactive = 1 order by productcategoryname asc";
+            }
+            else
+            {
+                strQuery = "select * from ProductCategory where isactive = 1 order by productcategoryname asc";
+            }
+            DataTable dtCategory = getDataFromQuery(strQuery);
+            return dtCategory;            
+        }
+
+        public DataTable GetSubCategory(int productCategoryID)
+        {
+            string strQuery = "";
+            if (productCategoryID > 0)
+            {
+                strQuery = "select * from ProductSubCategory where fkproductCategoryID = " + productCategoryID + " and isactive = 1 order by ProductSubCategoryName asc";
+            }
+            else
+            {
+                strQuery = "select * from ProductSubCategory where isactive = 1 order by ProductSubCategoryName asc";
+            }
+            DataTable dtSubCategory = getDataFromQuery(strQuery);
+            return dtSubCategory;
+        }
+
+        public DataTable GetProductsFromSubCategory(int productSubCategoryID)
+        {
+            string strQuery = "";
+            if (productSubCategoryID > 0)
+            {
+                strQuery = "select * from Product where fkproductSubCategoryID = " + productSubCategoryID + " and isactive = 1 order by ProductName asc";
+            }
+            else
+            {
+                strQuery = "select * from Product where isactive = 1 order by ProductName asc";
+            }
+            DataTable dtProduct = getDataFromQuery(strQuery);
+            return dtProduct;
+        }
+
+        public void bindVendor()
+        {
+            //drpVendor.Items.Add(new ListItem("Skartif", "1"));
+            ////DataTable dtCategory = objBusinessL.getDataFromQuery("select * from Vendor where isactive = 1 order by 1 asc");
+            ////if (dtCategory != null && dtCategory.Rows.Count > 0)
+            ////{
+            ////    drpVendor.DataSource = dtCategory;
+            ////    drpVendor.DataTextField = "VendorName";
+            ////    drpVendor.DataValueField = "VendorID";
+            ////    drpVendor.DataBind();
+            ////}
+            ////else
+            ////{
+            ////    drpVendor.Items.Add(new ListItem("Skartif", "1"));
+            ////}
+        }
+
+        public DataTable GetProductDetailOnProductID(int productID)
+        {
+            string strQuery = "";
+            if (productID > 0)
+            {
+                strQuery = "select * from Product where productid = "+ productID +" and isactive = 1 order by ProductName asc";
+            }            
+            DataTable dtProduct = getDataFromQuery(strQuery);
+            return dtProduct;
+        }
     }
 }

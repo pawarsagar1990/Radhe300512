@@ -200,6 +200,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Account\Web.config" />
     <Content Include="acsupport\acsupportlogin.aspx" />
+    <Content Include="acsupport\ProductEdit.aspx" />
     <Content Include="acsupport\ProductEntry.aspx" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
@@ -3111,6 +3112,13 @@
     </Compile>
     <Compile Include="acsupport\acsupportlogin.aspx.designer.cs">
       <DependentUpon>acsupportlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="acsupport\ProductEdit.aspx.cs">
+      <DependentUpon>ProductEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="acsupport\ProductEdit.aspx.designer.cs">
+      <DependentUpon>ProductEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="acsupport\ProductEntry.aspx.cs">
       <DependentUpon>ProductEntry.aspx</DependentUpon>
