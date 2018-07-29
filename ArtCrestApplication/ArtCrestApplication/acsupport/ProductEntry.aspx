@@ -5,8 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <section class="">
-            <div class="container">
+            <div class="container">                
                 <div class="reg-box">
+                    <asp:Label ID="lblErrorMsg" runat="server"></asp:Label> <br />
                     <label for="uname"><b>Product Name</b></label>
                     <asp:TextBox runat="server" class="login-input" placeholder="Enter Product Name" ID="txtProductName" name="txtProductName" required />
 
@@ -68,8 +69,7 @@
                     <label for="uname"><b>Product Image 3</b></label>
                     <asp:FileUpload class="login-input"  runat="server" ID="imageUpload3" />
 
-                    <asp:Button Text="Save Product" class="login-btn" runat="server" ID="btnSaveProduct" OnClick="btnSaveProduct_Click" />
-                    <asp:Label ID="lblErrorMsg" runat="server"></asp:Label>
+                    <asp:Button Text="Save Product" class="login-btn" runat="server" ID="btnSaveProduct" OnClick="btnSaveProduct_Click" />                    
                 </div>
             </div>
         </section>

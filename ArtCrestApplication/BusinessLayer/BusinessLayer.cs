@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
@@ -133,5 +134,44 @@ namespace BusinessLayer
             DataTable dtProduct = getDataFromQuery(strQuery);
             return dtProduct;
         }
+
+        public string SendMail(string mailToAddress, string mailSubject, string mailBody)
+        {
+            string strResult = "";
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient();
+                string msg = string.Empty;
+                try
+                {
+                    MailAddress fromAddress = new MailAddress("info@skartif.com");
+                    message.From = fromAddress;
+                    message.To.Add(mailToAddress);
+                    message.Subject = mailSubject;
+                    message.IsBodyHtml = true;
+                    message.Body = mailBody;
+                    smtpClient.Host = "smtp.zoho.com";   //-- Donot change.
+                    smtpClient.Port = 587; //--- Donot change
+                    smtpClient.EnableSsl = true;//--- Donot change                    
+                    smtpClient.Credentials = new System.Net.NetworkCredential("info@skartif.com", "Startup@007");
+                    smtpClient.Send(message);
+
+                }
+                catch (Exception ex)
+                {
+
+                    strResult = ex.Message;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogTracer("Log", ex.Message, "Method Name : SendMail", "E");
+            }
+
+            return strResult;
+
+        }
+
     }
 }

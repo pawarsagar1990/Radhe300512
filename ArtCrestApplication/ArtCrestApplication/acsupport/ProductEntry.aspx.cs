@@ -57,8 +57,7 @@ namespace ArtCrestApplication.acsupport
                 parameters.Add("pVendor", drpVendor.SelectedValue);
                 parameters.Add("pIsActive", chkIsActive.Checked.ToString());
                 parameters.Add("pReturnPolicy", drpReturnPolicy.SelectedValue);
-                parameters.Add("pCreatedBy", Session["SupportLoginID"].ToString());
-              //  DateTime dtDate  =  DateTime.ParseExact(DateTime.Now.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                parameters.Add("pCreatedBy", Session["SupportLoginID"].ToString());              
                 parameters.Add("pCreatedDate", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
                 parameters.Add("pUpdatedBy", Session["SupportLoginID"].ToString());
                 parameters.Add("pUpdatedDate", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));

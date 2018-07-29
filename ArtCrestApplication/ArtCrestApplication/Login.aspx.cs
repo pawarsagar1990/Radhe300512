@@ -8,14 +8,14 @@ using System.Web.UI.WebControls;
 using BusinessLayer;
 using DataAccessLayer;
 
-
-namespace ArtCrestApplication.acsupport
+namespace ArtCrestApplication
 {
-    public partial class acsupportlogin : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
+        BusinessLayer.BusinessLayer objBusinessL = new BusinessLayer.BusinessLayer();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -23,22 +23,20 @@ namespace ArtCrestApplication.acsupport
             lblErrorMsg.Text = "";
             try
             {
-                if (txtUserName.Text != "" && txtPassword.Text != "")
+                if (txtEmailID.Text != "" && txtPassword.Text != "")
                 {
                     Dictionary<string, string> parameters = new Dictionary<string, string>();
-                    parameters.Add("usrnm", txtUserName.Text);
+                    parameters.Add("emailid", txtEmailID.Text);
                     parameters.Add("pswd", txtPassword.Text);
                     parameters.Add("isActve", "true");
-                    string query = "select * from supportlogin where SupportUserName = @usrnm and SupportPassWord = @pswd and isActive = @isActve;";
-                    DataTable dtSupportLogin = DataAccessLayer.DataAccessLayer.getDataFromQueryWithParameters(query, parameters);
-                    if (dtSupportLogin != null & dtSupportLogin.Rows.Count > 0)
+                    string query = "select * from users where useremailID = @emailid and userPassword = @pswd and isActive = @isActve;";
+                    DataTable dtLoginDetail = DataAccessLayer.DataAccessLayer.getDataFromQueryWithParameters(query, parameters);
+                    if (dtLoginDetail != null & dtLoginDetail.Rows.Count > 0)
                     {
-                        Session["UserFirstName"] = Convert.ToString(dtSupportLogin.Rows[0]["SupportFirstName"]) + " " + Convert.ToString(dtSupportLogin.Rows[0]["SupportLastName"]);
-                        Session["SupportLoginID"] = Convert.ToString(dtSupportLogin.Rows[0]["SupportLoginID"]);
-                        Session["UserName"] = Convert.ToString(dtSupportLogin.Rows[0]["SupportUserName"]);
-                        Session["IsAdmin"] = Convert.ToString(dtSupportLogin.Rows[0]["IsAdmin"]);
-                        Session["IsSupportMember"] = Convert.ToString(dtSupportLogin.Rows[0]["IsSupportMember"]);
-                        Response.Redirect("acsupportmenu.aspx");
+                        Session["UserFirstName"] = Convert.ToString(dtLoginDetail.Rows[0]["UserFirstName"]);
+                        Session["UserID"] = Convert.ToString(dtLoginDetail.Rows[0]["UserID"]);
+                        Session["UserEmailID"] = Convert.ToString(dtLoginDetail.Rows[0]["UserEmailID"]);                        
+                        Response.Redirect("/home.aspx");
                     }
                     else
                     {
@@ -53,8 +51,8 @@ namespace ArtCrestApplication.acsupport
             catch (Exception ex)
             {
                 ShowErrorMsg(ex.Message, true);
-                BusinessLayer.BusinessLayer.LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "acsupportlogin", "E", "admin");
-            }            
+                BusinessLayer.BusinessLayer.LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "Login", "E", "admin");
+            }
         }
         public void ShowErrorMsg(string msg, bool isError)
         {

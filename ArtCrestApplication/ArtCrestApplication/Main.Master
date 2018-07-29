@@ -127,7 +127,7 @@
 					<a href="login.html" class="header-wrapicon1 dis-block">
 						<i class="fa fa-user" style="font-size:24px;"></i>
 					</a>
-                    <span>&nbsp;&nbsp;Hi, <a href="#">Guest</a></span>
+                    <span>&nbsp;&nbsp;Hi, <a href="#" runat="server" id="guestNameID">Guest</a></span>
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">

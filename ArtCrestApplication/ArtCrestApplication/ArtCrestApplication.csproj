@@ -2732,6 +2732,7 @@
     <Content Include="includes\config.json" />
     <Content Include="includes\contact-form.php" />
     <Content Include="index.html" />
+    <Content Include="Login.aspx" />
     <Content Include="login.html" />
     <Content Include="obj\Debug\ArtCrestApplication.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -3172,6 +3173,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>

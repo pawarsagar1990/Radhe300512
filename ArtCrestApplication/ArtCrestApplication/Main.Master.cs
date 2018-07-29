@@ -17,8 +17,14 @@ namespace ArtCrestApplication
                 if (Session["SupportLoginID"] == null)
                 {
                     Response.Redirect("/acsupport/acsupportlogin.aspx");
-                }
+                }                
             }
+
+            if(Session["UserFirstName"] != null)
+            {
+                guestNameID.InnerHtml = Session["UserFirstName"].ToString();
+            }
+
         }
     }
 }

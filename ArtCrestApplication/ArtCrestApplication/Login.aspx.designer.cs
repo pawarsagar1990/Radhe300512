@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtCrestApplication.acsupport {
+namespace ArtCrestApplication {
     
     
-    public partial class acsupportlogin {
+    public partial class Login {
         
         /// <summary>
         /// lblErrorMsg control.
@@ -22,13 +22,13 @@ namespace ArtCrestApplication.acsupport {
         protected global::System.Web.UI.WebControls.Label lblErrorMsg;
         
         /// <summary>
-        /// txtUserName control.
+        /// txtEmailID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailID;
         
         /// <summary>
         /// txtPassword control.
