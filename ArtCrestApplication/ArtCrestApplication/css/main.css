@@ -1344,13 +1344,13 @@ li.sale-noti > a {
 */
 .login-sec{
 	padding-top:50px;
-	height:450px;
+	height:500px;
 	background:white;
 }
 .reg-sec{
 	padding-top:50px;
 	padding-bottom:20px;
-	height:850px;
+	height:950px;
 	background:white;
 }
 .ver-sec{
@@ -1369,6 +1369,12 @@ li.sale-noti > a {
 	width:40%;
 	margin-left:30%;
 	margin-right:30%;
+    position: relative;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background: white;
 }
 @media (max-width: 576px) {
   .login-box {
@@ -1381,6 +1387,12 @@ li.sale-noti > a {
 	width:40%;
 	margin-left:30%;
 	margin-right:30%;
+    position: relative;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background: white;
 }
 @media (max-width: 576px) {
   .reg-box {

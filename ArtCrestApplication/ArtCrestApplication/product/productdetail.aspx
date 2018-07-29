@@ -15,12 +15,12 @@
 		</a>
 
 		<a href="#" class="s-text16">
-			Rakhi-Bandhan
+			Diwali
 			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
 		</a>
 
         <a href="#" class="s-text16">
-			Kids Special
+			Diyas
 			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
 		</a>
 
