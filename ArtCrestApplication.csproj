@@ -200,7 +200,6 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Account\Web.config" />
     <Content Include="acsupport\acsupportlogin.aspx" />
-    <Content Include="acsupport\acsupportmenu.aspx" />
     <Content Include="acsupport\ProductEdit.aspx" />
     <Content Include="acsupport\ProductEntry.aspx" />
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -274,7 +273,6 @@
     <Content Include="bin\System.Web.Providers.dll" />
     <Content Include="bin\System.Web.Providers.xml" />
     <Content Include="bin\WebGrease.dll" />
-    <Content Include="cart\cart.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -2860,8 +2858,6 @@
     <Content Include="obj\Debug\ArtCrestApplication.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ArtCrestApplication.dll" />
     <Content Include="obj\Debug\ArtCrestApplication.pdb" />
-    <Content Include="product\productdetail.aspx" />
-    <Content Include="register.aspx" />
     <Content Include="registration.html" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -3117,13 +3113,6 @@
     <Compile Include="acsupport\acsupportlogin.aspx.designer.cs">
       <DependentUpon>acsupportlogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="acsupport\acsupportmenu.aspx.cs">
-      <DependentUpon>acsupportmenu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="acsupport\acsupportmenu.aspx.designer.cs">
-      <DependentUpon>acsupportmenu.aspx</DependentUpon>
-    </Compile>
     <Compile Include="acsupport\ProductEdit.aspx.cs">
       <DependentUpon>ProductEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3149,13 +3138,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="cart\cart.aspx.cs">
-      <DependentUpon>cart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="cart\cart.aspx.designer.cs">
-      <DependentUpon>cart.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3184,21 +3166,7 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="product\productdetail.aspx.cs">
-      <DependentUpon>productdetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="product\productdetail.aspx.designer.cs">
-      <DependentUpon>productdetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="register.aspx.cs">
-      <DependentUpon>register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="register.aspx.designer.cs">
-      <DependentUpon>register.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

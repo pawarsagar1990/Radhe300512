@@ -38,7 +38,7 @@ namespace ArtCrestApplication.acsupport
                         Session["UserName"] = Convert.ToString(dtSupportLogin.Rows[0]["SupportUserName"]);
                         Session["IsAdmin"] = Convert.ToString(dtSupportLogin.Rows[0]["IsAdmin"]);
                         Session["IsSupportMember"] = Convert.ToString(dtSupportLogin.Rows[0]["IsSupportMember"]);
-                        Response.Redirect("ProductEntry.aspx");
+                        Response.Redirect("acsupportmenu.aspx");
                     }
                     else
                     {

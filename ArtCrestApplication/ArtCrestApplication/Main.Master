@@ -243,7 +243,7 @@
 
     <!-- Add actual child Page data under ContentPlace Holder page -->
 	<form id="form1" runat="server">    
-        <asp:HiddenField runat="server" ID="hdnPages" Value="productentry"/>
+        <asp:HiddenField runat="server" ID="hdnPages" Value="productentry,productedit,acsupportmenu"/>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>    
