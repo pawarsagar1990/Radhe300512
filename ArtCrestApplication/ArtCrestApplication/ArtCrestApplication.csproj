@@ -2727,6 +2727,7 @@
     <Content Include="fonts\themify\SVG\zoom-out.svg" />
     <Content Include="fonts\themify\themify-icons.css" />
     <Content Include="forgotpasswd.html" />
+    <Content Include="forgotpassword.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="home.html" />
     <Content Include="includes\config.json" />
@@ -3163,6 +3164,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forgotpassword.aspx.cs">
+      <DependentUpon>forgotpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgotpassword.aspx.designer.cs">
+      <DependentUpon>forgotpassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
