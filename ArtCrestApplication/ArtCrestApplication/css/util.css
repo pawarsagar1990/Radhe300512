@@ -3059,16 +3059,16 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .s-text7 {
-	font-family: Montserrat-Regular;
+font-family: 'Comfortaa', cursive;
 	font-size: 13px;
-	color: #555555;
+	color: black;
 	line-height: 1.8;
 }
 
 .s-text8, .s-text8 a {
-	font-family: Montserrat-Regular;
+	font-family: 'Comfortaa', cursive;
 	font-size: 13px;
-	color: #888888;
+	color: black;
 	line-height: 1.8;
 }
 
@@ -3094,12 +3094,12 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .s-text12 {
-	font-family: Montserrat-Bold;
+    font-family: 'Merriweather', serif;
+	font-weight:bold;
 	font-size: 15px;
-	color: #222222;
+	color: black;
 	line-height: 1.5;
-	text-transform: uppercase;
-}
+	text-transform: uppercase;}
 
 .s-text13 {
 	font-family: Montserrat-Regular;
@@ -3429,7 +3429,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 */
 .colorwhite {color: #fff;}
 .color0 {color: #e65540;}
-.color1 {color: #888888;}
+.color1 {color: black;}
 .color2 {color: #333333;}
 
 
