@@ -7,19 +7,22 @@
 .product-slider{
 	margin-top:50px;
 	margin-bottom:50px;
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.11), 0 2px 5px 0 rgba(0,0,0,0.08);
+	padding-top:10px;
+	padding-bottom:5px;
 }
-.product-slider-title{
-	font-family:Gabriola;
-	font-size:36px;
-	color:black;
+.product-slider-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: black;
 }
 .prod-slid-nm{
-	font-family:Calibri;
-	font-size:18px;
+	font-family: 'Cinzel', serif;
+	font-size:17px;
 	font-weight:bold;
 	color:black;
 	text-align:center;
-	padding:5px;
 	overflow:hidden;
 	white-space: nowrap; 
 	text-overflow: ellipsis;
@@ -28,7 +31,7 @@
     overflow: visible;
 }
 .prod-slid-prc{
-	font-family:Montserrat-Regular;
+	font-family: arial,sans-serif;
 	font-size:15px;
 	color:black;
 	text-align:center;
@@ -43,7 +46,7 @@
 }
 .prod-slid-btn{
 	padding:5px;
-	background:red;
+	background:#1f0a50;
 	border:none;
 }
 
@@ -52,16 +55,14 @@
 	border:none;
 }
 .card img{
-	border: 1px solid black;
-	border-bottom-left-radius:3px;
-	border-bottom-right-radius:3px;
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.11), 0 2px 5px 0 rgba(0,0,0,0.08);
 }
 .card img:hover{
 	opacity: .8; 
 	transition: .5s;
 }
 .card-body{
-	margin:0;
+	margin:20px;
 	padding:0;
 	text-align:center;
 }

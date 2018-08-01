@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <!--Master Slider Section-->
-	<section>
+	<section class="p-t-45">
 		<div id="demo" class="carousel slide" data-ride="carousel">
 
 			<!-- Indicators -->

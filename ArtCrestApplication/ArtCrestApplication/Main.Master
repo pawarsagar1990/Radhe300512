@@ -5,7 +5,7 @@
 	<title>skartif - Online store for festive, decorative, gift & other art items</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/jpg" href="/images/icons/favicon.jpeg"/>
+	<link rel="icon" type="image/jpg" href="/images/icons/headicon.png"/>
 	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/fonts/themify/themify-icons.css"/>
@@ -25,6 +25,15 @@
 	<link rel="stylesheet" type="text/css" href="/vendor/owl/owl.theme.default.css"/>
 	<link rel="stylesheet" type="text/css" href="/vendor/owl/owl.theme.default.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/product-slider.css"/>
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
+    <link href="https://fonts.googleapis.com/css?family=Philosopher:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:700" rel="stylesheet">
 <!--===============================================================================================-->
 	<script type="text/javascript" src="/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -59,7 +68,7 @@
 
 				<div class="topbar-child2">
 					<span class="topbar-email" style="color:black;">
-						info@artcrest.in
+						info@skartif.com
 					</span>
 				</div>
 			</div>
@@ -67,8 +76,7 @@
 			<div class="wrap_header">
 				<!-- Logo -->
 				<a href="index.html" class="logo">
-					<img src="/images/icons/logo2.jpeg" alt="IMG-LOGO">
-                    <img src="/images/icons/logo3.jpg" alt="IMG-LOGO">
+					<img src="/images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
 				<!-- Menu -->
@@ -249,8 +257,8 @@
         </asp:ContentPlaceHolder>    
     </form>
 	<!-- Footer -->
-	<footer class="bg-ft p-t-45 p-b-43 p-l-45 p-r-45">
-		<div class="flex-w p-b-90">
+	<footer class="bg-ft p-t-20 p-b-20 p-l-45 p-r-45">
+		<div class="flex-w p-b-10">
 			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
 				<h4 class="s-text12 p-b-30">
 					REACH US
@@ -375,13 +383,13 @@
 
 				<form>
 					<div class="effect1 w-size9">
-						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+						<input class="s-text7 bg6 w-full p-b-5 form-in" type="text" name="email" placeholder="email@example.com">
 						<span class="effect1-line"></span>
 					</div>
 
 					<div class="w-size2 p-t-20">
 						<!-- Button -->
-						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+						<button class="btn btn-primary prod-slid-btn subscribe-button">
 							Subscribe
 						</button>
 					</div>
@@ -414,8 +422,8 @@
 				<img class="h-size2" src="/images/icons/cod.jpg" alt="IMG-COD">
 			</a>
 			
-			<div class="t-center s-text8 p-t-20">
-				Copyright © 2018 All rights reserved with artCrest India Pvt. Ltd.
+			<div class="t-center s-text8 p-t-10">
+				Copyright © 2018 All rights reserved with Skartif Private Limited.
 			</div>
 		</div>
 	</footer>
