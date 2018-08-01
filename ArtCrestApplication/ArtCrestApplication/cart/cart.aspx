@@ -68,15 +68,20 @@
 				</div>
 			</div>
 			<div class="cart-checkout-sec">
-				<div class="cart-subtotal">
-					Sub Total: &#8377;330
-				</div>
-				<div class="cart-ord-shipping">
-					Shipping Charges: &#8377;30
-				</div>
-				<div class="cart-total">
-					Total amount to be paid: &#8377;360
-				</div>
+				<div class="cart-checkout-title">
+                    Payment Details
+                </div>
+                <div>
+                    <div class="cart-subtotal">
+					    Sub Total: &#8377;330
+				    </div>
+				    <div class="cart-ord-shipping">
+					    Shipping Charges: &#8377;30
+				    </div>
+				    <div class="cart-total">
+					    Total amount to be paid: &#8377;360
+				    </div>
+                </div>
 				<div class="cart-checkout-btn">
 					<button class="btn btn-primary prod-slid-btn">Proceed to Checkout</button>
 					<button class="btn btn-primary prod-slid-btn">Continue Shopping</button>
