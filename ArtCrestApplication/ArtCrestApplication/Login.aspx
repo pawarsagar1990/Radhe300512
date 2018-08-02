@@ -17,7 +17,7 @@
 		
 		<div class="container">
 			<div class="login-box" style="text-align:center;">
-				<span class="psw">Forgot <a href="/forgot.aspx" style="color:dodgerblue">password?</a></span>
+				<span class="psw">Forgot <a href="/forgotpassword.aspx" style="color:dodgerblue">password?</a></span>
 			
 			<div class="reg-link" style="text-align:center;">
 				<span class="psw">New to artCrest?<span>
