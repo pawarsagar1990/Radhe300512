@@ -823,6 +823,18 @@ li.sale-noti > a {
   margin-right: 23px;
   margin-top: 5px;
 }
+.user-sub-menu {
+    background-color: aliceblue;
+}
+.user-sub-menu a {
+    color:black;
+}
+.user-sub-menu i {
+    color:#1f0a50;
+}
+.fa-user-menu {
+    color: #1f0a50;
+}
 
 /*[ Header cart ]
 -----------------------------------------------------------

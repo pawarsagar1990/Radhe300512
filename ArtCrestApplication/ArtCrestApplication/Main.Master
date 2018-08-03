@@ -75,7 +75,7 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
+				<a href="/Home.aspx" class="logo">
 					<img src="/images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
@@ -132,14 +132,24 @@
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="login.html" class="header-wrapicon1 dis-block">
-						<i class="fa fa-user" style="font-size:24px;"></i>
-					</a>
+					<ul class="main_menu">
+						<li>
+							<a href="login.html" class="header-wrapicon1 dis-block">
+						        <i class="fa fa-user" style="font-size:24px;"></i>
+					        </a>
+							<ul class="sub_menu user-sub-menu">
+								<li><a href="/Login.aspx"><i class="fa fa-sign-in fa-user-menu" aria-hidden="true"></i>&nbsp;&nbsp;Login or Register</a></li>
+								<li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;My Account</a></li>
+                                <li><a href="#"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;My Orders</a></li>
+                                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</a></li>
+							</ul>
+					    </li>
+                    </ul>
                     <span>&nbsp;&nbsp;Hi, <a href="#" runat="server" id="guestNameID">Guest</a></span>
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<a href="#">
+						<a href="/cart/cart/aspx">
 							<i class="fa fa-shopping-cart" style="font-size:24px;"></i>
 						</a>
 						<span class="header-icons-noti">0</span>

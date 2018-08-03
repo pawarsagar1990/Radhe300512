@@ -63,7 +63,7 @@ namespace ArtCrestApplication
                         int insertResult = DataAccessLayer.DataAccessLayer.ExecuteNonQuery(insertQuery, parametersLink);
                         if (insertResult > 0)
                         {
-                            objBusinessL.SendMail(txtEmailID.Text, "Skartif - Password Reset Link", "Please click on this link to reset your password. Link - www.skartif.com/forgotpassword.aspx?uid=" + userGuid);
+                            objBusinessL.SendMail(txtEmailID.Text, "Skartif - Password Reset Link", "Please click on this link to reset your password. Link - https://www.skartif.com/forgotpassword.aspx?uid=" + userGuid);
                             ShowErrorMsg("Please check your email, we have sent a link on your EmailID-" + txtEmailID.Text, false);
                         }
                         else

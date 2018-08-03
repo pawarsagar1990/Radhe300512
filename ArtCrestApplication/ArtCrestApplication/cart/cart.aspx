@@ -82,7 +82,7 @@
                         <div class="cart-check-prc-right">&#8377;30</div>
 				    </div>
 				    <div class="cart-total">
-					    <div class="cart-check-prc-left">Total amount to be paid:</div> 
+					    <div class="cart-check-prc-left">Amount Payable:</div> 
                         <div class="cart-check-prc-right">&#8377;360</div>
 				    </div>
                 </div>
