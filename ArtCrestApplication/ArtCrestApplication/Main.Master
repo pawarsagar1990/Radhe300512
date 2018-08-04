@@ -27,7 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/product-slider.css"/>
     <link rel="stylesheet" type="text/css" href="css/cart.css">
     <link href="https://fonts.googleapis.com/css?family=Philosopher:700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
@@ -149,7 +149,7 @@
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<a href="/cart/cart/aspx">
+						<a href="/cart/cart.aspx">
 							<i class="fa fa-shopping-cart" style="font-size:24px;"></i>
 						</a>
 						<span class="header-icons-noti">0</span>
