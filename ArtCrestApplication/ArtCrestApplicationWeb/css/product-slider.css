@@ -1,0 +1,117 @@
+/*// Custom Style Sheet for Product Slider Owl Carousel//*
+////////////////Created by: Swapnil Chavan////////////////
+/////////////////////////////////////////////////////////*
+/*[Product Slider]
+-----------------------------------------------------------
+*/
+.product-slider{
+	margin-top:50px;
+	margin-bottom:50px;
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.11), 0 2px 5px 0 rgba(0,0,0,0.08);
+	padding-top:10px;
+	padding-bottom:5px;
+}
+.product-slider-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: black;
+}
+.prod-slid-nm{
+	font-family: 'Cinzel', serif;
+	font-size:17px;
+	font-weight:bold;
+	color:black;
+	text-align:center;
+	overflow:hidden;
+	white-space: nowrap; 
+	text-overflow: ellipsis;
+}
+.prod-slid-nm:hover {
+    overflow: visible;
+}
+.prod-slid-prc{
+	font-family: arial,sans-serif;
+	font-size:15px;
+	color:black;
+	text-align:center;
+	padding:5px;
+}
+.prod_sale_prc {
+    text-decoration:line-through;
+    color:red;
+}
+.prod_disc_prc,.prod_disc_percent{
+    color:green;
+}
+.prod-slid-btn{
+	padding:5px;
+	background:#1f0a50;
+	border:none;
+}
+
+.card{
+	position:relative;
+	border:none;
+}
+.card img{
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.11), 0 2px 5px 0 rgba(0,0,0,0.08);
+}
+.card img:hover{
+	opacity: .8; 
+	transition: .5s;
+}
+.card-body{
+	margin:20px;
+	padding:0;
+	text-align:center;
+}
+.card:hover:after{
+	opacity: .9;
+}
+.item{
+	border:none;
+}
+
+
+.owl-carousel {
+	position: relative;
+}
+.owl-prev,
+.owl-next {
+	position: absolute;
+	top: 30%;
+}
+.owl-prev {
+	left: 0;
+}
+.owl-next {
+	right: 0;
+}
+
+
+/*////////////////////////////////
+// Product Rating Start Styling //
+///////////////////////////////*//
+
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+ 
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 32px;
+  color: #444;
+  transition: all .2s;
+}
+.star-filled:before {
+  content: '\f005';
+  font-family: FontAwesome;
+}
+label.star-empty:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
