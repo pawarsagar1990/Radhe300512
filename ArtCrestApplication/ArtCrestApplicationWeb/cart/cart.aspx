@@ -88,10 +88,12 @@
                 </div>
 				<div class="cart-checkout-btn">
 					<div class="check-proc-btn">
-                        <a href="~/checkout/checkout.aspx"><button class="btn btn-primary prod-slid-btn check-btn">Proceed to Checkout</button></a>
+                        <a href="/checkout/checkout.aspx" class="btn btn-primary prod-slid-btn check-btn" role="button">
+                            Proceed to Checkout
+                        </a>
                     </div>
                     <div class="check-proc-btn">
-					    <button class="btn btn-primary prod-slid-btn check-btn">Continue Shopping</button>
+					    <a href="home.aspx" class="btn btn-primary prod-slid-btn check-btn" role="button">Continue Shopping</a>
                     </div>
 				</div>
 			</div>

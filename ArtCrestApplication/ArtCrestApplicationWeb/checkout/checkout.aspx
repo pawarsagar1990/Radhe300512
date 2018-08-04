@@ -13,9 +13,9 @@
 					<div class="checkout-address-button">
 						<input type="radio" name="optradio" checked>&nbsp;&nbsp;Swapnil Chavan
 					</div>
-					<div class="checkout-address-edit">
+					<!--<div class="checkout-address-edit">
 						UPDATE
-					</div>
+					</div>-->
 					<div class="checkout-address-list">
 						<div class="to-address">A-908, Vihana Scoiety, Keshav Nagar, Mundhwa, Pune, Maharashtra-411036</div>
 						<div class="to-mobile-no">Mob. No. +91-9075005291</div>
@@ -25,9 +25,9 @@
 					<div class="checkout-address-button">
 						<input type="radio" name="optradio" checked>&nbsp;&nbsp;Sagar Pawar
 					</div>
-					<div class="checkout-address-edit">
+					<!--<div class="checkout-address-edit">
 						UPDATE
-					</div>
+					</div>-->
 					<div class="checkout-address-list">
 						<div class="to-address">A-202, Eisha Footprint, Tathawade, Pune, Maharashtra-411046</div>
 						<div class="to-mobile-no">Mob. No. +91-8675825248</div>
@@ -50,7 +50,7 @@
                     </div>
                     
                     <div class="form-new-add-1">
-                        <input class="form-new-add-str" placeholder="Detailed Address(Flat/House No, Building/Society, Street Name)   " type="text" required>
+                        <input class="form-new-add-str" placeholder="Detailed Address(Flat/House No, Building/Society, Street Name)" type="text" required>
                     </div>
                     <div class="form-new-add-1">
                         <input class="form-new-add-nm" placeholder="PIN Code" type="text" required>
@@ -85,7 +85,7 @@
 
 			</div>
 			
-            <div class="cart-checkout-sec">
+            <div class="checkout-pymt-sec">
 				<div class="cart-checkout-title">
                     Payment Details
                 </div>
