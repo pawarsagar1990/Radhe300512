@@ -11,7 +11,7 @@
 				</div>
 				<div class="radio check-address">
 					<div class="checkout-address-button">
-						<input type="radio" name="optradio" checked>&nbsp;&nbsp;Swapnil Chavan
+						<input type="radio" name="optradio">&nbsp;&nbsp;Swapnil Chavan
 					</div>
 					<!--<div class="checkout-address-edit">
 						UPDATE
@@ -23,7 +23,7 @@
 				</div>
 				<div class="radio check-address">
 					<div class="checkout-address-button">
-						<input type="radio" name="optradio" checked>&nbsp;&nbsp;Sagar Pawar
+						<input type="radio" name="optradio">&nbsp;&nbsp;Sagar Pawar
 					</div>
 					<!--<div class="checkout-address-edit">
 						UPDATE
@@ -76,10 +76,10 @@
                     Payment Options
                 </div>    
                 <div class="checkout-pymt-button">
-                    <input type="radio" name="optradio" onclick="showConfirmOrdButton()">&nbsp;&nbsp;Cash on Delivery
+                    <input type="radio" name="optpaymtmethod" onclick="showConfirmOrdButton()">&nbsp;&nbsp;Cash on Delivery
                 </div>
                 <div class="checkout-pymt-button">
-					<input type="radio" name="optradio" onclick="showProceedPymtButton()">&nbsp;&nbsp;Paytm
+					<input type="radio" name="optpaymtmethod" onclick="showProceedPymtButton()">&nbsp;&nbsp;Paytm
 				</div>
                 </div>
 
@@ -105,12 +105,16 @@
                 </div>
                 <div class="check-ord-confirm-btn" style="display:none;" id="confirm-ord">
 			        <div class="check-proc-btn">
-                        <button class="btn btn-primary prod-slid-btn check-btn">Confirm Order</button>
+                        <a href="/order/orderconfirmation.aspx" class="btn btn-primary prod-slid-btn check-btn" role="button">
+                            Confirm Order
+                        </a>
                     </div>
                 </div>
                 <div class="check-ord-confirm-btn" style="display:none;" id="proceed-to-pay">
                     <div class="check-proc-btn">
-                        <button class="btn btn-primary prod-slid-btn check-btn">Proceed to Pay</button>
+                        <a href="#" class="btn btn-primary prod-slid-btn check-btn" role="button">
+                            Proceed to Pay
+                        </a>
                     </div>
                 </div>
 			</div>
