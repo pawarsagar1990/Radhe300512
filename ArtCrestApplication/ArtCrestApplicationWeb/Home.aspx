@@ -497,10 +497,13 @@
                                                    "<div class='card-body'>" +
                                                    "<h3 class='prod-slid-nm'>" + ProductList.pPName + "</h3>" +
                                                    "<h5 class='prod-slid-prc'>" +
-                                                   "<span class='prod_disc_prc'>&#8377;&nbsp;" + ProductList.pPDiscountPrice + "&nbsp;&nbsp;</span>" +
-                                                   "<span class='prod_sale_prc'>&#8377;&nbsp;" + ProductList.pPSellPrice + "</span>" +
-                                                   "<span class='prod_disc_percent'>&nbsp;&nbsp;" + ProductList.pPDiscountPercent + "% off</span></h5>" +
-                                                   "<button class='btn btn-primary prod-slid-btn' type='button' onclick='" + clickFunction + "'>Add to Cart</button>" +
+                                                   "<span class='prod_disc_prc'>&#8377;&nbsp;" + ProductList.pPDiscountPrice + "&nbsp;&nbsp;</span>";
+                                        if (ProductList.pPDiscountPercent > 0)
+                                        {
+                                            eachProductItemDiv = eachProductItemDiv + "<span class='prod_sale_prc'>&#8377;&nbsp;" + ProductList.pPSellPrice + "</span>" +
+                                                   "<span class='prod_disc_percent'>&nbsp;&nbsp;" + ProductList.pPDiscountPercent + "% off</span></h5>";
+                                        }                                            
+                                        eachProductItemDiv = eachProductItemDiv + "<button class='btn btn-primary prod-slid-btn' type='button' onclick='" + clickFunction + "'>Add to Cart</button>" +
                                                    "</div></div></div>";
                                     }//subcat if loop ends     
                                 });
@@ -510,7 +513,7 @@
 
                             $('.owl-carousel').owlCarousel({
                                 margin: 20,
-                                loop: true,
+                                loop: false,
                                 nav: true,
                                 navText: ['<i class="fa fa-angle-left" style="font-size:48px;"></i>', '<i class="fa fa-angle-right" style="font-size:48px;"></i>'],
                                 responsive: {

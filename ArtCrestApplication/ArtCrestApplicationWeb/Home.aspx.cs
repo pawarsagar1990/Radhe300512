@@ -23,7 +23,7 @@ namespace ArtCrestApplication
         {
             Dictionary<string, string> fetchProductParameters = new Dictionary<string, string>();
             fetchProductParameters.Add("isActive", true.ToString());
-            string fetchProductQuery = "select * from product inner join productimage pimg on Product.ProductID = pimg.fkProductID where IsActive = @isActive;";
+            string fetchProductQuery = "select * from product left join productimage pimg on Product.ProductID = pimg.fkProductID where IsActive = @isActive and productQuantity > 0;";
             DataTable dtProducts = DataAccessLayer.DataAccessLayer.getDataFromQueryWithParameters(fetchProductQuery, fetchProductParameters);
             return dtProducts;
         }
@@ -61,7 +61,7 @@ namespace ArtCrestApplication
                                         pPSellPrice = dt["ProductSellPrice"],
                                         pPDiscountPrice = dt["ProductDiscountPrce"],
                                         pPQuantity = dt["ProductQuantity"],
-                                        pImageLink = dt["ImageLink1"],
+                                        pImageLink = dt["ImageLink1"] != DBNull.Value ? dt["ImageLink1"] : "item-01.jpg",
                                         pProdSubCategoryID = dt["fkProductSubCategoryID"]
                                     }).ToList();
 

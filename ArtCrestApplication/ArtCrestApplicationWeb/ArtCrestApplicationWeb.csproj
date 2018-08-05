@@ -232,6 +232,7 @@
     <Content Include="includes\config.json" />
     <Content Include="includes\contact-form.php" />
     <Content Include="productimages\Chhota Bhim Rakhi 1_4_0" />
+    <Content Include="productimages\item-01.jpg" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
