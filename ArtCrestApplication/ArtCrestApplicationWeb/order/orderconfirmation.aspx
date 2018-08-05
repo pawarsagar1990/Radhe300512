@@ -1,106 +1,94 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="ArtCrestApplication.cart.cart" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="orderconfirmation.aspx.cs" Inherits="ArtCrestApplicationWeb.order.orderconfirmation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>My Cart - skartif</title>
+    <link rel="stylesheet" type="text/css" href="/css/order.css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="cart-sec">
-		<div class="container">
-			<div class="cart-container">
-				<div class="cart-title">
-					<span>My Cart (2 Items)</span>
-				</div>
-				<div class="cart-list-sec">
-					<div class="cart-prod-dtl">
-						<div class="cart-prod-dtl-img">
-							<a href="#"><img src="/images/cart-img-1.jpg" class="cart-img-product"></a>
-						</div>
-						<div class="cart-prod-dtl-nm">
-							<a href="#"><span>SR136 Chota Bhim Rakhi for Chidren</span></a>
-						</div>
-						<div class="cart-prod-qty">
-							<div class="flex-w bo5 of-hidden w-size17">
-								<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-								</button>
+    
+    <!--Order Confirmation Section-->
+    <section class="order-confirm-sec">
+        
+        <!--Order Confirmation Message-->
+        <div class="container ord-confirm-msg-block">
+            <div class="ord-confirm-msg-head">
+                <h2>Congratulations! Your order has been placed successfully.</h2>
+            </div>
+            <div class="ord-confirm-msg-ship">
+                <span>Expected Delivery Date: Wed, Aug 8 2018</span>
+            </div>
+            <div class="ord-confirm-msg-track">
+                <a href="orderhistory.aspx" class="btn btn-primary prod-slid-btn track-btn" role="button">
+                    Track your Orders
+                </a>
+            </div>
+        </div>
+        
+        <!--Order Delivery Address Display-->
+        <div class="container del-add-block">
+            <div class="del-add-title">
+                <span>Delivery Address</span>
+            </div>
+            <div class="del-add-nm">
+                <span>Swapnil Chavan</span>
+            </div>
+            <div class="del-add-address">
+                <span>A-908, Vihana Society, Keshav Nagar, Mundhwa, Pune, Maharashtra, - 411036</span>
+            </div>
+            <div class="del-add-contact">
+                <span>Contact No. +91-9075005291</span>
+            </div>
+        </div>
 
-								<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="1">
-
-								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-						<div class="cart-prod-price">
-						&#8377;120
-						</div>
-					</div>	
-					<div class="cart-prod-remove">
-						<button class="btn btn-primary prod-slid-btn">Remove from cart</button>
-					</div>
-				</div>
-				<div class="cart-list-sec">
-					<div class="cart-prod-dtl">
-						<div class="cart-prod-dtl-img">
-							<a href="#"><img src="/images/cart-img-1.jpg" class="cart-img-product"></a>
-						</div>
-						<div class="cart-prod-dtl-nm">
-							<a href="#"><span>A Set of 10 Diays red coloured specially decorated</span></a>
-						</div>
-						<div class="cart-prod-qty">
-							<div class="flex-w bo5 of-hidden w-size17">
-								<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-								</button>
-
-								<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="1">
-
-								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-						<div class="cart-prod-price">
-						&#8377;210
-						</div>
-					</div>	
-					<div class="cart-prod-remove">
-						<button class="btn btn-primary prod-slid-btn">Remove from cart</button>
-					</div>	
-				</div>
-			</div>
-			<div class="cart-checkout-sec">
-				<div class="cart-checkout-title">
-                    Payment Details
+        <!--Order Product List Display-->
+        <div class="container order-prod-list-block">
+            <div class="order-prod-list-title">
+                Products Ordered
+            </div>
+            <div class="order-prod-list">
+                <div class="order-prod-img">
+                    <a href="#"><img src="/images/cart-img-1.jpg" class="cart-img-product"></a>
                 </div>
-                <div class="cart-payment-dtl">
-                    <div class="cart-subtotal">
-					    <div class="cart-check-prc-left">Sub Total:</div> 
-                        <div class="cart-check-prc-right">&#8377;330</div>
-				    </div>
-				    <div class="cart-ord-shipping">
-					    <div class="cart-check-prc-left">Shipping Charges:</div> 
-                        <div class="cart-check-prc-right">&#8377;30</div>
-				    </div>
-				    <div class="cart-total">
-					    <div class="cart-check-prc-left">Amount Payable:</div> 
-                        <div class="cart-check-prc-right">&#8377;360</div>
-				    </div>
+                <div class="order-prod-nm">
+                    <a href="#"><span>SR136 Chota Bhim Rakhi for Chidren</span></a>
                 </div>
-				<div class="cart-checkout-btn">
-					<div class="check-proc-btn">
-                        <a href="/checkout/checkout.aspx" class="btn btn-primary prod-slid-btn check-btn" role="button">
-                            Proceed to Checkout
-                        </a>
-                    </div>
-                    <div class="check-proc-btn">
-					    <a href="home.aspx" class="btn btn-primary prod-slid-btn check-btn" role="button">Continue Shopping</a>
-                    </div>
-				</div>
-			</div>
-		</div>
-	</section>
-    <!-- Relate Product -->
-	<section class="product-slider">
+                <div class="order-prod-qty">
+                    <span>Qty: 2</span>
+                </div>
+                <div class="order-prod-prc">
+                    <span>Price:&nbsp;&#8377;210</span>
+                </div>
+            </div>
+            <hr />
+            <div class="order-prod-list">
+                <div class="order-prod-img">
+                    <a href="#"><img src="/images/cart-img-1.jpg" class="cart-img-product"></a>
+                </div>
+                <div class="order-prod-nm">
+                    <a href="#"><span>Set of 12 Diyas red coloured</span></a>
+                </div>
+                <div class="order-prod-qty">
+                    <span>Qty: 1</span>
+                </div>
+                <div class="order-prod-prc">
+                    <span>Price:&nbsp;&#8377;240</span>
+                </div>
+            </div>
+            <hr />
+            <div class="order-prod-list">
+                <div class="order-prod-tot-prc-left">
+                    <a href="/order/orderconfirmation.aspx" class="btn btn-primary prod-slid-btn" role="button">
+                        Shop More
+                    </a>
+                </div>
+                <div class="order-prod-tot-prc-right">
+                    <span>Total&nbsp;Cost:&nbsp;&#8377;450</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--Other product slider-->
+    <section class="product-slider">
 		<div class="container mt-4">
 			<div class="row">
 				<div class="col-md-12 text-center">
@@ -227,6 +215,7 @@
 			</div>
 		</div>
 	</section>
+
     <script type="text/javascript">
 	$('.owl-carousel').owlCarousel({
     margin:20,
