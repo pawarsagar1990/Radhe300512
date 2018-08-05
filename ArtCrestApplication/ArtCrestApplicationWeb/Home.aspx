@@ -42,8 +42,9 @@
         </div>
     </section>
 
-    <!--Product Slider 1-->
-    <section class="product-slider">
+    <div id="ProductSlider">
+        <!--Product Slider 1-->
+        <%--<section class="product-slider">
         <div class="container mt-4">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -51,11 +52,9 @@
                 </div>
             </div>
         </div>
-
         <div class="container mt-3">
             <div class="row">
                 <div class="owl-carousel owl-theme">
-
                     <div class="item">
                         <div class="card">
                             <img src="images/item-01.jpg" alt="img" class="card-img-top">
@@ -68,112 +67,12 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 2</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">40</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 3</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">120</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 4</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">60</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 5</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">84</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 6</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">40</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 7</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">74</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 8</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">49</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 9</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">149</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="card">
-                            <img src="images/item-01.jpg" alt="img" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="prod-slid-nm">Rakhi 10</h3>
-                                <h5 class="prod-slid-prc">&#8377;&nbsp;<span class="text-center">40</span></h5>
-                                <button class="btn btn-primary prod-slid-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </section>
-
-    <!--Product Slider 2-->
+    </section>--%>
+    </div>
+    <%--    <!--Product Slider 2-->
     <section class="product-slider">
         <div class="container mt-4">
             <div class="row">
@@ -558,45 +457,115 @@
                 </div>
             </div>
         </div>
-    </section>
-    <script type="text/javascript">
-        $('.owl-carousel').owlCarousel({
-            margin: 20,
-            loop: true,
-            nav: true,
-            navText: ['<i class="fa fa-angle-left" style="font-size:48px;"></i>', '<i class="fa fa-angle-right" style="font-size:48px;"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                100: {
-                    items: 2
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5
-                }
-            }
-        });
+    </section>--%>
 
-        $(document).ready(function () {            
+    <script type="text/javascript">
+        $(document).ready(function () {
             $.ajax({
                 type: "POST",
-                url: "../../CreateQuote.aspx/getMainProductList",
+                url: "../../Home.aspx/getProductList",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-                    alert(response);
+                    if (response != "" && response.d.Data != 'undefined') {
+                        var parsedData = JSON.parse(response.d.Data);
+                        var ProductSubCatList = JSON.parse(parsedData.ProductSubCatList);
+                        var ProductList = JSON.parse(parsedData.ProductList);
+                        var divHtml = "";
+                        if (ProductSubCatList != null && ProductSubCatList != undefined) {
+                            $.each(ProductSubCatList, function (key, ProductSubCatList) {
+                                divHtml = "<section class='product-slider'><div class='container mt-4'>" +
+                                       "<div class='row'>" +
+                                       "<div class='col-md-12 text-center'><span class='product-slider-title'>" + ProductSubCatList.pSName + "</span></div>" +
+                                       "</div></div>" +
+                                       "<div class='container mt-3'>" +
+                                       "<div class='row'>" +
+                                       "<div class='owl-carousel owl-theme'>";
+                                var eachProductItemDiv = "";
+                                $.each(ProductList, function (key, ProductList) {
+                                    if (ProductList.pProdSubCategoryID == ProductSubCatList.pSID) {
+                                        var clickFunction = "";
+                                        if (parseInt($("#hdnUserID").val()) > 0) {
+                                            clickFunction = "AddToCart(" + ProductList.pPID + ");"
+                                        }
+                                        else {
+                                            clickFunction = "RedirectToLogin();";
+                                        }
+                                        eachProductItemDiv = eachProductItemDiv + "<div class='item'>" +
+                                                   "<div class='card'>" +
+                                                   "<img src='productimages/" + ProductList.pImageLink + "' alt='img' class='card-img-top'>" +
+                                                   "<div class='card-body'>" +
+                                                   "<h3 class='prod-slid-nm'>" + ProductList.pPName + "</h3>" +
+                                                   "<h5 class='prod-slid-prc'>" +
+                                                   "<span class='prod_disc_prc'>&#8377;&nbsp;" + ProductList.pPDiscountPrice + "&nbsp;&nbsp;</span>" +
+                                                   "<span class='prod_sale_prc'>&#8377;&nbsp;" + ProductList.pPSellPrice + "</span>" +
+                                                   "<span class='prod_disc_percent'>&nbsp;&nbsp;" + ProductList.pPDiscountPercent + "% off</span></h5>" +
+                                                   "<button class='btn btn-primary prod-slid-btn' type='button' onclick='" + clickFunction + "'>Add to Cart</button>" +
+                                                   "</div></div></div>";
+                                    }//subcat if loop ends     
+                                });
+                                divHtml = divHtml + eachProductItemDiv + "</div></div></div></section>";
+                                $("#ProductSlider").append(divHtml);
+                            });
 
+                            $('.owl-carousel').owlCarousel({
+                                margin: 20,
+                                loop: true,
+                                nav: true,
+                                navText: ['<i class="fa fa-angle-left" style="font-size:48px;"></i>', '<i class="fa fa-angle-right" style="font-size:48px;"></i>'],
+                                responsive: {
+                                    0: {
+                                        items: 1
+                                    },
+                                    100: {
+                                        items: 2
+                                    },
+                                    600: {
+                                        items: 3
+                                    },
+                                    1000: {
+                                        items: 5
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    //var divHtml = "<section class='product-slider'><div class='container mt-4'>" +
+                    //                "<div class='row'>" +
+                    //                "<div class='col-md-12 text-center'><span class='product-slider-title'>Exclusive Rakhi Collection</span></div>" +
+                    //                "</div></div>" +
+                    //                "<div class='container mt-3'>" +
+                    //                "<div class='row'>" +
+                    //                "<div class='owl-carousel owl-theme'>" +
+                    //                ///each product
+                    //                "<div class='item'>" +
+                    //                "<div class='card'>" +
+                    //                "<img src='images/item-01.jpg' alt='img' class='card-img-top'>" +
+                    //                "<div class='card-body'>" +
+                    //                "<h3 class='prod-slid-nm'>Rakhi 1</h3>" +
+                    //                "<h5 class='prod-slid-prc'>" +
+                    //                "<span class='prod_disc_prc'>&#8377;&nbsp;135&nbsp;&nbsp;</span>" +
+                    //                "<span class='prod_sale_prc'>&#8377;&nbsp;149</span>" +
+                    //                "<span class='prod_disc_percent'>&nbsp;&nbsp;10% off</span></h5>" +
+                    //                "<button class='btn btn-primary prod-slid-btn'>Add to Cart</button>" +
+                    //                "</div></div></div>" +
+                    //                ///product div ends.
+                    //                "</div></div></div>" +
+                    //                "</section>";
                 },
                 failure: function (response) {
                     alert(response.d);
                 }
-            }); //Product ends
-
+            }); //Product ends            
         });
 
+        function AddToCart(productID) {
+            alert('looks like you are adding to cart product ->' + productID);
+        }
+
+        function RedirectToLogin() {
+            window.location.href = "login.aspx";
+        }
     </script>
+    <asp:HiddenField runat="server" ID="hdnUserID" ClientIDMode="Static" />
 </asp:Content>
