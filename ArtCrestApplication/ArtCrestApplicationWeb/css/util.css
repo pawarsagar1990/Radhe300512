@@ -3059,16 +3059,16 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .s-text7 {
-font-family: 'Comfortaa', cursive;
+font-family: 'Lato', sans-serif;
 	font-size: 13px;
-	color: black;
+	color: white;
 	line-height: 1.8;
 }
 
 .s-text8, .s-text8 a {
-	font-family: 'Comfortaa', cursive;
-	font-size: 13px;
-	color: black;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	color: white;
 	line-height: 1.8;
 }
 
@@ -3097,7 +3097,7 @@ font-family: 'Comfortaa', cursive;
     font-family: 'Merriweather', serif;
 	font-weight:bold;
 	font-size: 15px;
-	color: black;
+	color: white;
 	line-height: 1.5;
 	text-transform: uppercase;}
 
@@ -3429,7 +3429,7 @@ font-family: 'Comfortaa', cursive;
 */
 .colorwhite {color: #fff;}
 .color0 {color: #e65540;}
-.color1 {color: black;}
+.color1 {color: white;}
 .color2 {color: #333333;}
 
 

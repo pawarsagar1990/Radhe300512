@@ -124,6 +124,7 @@
   <ItemGroup>
     <Content Include="css\order.css" />
     <Content Include="order\orderconfirmation.aspx" />
+    <Content Include="order\orderhistory.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -2920,6 +2921,13 @@
     </Compile>
     <Compile Include="order\orderconfirmation.aspx.designer.cs">
       <DependentUpon>orderconfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="order\orderhistory.aspx.cs">
+      <DependentUpon>orderhistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order\orderhistory.aspx.designer.cs">
+      <DependentUpon>orderhistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="product\productdetail.aspx.cs">
       <DependentUpon>productdetail.aspx</DependentUpon>

@@ -68,7 +68,7 @@
 
 				<div class="topbar-child2">
 					<span class="topbar-email" style="color:black;">
-						info@skartif.com
+						info@skartif.com&nbsp;/&nbsp;+91-8839485414
 					</span>
 				</div>
 			</div>
@@ -162,21 +162,31 @@
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
 			<a href="index.html" class="logo-mobile">
-				<img src="/images/icons/logo.jpg" alt="IMG-LOGO">
+				<img src="/images/icons/logo.png" alt="IMG-LOGO">
 			</a>
 
 			<!-- Button show menu -->
 			<div class="btn-show-menu">
 				<!-- Header Icon mobile -->
 				<div class="header-icons-mobile">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<i class="fa fa-user" style="font-size:24px;"></i>
-					</a>
+                    <ul class="main_menu">
+						<li>
+							<span class="header-wrapicon1 dis-block">
+						        <i class="fa fa-user" style="font-size:24px;"></i>
+					        </span>
+							<ul class="sub_menu user-sub-menu">
+								<li><a href="/Login.aspx"><i class="fa fa-sign-in fa-user-menu" aria-hidden="true"></i>&nbsp;&nbsp;Login or Register</a></li>
+								<li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;My Account</a></li>
+                                <li><a href="#"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;My Orders</a></li>
+                                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</a></li>
+							</ul>
+					    </li>
+                    </ul>
 
 					<span class="linedivide2"></span>
 
 					<div class="header-wrapicon2">						
-						<i class="fa fa-shopping-cart" style="font-size:24px;"></i>
+						<a href="/cart/cart.aspx"><i class="fa fa-shopping-cart" style="font-size:24px;"></i></a>
 						<span class="header-icons-noti">0</span>
 					</div>
 				</div>
@@ -201,6 +211,14 @@
 									<i class="fa fa-search" style="color:black;font-size:20px;"></i>
 								</button>
 							</a>
+						</div>
+					</li>
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<div class="topbar-child2-mobile">
+							<span class="topbar-email" style="color:black;text-align:center;">
+								Contact: info@skartif.com / +91-8839485414
+							</span>
 						</div>
 					</li>
 
@@ -433,7 +451,7 @@
 			</a>
 			
 			<div class="t-center s-text8 p-t-10">
-				Copyright © 2018 All rights reserved with Skartif Private Limited.
+				Copyright © 2018 All rights reserved with SKARTIF PRIVATE LIMITED.
 			</div>
 		</div>
 	</footer>

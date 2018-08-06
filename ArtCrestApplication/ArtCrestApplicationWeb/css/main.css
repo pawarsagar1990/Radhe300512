@@ -97,7 +97,7 @@ body, html {
 
 /* ------------------------------------ */
 a {
-	font-family: 'Poppins';
+	font-family: 'Lato', sans-serif;
     font-weight: 400;
 	font-size: 15px;
 	line-height: 1.7;
@@ -628,7 +628,7 @@ iframe {
   flex-wrap: wrap;
   width: 100%;
   height: 70px;
-  background-color: aliceblue;
+  background-color: white;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -1003,7 +1003,7 @@ li.sale-noti > a {
   padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: linear-gradient(to right, rgb(151, 150, 240), rgb(251, 199, 212));
+  background: #b7dbfb;
   display: none;
 }
 
@@ -1014,7 +1014,7 @@ li.sale-noti > a {
 }
 
 .logo-mobile img {
-  max-height: 36px;
+  max-height: 32px;
 }
 
 /*[ btn show menu ]
@@ -1088,7 +1088,7 @@ li.sale-noti > a {
 .side-menu .main-menu {margin-bottom: 0;}
 
 .item-menu-mobile {
-  background-color: #e65540;
+  background-color: #1f0a50;
 }
 
 .side-menu .main-menu > li > a {
@@ -2488,7 +2488,7 @@ input.num-product::-webkit-inner-spin-button {
 
 
 .bg-ft{
-	background: #b7dbfb;
+	background: #1f0a50;
 }
 
 .subscribe-button{
