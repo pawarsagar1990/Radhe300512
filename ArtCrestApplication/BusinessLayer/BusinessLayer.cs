@@ -173,5 +173,43 @@ namespace BusinessLayer
 
         }
 
+        public DataSet AddToCart(int ProductID, int UserID = 0, int ProductQuantity = 1, int CartID = 0)
+        {
+            DataSet dsData = new DataSet();
+            dsData = objDataAccess.AddToCart(ProductID, UserID, ProductQuantity, CartID);
+            return dsData;
+        }
+
+        public DataTable GetCartIDAndCartItemCount(int userID, int cartStatus = 0)
+        {
+            string strQuery = "";
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("pCartStatus", cartStatus.ToString());
+            parameters.Add("pUserID", userID.ToString());
+            strQuery = "select top 1 ISNULL(c.CartID,0) AS CartID, ISNULL(count(ci.CartItemID),0) AS CartItemCount from Cart C "+ 
+                        " Inner Join CartItem CI on c.CartID = ci.fkCartID"+
+                        " where c.CartStatus = @pCartStatus and c.fkUserID = @pUserID" +
+                        " Group By c.CartID"+
+                        " order by c.CartID desc";
+            DataTable dtCartIDAndCartItemCount = DataAccessLayer.DataAccessLayer.getDataFromQueryWithParameters(strQuery, parameters);           
+            return dtCartIDAndCartItemCount;
+        }
+
+        public DataSet getCartDetailsFromDB(int CartID, int UserID)
+        {
+            DataSet dsCartDetail = new DataSet();
+            try
+            {   
+                DataTable dtCart = getDataFromQuery("select * from cart where cartid = "+ CartID + " and fkUserID = " + UserID);
+                DataTable dtCartItems = getDataFromQuery("select * from CartItem CI inner join product p on ci.fkproductID = p.productID left join ProductImage pimg on p.ProductID = pimg.fkProductID where ci.fkcartid = " + CartID + " and ci.fkUserID = " + UserID);
+                dsCartDetail.Tables.Add(dtCart);
+                dsCartDetail.Tables.Add(dtCartItems);
+            }
+            catch (Exception ex)
+            {
+                LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "getCartDetailsFromDB", "E", UserID.ToString());
+            }
+            return dsCartDetail;
+        }
     }
 }

@@ -94,5 +94,41 @@ namespace ArtCrestApplication
             return objJson;
         }
 
+        [WebMethod]
+        public static JsonResult addToCart(string productID, string userID)
+        {
+            JsonResult objJson = new JsonResult();
+            JavaScriptSerializer objJS = new JavaScriptSerializer();
+            try
+            {
+                Home objHome = new Home();
+                DataSet dsData = objHome.ActualAddCart(Convert.ToInt32(productID));                
+                string[] strResultArray = new string[2];
+                if (dsData != null && dsData.Tables.Count > 0)
+                {
+                    strResultArray[0] = objJS.Serialize(dsData.Tables[1].Rows.Count.ToString());
+                }              
+
+                var genericResult = new
+                {
+                    CartItemCount = strResultArray[0]                    
+                };
+                objJson.Data = objJS.Serialize(genericResult);
+                objJson.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            }
+            catch (Exception ex)
+            {
+                BusinessLayer.BusinessLayer.LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "addToCart", "E", userID);
+            }
+            return objJson;
+        }
+
+        public DataSet ActualAddCart(int productID)
+        {
+            DataSet dsData = new DataSet();
+            dsData = objBusinessL.AddToCart(productID, Convert.ToInt32(Session["UserID"]), 1, Convert.ToInt32(Session["CartID"]));
+            return dsData;
+        }
+
     }
 }

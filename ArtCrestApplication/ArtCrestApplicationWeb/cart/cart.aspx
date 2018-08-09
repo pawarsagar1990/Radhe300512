@@ -3,13 +3,15 @@
     <title>My Cart - skartif</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="cart-sec">
-		<div class="container">
+    <label id="lblEmptyCart" style="margin-top:50px" visible="false" runat="server"><b>Oops!!Looks like your cart is empty. Please add some products to your cart. <a href="../Home.aspx">Click here</a> to view products.</b></label>
+    <section class="cart-sec" id="CartSection" runat="server">
+		<div class="container">            
 			<div class="cart-container">
 				<div class="cart-title">
-					<span>My Cart (2 Items)</span>
+					<span>My Cart (<span id="myCartItemsCount">2 Items</span>)</span>
 				</div>
-				<div class="cart-list-sec">
+                <div id="cartDetails">
+                    <%--<div class="cart-list-sec">
 					<div class="cart-prod-dtl">
 						<div class="cart-prod-dtl-img">
 							<a href="#"><img src="/images/cart-img-1.jpg" class="cart-img-product"></a>
@@ -37,8 +39,9 @@
 					<div class="cart-prod-remove">
 						<button class="btn btn-primary prod-slid-btn">Remove from cart</button>
 					</div>
-				</div>
-				<div class="cart-list-sec">
+				</div>--%>                    
+                </div>				
+				<%--<div class="cart-list-sec">
 					<div class="cart-prod-dtl">
 						<div class="cart-prod-dtl-img">
 							<a href="#"><img src="/images/cart-img-1.jpg" class="cart-img-product"></a>
@@ -66,7 +69,7 @@
 					<div class="cart-prod-remove">
 						<button class="btn btn-primary prod-slid-btn">Remove from cart</button>
 					</div>	
-				</div>
+				</div>--%>
 			</div>
 			<div class="cart-checkout-sec">
 				<div class="cart-checkout-title">
@@ -75,15 +78,15 @@
                 <div class="cart-payment-dtl">
                     <div class="cart-subtotal">
 					    <div class="cart-check-prc-left">Sub Total:</div> 
-                        <div class="cart-check-prc-right">&#8377;330</div>
+                        <div class="cart-check-prc-right">&#8377;<span id="spanSubTotal"></span></div>
 				    </div>
 				    <div class="cart-ord-shipping">
 					    <div class="cart-check-prc-left">Shipping Charges:</div> 
-                        <div class="cart-check-prc-right">&#8377;30</div>
+                        <div class="cart-check-prc-right">&#8377;<span id="spanShippingCharges"></span></div>
 				    </div>
 				    <div class="cart-total">
 					    <div class="cart-check-prc-left">Amount Payable:</div> 
-                        <div class="cart-check-prc-right">&#8377;360</div>
+                        <div class="cart-check-prc-right">&#8377;<span id="spanTotalAmount"></span></div>
 				    </div>
                 </div>
 				<div class="cart-checkout-btn">
@@ -228,26 +231,70 @@
 		</div>
 	</section>
     <script type="text/javascript">
-	$('.owl-carousel').owlCarousel({
-    margin:20,
-	loop:true,
-    nav:true,
-	navText:['<i class="fa fa-angle-left" style="font-size:48px;"></i>','<i class="fa fa-angle-right" style="font-size:48px;"></i>'],
-    responsive:{
-        0:{
-            items:1
-        },
-		100:{
-            items:2
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:5
-        }
-    }
-	})
+        $('.owl-carousel').owlCarousel({
+            margin: 20,
+            loop: true,
+            nav: true,
+            navText: ['<i class="fa fa-angle-left" style="font-size:48px;"></i>', '<i class="fa fa-angle-right" style="font-size:48px;"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                100: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        });
+
+	$(document).ready(function () {
+	    //swal({title : "sagar pawar hello", text : "sagar text", icon:"success", toast:true});
+	    //swal({ text: "sagar pawar hello", toast: false });
+	    $.ajax({
+	        type: "POST",
+	        url: "../../Cart/Cart.aspx/getCartDetails",
+	        contentType: "application/json; charset=utf-8",
+	        dataType: "json",
+	        success: function (response) {
+	            if (response != "" && response.d.Data != 'undefined') {
+	                var parsedData = JSON.parse(response.d.Data);
+	                var cDetails = JSON.parse(parsedData.cDetail);
+	                var cIDetails = JSON.parse(parsedData.cIDetails);	                
+	                $("#myCartItemsCount").html(cIDetails.length + " Items");
+	                $("#spanSubTotal").html(JSON.parse(parsedData.cISubTotal));
+	                $("#spanShippingCharges").html(JSON.parse(parsedData.cIShippingCharges));
+	                $("#spanTotalAmount").html(JSON.parse(parsedData.cITotaAmount));
+	                var divHtml = "";	                	                
+	                if (cIDetails != null && cIDetails != undefined) {
+	                    $.each(cIDetails, function (key, cIDetails) {
+	                        divHtml =   "<div class='cart-list-sec'><div class='cart-prod-dtl'>"+
+						                "<div class='cart-prod-dtl-img'><a href='#'><img src='/productimages/" + cIDetails.cProductImage + "' class='cart-img-product'></a></div>" +
+						                "<div class='cart-prod-dtl-nm'>"+
+							            "<a href='#'><span>" + cIDetails.cProductName + "</span></a></div>" +
+						                "<div class='cart-prod-qty'>"+
+							            "<div class='flex-w bo5 of-hidden w-size17'>"+
+								        "<button type='button' class='btn-num-product-down color1 flex-c-m size7 bg8 eff2'><i class='fs-12 fa fa-minus' aria-hidden='true'></i></button>" +
+                                        "<input class='size8 m-text18 t-center num-product' type='number' name='num-product1' value='" + cIDetails.cProdQuantity + "'>" +
+                                        "<button type='button' class='btn-num-product-up color1 flex-c-m size7 bg8 eff2'>"+
+									    "<i class='fs-12 fa fa-plus' aria-hidden='true'></i></button></div></div>"+
+						                "<div class='cart-prod-price'>&#8377;" + (cIDetails.cProductPrice) + "</div></div>" +
+					                    "<div class='cart-prod-remove'><button class='btn btn-primary prod-slid-btn'>Remove from cart</button></div></div>";
+	                        $("#cartDetails").append(divHtml);
+	                    });//cIDetails Ends      
+	                }//if CIDetails ends	                
+	            }
+	        },
+	        failure: function (response) {
+	            alert(response.d);
+	        }
+	    });
+
+	});///document ends
 	</script>
 
 </asp:Content>

@@ -151,5 +151,35 @@ namespace DataAccessLayer
             }
             return dtTable;
         }
+
+        public DataSet AddToCart(int ProductID, int UserID, int ProductQuantity = 1, int CartID = 0)
+        {
+            DataSet dsData = new DataSet();
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConnString;
+                con.Close();
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "AddToCart";
+                cmd.Parameters.AddWithValue("CartID", CartID);
+                cmd.Parameters.AddWithValue("ProductID", ProductID);
+                cmd.Parameters.AddWithValue("UserID", UserID);
+                cmd.Parameters.AddWithValue("ProductQuantity", ProductQuantity);
+                cmd.Connection = con;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dsData);
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                LogTracerDA("Log", "Query Here-> AddToCart->" + ex.Message + ex.StackTrace.ToString(), "Method Name : AddToCart ", "E");
+            }
+            return dsData;
+        }
     }
 }
