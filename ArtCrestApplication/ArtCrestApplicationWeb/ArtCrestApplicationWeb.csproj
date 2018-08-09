@@ -122,6 +122,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="account\myaccount.aspx" />
+    <Content Include="css\account.css" />
     <Content Include="css\order.css" />
     <Content Include="order\orderconfirmation.aspx" />
     <Content Include="order\orderhistory.aspx" />
@@ -2842,6 +2844,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="account\myaccount.aspx.cs">
+      <DependentUpon>myaccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account\myaccount.aspx.designer.cs">
+      <DependentUpon>myaccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="acsupport\acsupportlogin.aspx.cs">
       <DependentUpon>acsupportlogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

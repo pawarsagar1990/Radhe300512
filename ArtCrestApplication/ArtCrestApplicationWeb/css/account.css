@@ -1,0 +1,134 @@
+﻿/********************************************************************************************************
+****************************************SKARTIF PRIVATE LIMITED******************************************
+********************************************Web Style Sheets*********************************************
+********************************************************************************************************/
+
+/*/////////////////////////////////////////////////////////////////////
+Style Sheet: account.css
+Used For: myaccount and manageaddresses pages
+Created by: Swapnil Chavan
+Creadted Date: 7 Aug 2018
+/////////////////////////////////////////////////////////////////////*/
+
+
+/*////////////////////////////////////////////////////
+///////////////My account page////////////////
+////////////////////////////////////////////////////*/
+
+.account-sec {
+    margin-top:60px;
+    margin-bottom:40px;
+}
+
+
+
+/*/////////////////////////Account Header///////////////////////////////*/
+
+.myaccount-header {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    font-family:'Cinzel', sans-serif;
+    color:#3c9bed;
+    font-weight:700;
+    margin-bottom:30px;
+}
+.myaccount-header-link{
+    display:inline-block;
+    width:33%;
+    text-align:center;
+    padding: 10px;
+    text-decoration:none;
+}
+.myaccount-header a{
+    font-family:'Cinzel', sans-serif;
+    color:#3c9bed;
+    font-weight:700;
+}
+.active {
+    background-color:#1f0a50;
+    color:white;
+}
+.active a{
+    color:white;
+    font-family:'Cinzel', sans-serif;
+    font-weight:700;
+}
+@media (max-width:760px) {
+    .myaccount-header-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        border-bottom:1px solid #bbb5b5;
+    }
+}
+
+/*Peronal information eidt section*/
+.personal-info{
+    margin-top:20px;
+    margin-bottom:20px;
+    border: 1px solid #bbb5b5;
+    background-color:aliceblue;
+}
+
+.personal-info-title {
+    width:70%;
+    display:inline-block;
+    padding: 10px;
+}
+.personal-info-edit{
+    width:28%;
+    display:inline-block;
+    padding: 10px;
+    text-align:right;
+    color:#1f0a50;
+    font-weight:bold;
+}
+
+.personal-info-nm{
+    padding:10px;
+}
+.input-nm{
+    height:40px;
+    text-align:center;
+    width:30%;
+    margin-right:10%;
+}
+@media (max-width:760px) {
+    .input-nm {
+        height: 40px;
+        text-align: center;
+        width: 45%;
+        margin-right: 4%;
+    }
+}
+
+.personal-info-id {
+    padding:10px;
+}
+.radio{
+    display:inline;
+    padding-right:15%;
+}
+
+/*Pasword Change section*/
+.input-passwd{
+    height:40px;
+    text-align:center;
+    display:block;
+    margin-bottom:10px;
+    width:30%;
+}
+.personal-info-passwd {
+    padding:10px;
+    color:#1f0a50;
+    font-weight:bold;
+}
+
+.save-button{
+    text-align:right;
+    color:#1f0a50;
+    font-weight:bold;
+    padding:10px;
+    display:none;
+}
+
