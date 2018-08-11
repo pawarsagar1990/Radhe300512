@@ -122,9 +122,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="account\manageaddresses.aspx" />
     <Content Include="account\myaccount.aspx" />
     <Content Include="css\account.css" />
     <Content Include="css\order.css" />
+    <Content Include="css\productdetail.css" />
     <Content Include="order\orderconfirmation.aspx" />
     <Content Include="order\orderhistory.aspx" />
     <Content Include="packages.config" />
@@ -2844,6 +2846,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="account\manageaddresses.aspx.cs">
+      <DependentUpon>manageaddresses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account\manageaddresses.aspx.designer.cs">
+      <DependentUpon>manageaddresses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="account\myaccount.aspx.cs">
       <DependentUpon>myaccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
