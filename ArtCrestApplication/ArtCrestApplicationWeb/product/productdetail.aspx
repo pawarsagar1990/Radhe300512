@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="productdtl.aspx.cs" Inherits="ArtCrestApplicationWeb.product.productdtl" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="productdetail.aspx.cs" Inherits="ArtCrestApplicationWeb.product.productdetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="/css/productdetail.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
     <br />
     <div class="container">
         <asp:Label ID="lblErrorMsg" runat="server"></asp:Label>
@@ -451,5 +450,4 @@
         });
 
     </script>
-
 </asp:Content>

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtCrestApplication.product {
+namespace ArtCrestApplicationWeb.product {
     
     
-    public partial class productdetail {
+    public partial class productdetails {
         
         /// <summary>
         /// lblErrorMsg control.

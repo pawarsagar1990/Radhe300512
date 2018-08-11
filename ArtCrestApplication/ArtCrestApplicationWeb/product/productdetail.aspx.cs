@@ -12,9 +12,9 @@ using BusinessLayer;
 using DataAccessLayer;
 
 
-namespace ArtCrestApplication.product
+namespace ArtCrestApplicationWeb.product
 {
-    public partial class productdetail : System.Web.UI.Page
+    public partial class productdetails : System.Web.UI.Page
     {
         BusinessLayer.BusinessLayer objBusinessL = new BusinessLayer.BusinessLayer();
         protected void Page_Load(object sender, EventArgs e)
@@ -30,6 +30,7 @@ namespace ArtCrestApplication.product
                 ShowErrorMsg("Oops! looks like you have tried incorrect link, please try correct link from email.", true);
             }
         }
+
 
         public DataTable getProductDetails(string productID)
         {
@@ -48,30 +49,30 @@ namespace ArtCrestApplication.product
             try
             {
                 int hdnProductID = Convert.ToInt32(productID);
-                productdetail objproductdetail = new productdetail();
+                productdetails objproductdetail = new productdetails();
                 DataTable dtProducts = objproductdetail.getProductDetails(hdnProductID.ToString());
                 string[] strResultArray = new string[1];
                 if (dtProducts != null && dtProducts.Rows.Count > 0)
                 {
                     var ProdDetailList = (from dt in dtProducts.AsEnumerable()
-                                    select new
-                                    {
-                                        pPID = dt["ProductID"],
-                                        pPName = dt["ProductName"],
-                                        pPDesc = dt["ProductDesc"],
-                                        pPFeatures = dt["ProductFeatures"],
-                                        pPDiscountPercent = dt["DiscountPercent"],
-                                        pPSellPrice = dt["ProductSellPrice"],
-                                        pPDiscountPrice = dt["ProductDiscountPrce"],
-                                        pPQuantity = dt["ProductQuantity"],
-                                        pImageLink1 = dt["ImageLink1"] != DBNull.Value ? dt["ImageLink1"] : "item-01.jpg",
-                                        pImageLink2 = dt["ImageLink2"] != DBNull.Value ? dt["ImageLink2"] : "item-01.jpg",
-                                        pImageLink3 = dt["ImageLink3"] != DBNull.Value ? dt["ImageLink3"] : "item-01.jpg",
-                                        pSuperCategoryName = dt["ProductSuperCategoryName"],
-                                        pCategoryName = dt["ProductCategoryName"],
-                                        pSubCategoryName = dt["ProductSubCategoryName"],
-                                        pProdSubCategoryID = dt["fkProductSubCategoryID"]
-                                    }).ToList();
+                                          select new
+                                          {
+                                              pPID = dt["ProductID"],
+                                              pPName = dt["ProductName"],
+                                              pPDesc = dt["ProductDesc"],
+                                              pPFeatures = dt["ProductFeatures"],
+                                              pPDiscountPercent = dt["DiscountPercent"],
+                                              pPSellPrice = dt["ProductSellPrice"],
+                                              pPDiscountPrice = dt["ProductDiscountPrce"],
+                                              pPQuantity = dt["ProductQuantity"],
+                                              pImageLink1 = dt["ImageLink1"] != DBNull.Value ? dt["ImageLink1"] : "item-01.jpg",
+                                              pImageLink2 = dt["ImageLink2"] != DBNull.Value ? dt["ImageLink2"] : "item-01.jpg",
+                                              pImageLink3 = dt["ImageLink3"] != DBNull.Value ? dt["ImageLink3"] : "item-01.jpg",
+                                              pSuperCategoryName = dt["ProductSuperCategoryName"],
+                                              pCategoryName = dt["ProductCategoryName"],
+                                              pSubCategoryName = dt["ProductSubCategoryName"],
+                                              pProdSubCategoryID = dt["fkProductSubCategoryID"]
+                                          }).ToList();
 
                     strResultArray[0] = objJS.Serialize(ProdDetailList);
                 }
@@ -105,7 +106,6 @@ namespace ArtCrestApplication.product
                 lblErrorMsg.ForeColor = System.Drawing.Color.Green;
             }
         }
-
 
     }
 }

@@ -238,6 +238,7 @@
     <Content Include="includes\contact-form.php" />
     <Content Include="productimages\Chhota Bhim Rakhi 1_4_0" />
     <Content Include="productimages\item-01.jpg" />
+    <Content Include="product\productdetail.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -2762,7 +2763,6 @@
     <Content Include="productimages\Musical Greeting Lover 1_7_4.jpg" />
     <Content Include="productimages\Musical Greeting Lover 2_9_0.jpg" />
     <Content Include="productimages\Musical Greeting Lover 2_9_1.JPG" />
-    <Content Include="product\productdetail.aspx" />
     <Content Include="register.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
