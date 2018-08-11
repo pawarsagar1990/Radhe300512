@@ -35,7 +35,8 @@ namespace ArtCrestApplication
                     {
                         Session["UserFirstName"] = Convert.ToString(dtLoginDetail.Rows[0]["UserFirstName"]);
                         Session["UserID"] = Convert.ToString(dtLoginDetail.Rows[0]["UserID"]);
-                        Session["UserEmailID"] = Convert.ToString(dtLoginDetail.Rows[0]["UserEmailID"]);                        
+                        Session["UserEmailID"] = Convert.ToString(dtLoginDetail.Rows[0]["UserEmailID"]);
+                        FetchCartIDAndCartItemID(0, Convert.ToInt32(dtLoginDetail.Rows[0]["UserID"]));
                         Response.Redirect("/home.aspx");
                     }
                     else
@@ -66,6 +67,21 @@ namespace ArtCrestApplication
             else
             {
                 lblErrorMsg.ForeColor = System.Drawing.Color.Green;
+            }
+        }
+
+        public void FetchCartIDAndCartItemID(int cartStatus, int UserID)
+        {
+            DataTable dtCartIDAndCartItemCount = objBusinessL.GetCartIDAndCartItemCount(UserID, cartStatus);
+            if (dtCartIDAndCartItemCount != null && dtCartIDAndCartItemCount.Rows.Count > 0)
+            {
+                Session["CartID"] = Convert.ToString(dtCartIDAndCartItemCount.Rows[0]["CartID"]);
+                Session["CartItemCount"] = Convert.ToString(dtCartIDAndCartItemCount.Rows[0]["CartItemCount"]);
+            }
+            else
+            {
+                Session["CartID"] = "0";
+                Session["CartItemCount"] = "0";
             }
         }
     }

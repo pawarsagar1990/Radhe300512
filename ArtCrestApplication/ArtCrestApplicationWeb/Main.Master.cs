@@ -25,6 +25,11 @@ namespace ArtCrestApplication
                 guestNameID.InnerHtml = Session["UserFirstName"].ToString();
             }
 
+            if (Session["CartItemCount"] != null)
+            {
+                cartItemCount.InnerHtml = Session["CartItemCount"].ToString();
+            }
+
         }
     }
 }

@@ -495,7 +495,7 @@
                                                    "<div class='card'>" +
                                                    "<img src='productimages/" + ProductList.pImageLink + "' alt='img' class='card-img-top'>" +
                                                    "<div class='card-body'>" +
-                                                   "<h3 class='prod-slid-nm'>" + ProductList.pPName + "</h3>"; 
+                                                   "<h3 class='prod-slid-nm'>" + ProductList.pPName + "</h3>";
                                         if (ProductList.pPDiscountPercent > 0) {
                                             eachProductItemDiv = eachProductItemDiv + "<h5 class='prod-slid-prc'>" + "<span class='prod_disc_prc'>&#8377;" + ProductList.pPDiscountPrice + "&nbsp;</span>" + "<span class='prod_sale_prc'>&#8377;" + ProductList.pPSellPrice + "</span>" +
                                                    "<span class='prod_disc_percent'>&nbsp;" + ProductList.pPDiscountPercent + "% OFF</span></h5>";
@@ -566,8 +566,27 @@
             }); //Product ends            
         });
 
-        function AddToCart(productID) {
-            alert('looks like you are adding to cart product ->' + productID);
+        function AddToCart(productID) {            
+            var dataValue = "{ productID: '" + productID + "', userID : '" + $("#hdnUserID").val() + "' }";
+            $.ajax({
+                type: "POST",
+                url: "../../Home.aspx/addToCart",
+                contentType: "application/json; charset=utf-8",
+                data: dataValue,
+                dataType: "json",
+                success: function (response) {
+                    if (response != "" && response.d.Data != 'undefined') {
+                        var parsedData = JSON.parse(response.d.Data);
+                        var CartItemCount = JSON.parse(parsedData.CartItemCount);
+                        if (CartItemCount != null && CartItemCount != undefined && CartItemCount != "") {
+                            $("#cartItemCount").html(CartItemCount);
+                        }
+                    }
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            }); //Add to Cart ends
         }
 
         function RedirectToLogin() {
