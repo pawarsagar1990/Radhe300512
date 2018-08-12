@@ -12,7 +12,7 @@ Creadted Date: 7 Aug 2018
 
 
 /*////////////////////////////////////////////////////
-///////////////My account page////////////////
+////////////////////My account page///////////////////
 ////////////////////////////////////////////////////*/
 
 .account-sec {
@@ -33,10 +33,12 @@ Creadted Date: 7 Aug 2018
 }
 .myaccount-header-link{
     display:inline-block;
-    width:33%;
+    width:33.1%;
     text-align:center;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-decoration:none;
+    vertical-align:middle;
 }
 .myaccount-header a{
     font-family:'Cinzel', sans-serif;
@@ -132,3 +134,53 @@ Creadted Date: 7 Aug 2018
     display:none;
 }
 
+
+
+
+
+/*////////////////////////////////////////////////////
+////////////////Manage Addresses page/////////////////
+////////////////////////////////////////////////////*/
+
+.add-new-address{
+    border: 1px solid #bbb5b5;
+    padding: 10px;
+    background-color:aliceblue;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.user-address-list{
+    border: 1px solid #bbb5b5;
+    padding: 10px;
+    background-color:aliceblue;
+}
+
+.edit-add-list{
+    display:none;
+    margin-bottom:10px;
+    background-color:aliceblue;
+    padding:10px;
+    border: 1px solid #bbb5b5;
+}
+
+.user-address-line1-left {
+    display:inline-block;
+    width:75%;
+}
+.user-address-line1-right {
+    display:inline-block;
+    width:20%;
+    text-align:right;
+    float:right;
+    color:#3c9bed;
+    font-weight:bold;
+}
+.address-edit-buttons {
+    margin-top:60px;
+}
+.address-edit-button{
+    width:45%;
+    display:inline-block;
+    text-align:center;
+}

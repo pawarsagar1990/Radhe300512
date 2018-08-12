@@ -49,9 +49,14 @@
 	border:none;
 }
 
-.card{
+.card, .car-dtl {
 	position:relative;
 	border:none;
+}
+.car-dtl img{
+    height:300px;
+    width:400px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.11), 0 2px 5px 0 rgba(0,0,0,0.08);
 }
 .card img{
 	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.11), 0 2px 5px 0 rgba(0,0,0,0.08);

@@ -26,7 +26,6 @@
                     </div>
                     <div class="personal-info-edit">
                         <button onclick="enableProfileUpdate()" id="editButton">EDIT</button>
-                        <!--<button onclick="disableProfileUpdate()" id="cancelButton">CANCEL</button>-->
                     </div>
                 </div>
 
