@@ -103,7 +103,7 @@
 		</div>
 	</section>
     <!-- Relate Product -->
-	<section class="product-slider">
+	<%--<section class="product-slider">
 		<div class="container mt-4">
 			<div class="row">
 				<div class="col-md-12 text-center">
@@ -229,32 +229,38 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section>--%>
     <script type="text/javascript">
-        $('.owl-carousel').owlCarousel({
-            margin: 20,
-            loop: true,
-            nav: true,
-            navText: ['<i class="fa fa-angle-left" style="font-size:48px;"></i>', '<i class="fa fa-angle-right" style="font-size:48px;"></i>'],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                100: {
-                    items: 2
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5
-                }
-            }
-        });
+        //$('.owl-carousel').owlCarousel({
+        //    margin: 20,
+        //    loop: true,
+        //    nav: true,
+        //    navText: ['<i class="fa fa-angle-left" style="font-size:48px;"></i>', '<i class="fa fa-angle-right" style="font-size:48px;"></i>'],
+        //    responsive: {
+        //        0: {
+        //            items: 1
+        //        },
+        //        100: {
+        //            items: 2
+        //        },
+        //        600: {
+        //            items: 3
+        //        },
+        //        1000: {
+        //            items: 5
+        //        }
+        //    }
+        //});
 
 	$(document).ready(function () {
 	    //swal({title : "sagar pawar hello", text : "sagar text", icon:"success", toast:true});
 	    //swal({ text: "sagar pawar hello", toast: false });
+	    getCartDetails();
+	    
+
+	});///document ends
+
+	function getCartDetails() {
 	    $.ajax({
 	        type: "POST",
 	        url: "../../Cart/Cart.aspx/getCartDetails",
@@ -264,26 +270,28 @@
 	            if (response != "" && response.d.Data != 'undefined') {
 	                var parsedData = JSON.parse(response.d.Data);
 	                var cDetails = JSON.parse(parsedData.cDetail);
-	                var cIDetails = JSON.parse(parsedData.cIDetails);	                
+	                var cIDetails = JSON.parse(parsedData.cIDetails);
 	                $("#myCartItemsCount").html(cIDetails.length + " Items");
 	                $("#spanSubTotal").html(JSON.parse(parsedData.cISubTotal));
 	                $("#spanShippingCharges").html(JSON.parse(parsedData.cIShippingCharges));
 	                $("#spanTotalAmount").html(JSON.parse(parsedData.cITotaAmount));
-	                var divHtml = "";	                	                
+	                var divHtml = "";
+	                $("#cartDetails").empty();
 	                if (cIDetails != null && cIDetails != undefined) {
 	                    $.each(cIDetails, function (key, cIDetails) {
-	                        divHtml =   "<div class='cart-list-sec'><div class='cart-prod-dtl'>"+
-						                "<div class='cart-prod-dtl-img'><a href='#'><img src='/productimages/" + cIDetails.cProductImage + "' class='cart-img-product'></a></div>" +
-						                "<div class='cart-prod-dtl-nm'>"+
-							            "<a href='#'><span>" + cIDetails.cProductName + "</span></a></div>" +
-						                "<div class='cart-prod-qty'>"+
-							            "<div class='flex-w bo5 of-hidden w-size17'>"+
-								        "<button type='button' class='btn-num-product-down color1 flex-c-m size7 bg8 eff2'><i class='fs-12 fa fa-minus' aria-hidden='true'></i></button>" +
-                                        "<input class='size8 m-text18 t-center num-product' type='number' name='num-product1' value='" + cIDetails.cProdQuantity + "'>" +
-                                        "<button type='button' class='btn-num-product-up color1 flex-c-m size7 bg8 eff2'>"+
-									    "<i class='fs-12 fa fa-plus' aria-hidden='true'></i></button></div></div>"+
-						                "<div class='cart-prod-price'>&#8377;" + (cIDetails.cProductPrice) + "</div></div>" +
-					                    "<div class='cart-prod-remove'><button class='btn btn-primary prod-slid-btn'>Remove from cart</button></div></div>";
+	                        clickFunction = "UpdateCart(" + cIDetails.cProductID + ", "+ JSON.stringify("subtract") +");";
+	                        divHtml = "<div class='cart-list-sec'><div class='cart-prod-dtl'>" +
+                                        "<div class='cart-prod-dtl-img'><a href='#'><img src='/productimages/" + cIDetails.cProductImage + "' class='cart-img-product'></a></div>" +
+                                        "<div class='cart-prod-dtl-nm'>" +
+                                        "<a href='#'><span>" + cIDetails.cProductName + "</span></a></div>" +
+                                        "<div class='cart-prod-qty'>" +
+                                        "<div class='flex-w bo5 of-hidden w-size17'>" +
+                                        "<button type='button' onclick='UpdateCart(" + cIDetails.cProductID + ", " + JSON.stringify("subtract") + ");' class='btn-num-product-down color1 flex-c-m size7 bg8 eff2'><i class='fs-12 fa fa-minus' aria-hidden='true'></i></button>" +
+                                        "<input class='size8 m-text18 t-center num-product' readonly='readonly' type='number' name='num-product1' value='" + cIDetails.cProdQuantity + "'>" +
+                                        "<button type='button' onclick='UpdateCart(" + cIDetails.cProductID + ", " + JSON.stringify("add") + ");' class='btn-num-product-up color1 flex-c-m size7 bg8 eff2'>" +
+                                        "<i class='fs-12 fa fa-plus' aria-hidden='true'></i></button></div></div>" +
+                                        "<div class='cart-prod-price'>&#8377;" + (cIDetails.cProductPrice) + "</div></div>" +
+                                        "<div class='cart-prod-remove'><button class='btn btn-primary prod-slid-btn' type='button' onclick='DeleteCartItem(" + cIDetails.cCIID + ", " + cIDetails.cCID + ");'>Remove from cart</button></div></div>";
 	                        $("#cartDetails").append(divHtml);
 	                    });//cIDetails Ends      
 	                }//if CIDetails ends	                
@@ -293,8 +301,59 @@
 	            alert(response.d);
 	        }
 	    });
+	};//getcartdetails ends
 
-	});///document ends
+	function UpdateCart(productID, addOrsubtract) {
+	    var dataValue = "{ productID: '" + productID + "', addOrsubtract : '" + addOrsubtract + "' }";
+	    $.ajax({
+	        type: "POST",
+	        url: "../../cart/cart.aspx/updateCart",
+	        contentType: "application/json; charset=utf-8",
+	        data: dataValue,
+	        dataType: "json",
+	        success: function (response) {
+	            if (response != "" && response.d.Data != 'undefined') {
+	                var parsedData = JSON.parse(response.d.Data);
+	                var UpdateSuccess = JSON.parse(parsedData.UpdateSuccess);
+	                if (UpdateSuccess != "") {
+	                    swal({ text: UpdateSuccess });
+	                }
+	                else {
+	                    getCartDetails();
+	                }
+	            }
+	        },
+	        failure: function (response) {
+	            alert(response.d);
+	        }
+	    }); //update cart  ajax ends
+	};//fn updatecart
+
+	function DeleteCartItem(cartItem, cartID) {
+	    var dataValue = "{ cartItem: '" + cartItem + "'}";
+	    $.ajax({
+	        type: "POST",
+	        url: "../../cart/cart.aspx/deleteCartItem",
+	        contentType: "application/json; charset=utf-8",
+	        data: dataValue,
+	        dataType: "json",
+	        success: function (response) {
+	            if (response != "" && response.d.Data != 'undefined') {
+	                var parsedData = JSON.parse(response.d.Data);
+	                var deleteSuccess = JSON.parse(parsedData.DeleteSuccess);
+	                if (deleteSuccess != "") {
+	                    swal({ text: deleteSuccess });
+	                }
+	                else {
+	                    getCartDetails();
+	                }
+	            }
+	        },
+	        failure: function (response) {
+	            alert(response.d);
+	        }
+	    }); //update cart  ajax ends
+	};//fn updatecart
 	</script>
 
 </asp:Content>

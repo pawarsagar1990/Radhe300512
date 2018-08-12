@@ -211,5 +211,23 @@ namespace BusinessLayer
             }
             return dsCartDetail;
         }
+
+        public int getCurrentProductQuantity(int ProductID, int CartID)
+        {
+            int prodQuantity = 0;
+            try
+            {
+                DataTable dtProdQuantity = objDataAccess.getDataFromQuery("select cartitemproductquantity from cartitem where fkCartID = " + CartID +" and fkProductID = " + ProductID);
+                if (dtProdQuantity != null && dtProdQuantity.Rows.Count > 0)
+                {
+                    prodQuantity = Convert.ToInt32(dtProdQuantity.Rows[0]["cartitemproductquantity"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                LogTracer("Log", ex.Message + ex.StackTrace.ToString(), "Method Name : getCurrentProductQuantity", "E");
+            }
+            return prodQuantity;
+        }
     }
 }
