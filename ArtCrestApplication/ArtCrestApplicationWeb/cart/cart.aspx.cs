@@ -104,5 +104,104 @@ namespace ArtCrestApplication.cart
             }
             return dsCartDetail;
         }
+
+        [WebMethod]
+        public static JsonResult updateCart(string productID, string addOrsubtract)
+        {
+            JsonResult objJson = new JsonResult();
+            JavaScriptSerializer objJS = new JavaScriptSerializer();
+            try
+            {
+                cart objCart = new cart();
+                int currentProdQuantity = objCart.getCurrentQuantity(Convert.ToInt32(productID));
+                if (addOrsubtract != "")
+                {
+                    int quantity = 0;
+                    if (addOrsubtract == "add")
+                    {
+                        currentProdQuantity = currentProdQuantity + 1;
+                        quantity = 1;
+                    }
+                    if (addOrsubtract == "subtract")
+                    {
+                        currentProdQuantity = currentProdQuantity - 1;
+                        quantity = -1;
+                    }
+                    if (currentProdQuantity > 0)
+                    {
+                        DataSet dsData = objCart.ActualAddCart(Convert.ToInt32(productID), quantity);
+                        string[] strResultArray = new string[1];
+                        if (dsData != null && dsData.Tables.Count > 0)
+                        {
+                            strResultArray[0] = objJS.Serialize("");
+                        }
+                        else
+                        {
+                            strResultArray[0] = objJS.Serialize("Ooops! Looks like there was some error while updating cart.");
+                        }
+
+                        var genericResult = new
+                        {
+                            UpdateSuccess = strResultArray[0]
+                        };
+                        objJson.Data = objJS.Serialize(genericResult);
+                        objJson.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+                    }                    
+                }                
+            }
+            catch (Exception ex)
+            {
+                BusinessLayer.BusinessLayer.LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "Cart->updateCart", "E", "user");
+            }
+            return objJson;
+        }
+
+        public DataSet ActualAddCart(int productID, int prodQuantity)
+        {
+            DataSet dsData = new DataSet();
+            dsData = objBusinessL.AddToCart(productID, Convert.ToInt32(Session["UserID"]), prodQuantity, Convert.ToInt32(Session["CartID"]));
+            return dsData;
+        }
+
+        public int getCurrentQuantity(int productID)
+        {
+            int produQuantity = objBusinessL.getCurrentProductQuantity(productID, Convert.ToInt32(Session["CartID"]));             
+            return produQuantity;
+        }
+
+        [WebMethod]
+        public static JsonResult deleteCartItem(string cartItem)
+        {
+            JsonResult objJson = new JsonResult();
+            JavaScriptSerializer objJS = new JavaScriptSerializer();
+            try
+            {
+                int cartITemID = Convert.ToInt32(cartItem);
+                BusinessLayer.BusinessLayer objBusinessLayer = new BusinessLayer.BusinessLayer();
+                int resultQuery = objBusinessLayer.insertIntoTable("delete from cartitem where cartitemID = " + cartITemID);
+                string[] strResultArray = new string[1];
+                if (resultQuery > 0)
+                {
+                    strResultArray[0] = objJS.Serialize("");
+                }
+                else
+                {
+                    strResultArray[0] = objJS.Serialize("Ooops! Looks like there was some error while deleting cart.");
+                }
+
+                var genericResult = new
+                {
+                    DeleteSuccess = strResultArray[0]
+                };
+                objJson.Data = objJS.Serialize(genericResult);
+                objJson.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            }
+            catch (Exception ex)
+            {
+                BusinessLayer.BusinessLayer.LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "Cart->deleteCartItem", "E", "user");
+            }
+            return objJson;
+        }
+
     }
 }

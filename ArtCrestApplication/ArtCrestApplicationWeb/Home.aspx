@@ -566,7 +566,7 @@
             }); //Product ends            
         });
 
-        function AddToCart(productID) {            
+        function AddToCart(productID) {
             var dataValue = "{ productID: '" + productID + "', userID : '" + $("#hdnUserID").val() + "' }";
             $.ajax({
                 type: "POST",
@@ -587,7 +587,7 @@
                     alert(response.d);
                 }
             }); //Add to Cart ends
-        }
+        };
 
         function RedirectToLogin() {
             window.location.href = "login.aspx";
