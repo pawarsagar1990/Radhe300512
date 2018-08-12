@@ -3,6 +3,7 @@
     <link rel="stylesheet" type="text/css" href="/css/account.css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:HiddenField runat="server" ID="hdnUserID" ClientIDMode="Static" />
     <section class="account-sec">
         <div class="container">
             <div class="myaccount-header">
