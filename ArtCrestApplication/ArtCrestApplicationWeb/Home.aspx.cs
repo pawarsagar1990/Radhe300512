@@ -127,7 +127,62 @@ namespace ArtCrestApplication
         {
             DataSet dsData = new DataSet();
             dsData = objBusinessL.AddToCart(productID, Convert.ToInt32(Session["UserID"]), 1, Convert.ToInt32(Session["CartID"]));
+            Login objLogin = new Login();
+            objLogin.FetchCartIDAndCartItemID(0, Convert.ToInt32(Session["UserID"]));            
             return dsData;
+        }
+
+        [WebMethod]
+        public static JsonResult fetchItemCount()
+        {
+            JsonResult objJson = new JsonResult();
+            JavaScriptSerializer objJS = new JavaScriptSerializer();
+            try
+            {
+                Home objHome = new Home();
+                DataTable dtItemCount = objHome.FetchCartIDAndCartItemID();
+                string[] strResultArray = new string[2];
+                if (dtItemCount != null && dtItemCount.Rows.Count > 0)
+                {
+                    strResultArray[0] = objJS.Serialize(dtItemCount.Rows[0]["CartItemCount"]);
+                }
+                else
+                {
+                    strResultArray[0] = objJS.Serialize("0");
+                }
+
+                var genericResult = new
+                {
+                    CartItemCount = strResultArray[0]
+                };
+                objJson.Data = objJS.Serialize(genericResult);
+                objJson.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            }
+            catch (Exception ex)
+            {
+                BusinessLayer.BusinessLayer.LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "fetchItemCount", "E", "user");
+            }
+            return objJson;
+        }
+        public DataTable FetchCartIDAndCartItemID()
+        {
+            DataTable dtCartIDAndCartItemCount = new DataTable();
+            if (Session["UserID"] != null)
+            {
+                dtCartIDAndCartItemCount = objBusinessL.GetCartIDAndCartItemCount(Convert.ToInt32(Session["UserID"].ToString()), 0);
+                if (dtCartIDAndCartItemCount != null && dtCartIDAndCartItemCount.Rows.Count > 0)
+                {
+                    Session["CartID"] = Convert.ToString(dtCartIDAndCartItemCount.Rows[0]["CartID"]);
+                    Session["CartItemCount"] = Convert.ToString(dtCartIDAndCartItemCount.Rows[0]["CartItemCount"]);
+                }
+                else
+                {
+                    Session["CartID"] = "0";
+                    Session["CartItemCount"] = "0";
+                }
+
+            }
+            return dtCartIDAndCartItemCount;
         }
 
     }

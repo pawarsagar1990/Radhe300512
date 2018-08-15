@@ -256,8 +256,6 @@
 	    //swal({title : "sagar pawar hello", text : "sagar text", icon:"success", toast:true});
 	    //swal({ text: "sagar pawar hello", toast: false });
 	    getCartDetails();
-	    
-
 	});///document ends
 
 	function getCartDetails() {
@@ -346,6 +344,7 @@
 	                }
 	                else {
 	                    getCartDetails();
+	                    FetchItemCount();
 	                }
 	            }
 	        },

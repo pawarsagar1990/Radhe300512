@@ -202,3 +202,24 @@
     });
 
 })(jQuery);
+
+function FetchItemCount() {    
+    $.ajax({
+        type: "POST",
+        url: "../../Home.aspx/fetchItemCount",
+        contentType: "application/json; charset=utf-8",        
+        dataType: "json",
+        success: function (response) {
+            if (response != "" && response.d.Data != 'undefined') {
+                var parsedData = JSON.parse(response.d.Data);
+                var CartItemCount = JSON.parse(parsedData.CartItemCount);
+                if (CartItemCount != null && CartItemCount != undefined && CartItemCount != "") {
+                    $("#cartItemCount").html(CartItemCount);
+                }
+            }
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    }); //ajax ends
+};//function ends FetchItemCount
