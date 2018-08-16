@@ -20,7 +20,7 @@
 				<span class="psw">Forgot <a href="/forgotpassword.aspx" style="color:dodgerblue">password?</a></span>
 			
 			<div class="reg-link" style="text-align:center;">
-				<span class="psw">New to artCrest?<span>
+				<span class="psw">New to skartif?<span>
 				<a href="/register.aspx" style="color:dodgerblue"><span class="psw">Register</span></a>
 			</div>
 			</div>

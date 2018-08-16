@@ -177,7 +177,6 @@ namespace ArtCrestApplication
                 }
                 else
                 {
-                    Session["CartID"] = "0";
                     Session["CartItemCount"] = "0";
                 }
 

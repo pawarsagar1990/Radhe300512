@@ -161,7 +161,7 @@
 		<!-- Header Section for Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
+			<a href="/Home.aspx" class="logo-mobile">
 				<img src="/images/icons/logo.png" alt="IMG-LOGO">
 			</a>
 
@@ -296,7 +296,7 @@
 					<p class="s-text7 w-size27">
 						<strong>Write Us at below Address:</strong></br>
 						B-404, Lamboder Avenue, Pushpanjali Nagar, </br>Sadguru Link Road, Nasik, PIN: 422002 </br>
-						<strong>Or</strong></br>Call us on (+91) 9075005291
+						<span style="text-align:center"><strong>Or</strong></span></br>Call us on +91-8839485414
 					</p>
 
 					<div class="flex-m p-t-30">

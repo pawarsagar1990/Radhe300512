@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField runat="server" ID="hdnUserID" ClientIDMode="Static" />
     <section class="account-sec">
+        <asp:Label ID="lblErrorMsg" runat="server"></asp:Label><br />
         <div class="container">
             <div class="myaccount-header">
                 <div class="myaccount-header-link active">
@@ -26,7 +27,7 @@
                         My Profile Information
                     </div>
                     <div class="personal-info-edit">
-                        <button onclick="enableProfileUpdate()" id="editButton">EDIT</button>
+                        <span id="editButton" style="cursor:pointer;">EDIT</span>
                     </div>
                 </div>
 
@@ -34,8 +35,8 @@
                     Name
                 </div>
                 <div class="personal-info-nm">
-                    <input type="text" required placeholder="First Name" class="input-nm" disabled>
-                    <input type="text" required placeholder="Last Name" class="input-nm" disabled>
+                    <input type="text" required runat="server" placeholder="First Name" id="uFirstName" class="input-nm enableEdit" disabled>
+                    <input type="text" required runat="server" placeholder="Last Name" id="uLastName" class="input-nm enableEdit" disabled>
                 </div>
 
                 <div class="personal-info-id">
@@ -43,10 +44,13 @@
                 </div>
                 <div class="personal-info-nm">
                     <div class="radio">
-                        <label><input type="radio" name="optradio" checked disabled>&nbsp;Male</label>
+                        <label><input type="radio" runat="server" name="optradio" disabled id="genderMale" class="enableEdit">&nbsp;Male</label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="optradio" disabled>&nbsp;Female</label>
+                        <label><input type="radio" runat="server" name="optradio" disabled id="genderFemale" class="enableEdit">&nbsp;Female</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" runat="server" name="optradio" disabled id="genderNotSpecified" class="enableEdit">&nbsp;Not Specified</label>
                     </div>
                 </div>
                 
@@ -54,18 +58,27 @@
                     Email ID
                 </div>
                 <div class="personal-info-nm">
-                    <input type="text" required placeholder="Email ID" class="input-nm" disabled>
+                    <input type="text" required placeholder="Email ID" runat="server" class="input-nm enableEdit" disabled id="uEmailID">
                 </div>
 
                 <div class="personal-info-id">
                     Mobile Number
                 </div>
                 <div class="personal-info-nm">
-                    <input type="text" required placeholder="Mobile Number" class="input-nm" disabled>
+                    <input type="text" required placeholder="Mobile Number" runat="server" class="input-nm enableEdit" disabled id="uMobileNo">
+                </div>
+
+                <div class="save-button" id="saveButton">
+                    <button class="btn btn-primary prod-slid-btn" role="button" OnClick="btnProfileSave">
+                        SAVE
+                    </button>
+                    <button class="btn btn-primary prod-slid-btn disableProfileEdit" role="button">
+                        CANCEL
+                    </button>
                 </div>
 
                 <div class="personal-info-passwd">
-                    Change Password
+                    <span class="passwdChange" style="cursor:pointer;">Change Password</span>
                 </div>
                 <div class="personal-info-nm">
                     <input type="text" required placeholder="Type Current Password" class="input-passwd" disabled>
@@ -73,9 +86,12 @@
                     <input type="text" required placeholder="Re-enter new Password" class="input-passwd" disabled>
                 </div>
 
-                <div class="save-button" id="saveButton">
+                <div class="save-button-passwd" id="savePasswdButton">
                     <a href="#" class="btn btn-primary prod-slid-btn" role="button">
-                        SAVE
+                        CONFIRM
+                    </a>
+                    <a href="#" class="btn btn-primary prod-slid-btn disablePasswdChange" role="button">
+                        CANCEL
                     </a>
                 </div>
 
@@ -85,13 +101,69 @@
     </section>
 
     <script>
-        $("button").click(function () {
-            $("input").removeAttr("disabled");
-        });
-        function enableProfileUpdate() {
+
+        $(document).ready(function () {
+            var dataValue = "{ userID: '" + $("#hdnUserID").val() + "' }";
+            $.ajax({
+                type: "POST",
+                url: "../../account/myaccount.aspx/getUserDetailList",
+                contentType: "application/json; charset=utf-8",
+                data: dataValue,
+                dataType: "json",
+                success: function (response) {
+                    if (response != "" && response.d.Data != 'undefined') {
+                        var parsedData = JSON.parse(response.d.Data);
+                        var UserData = JSON.parse(parsedData.UserDetailList);
+                        $("#uFirstName").attr("value", UserData[0].uFisrtName);
+                        $("#uLastName").attr("value", UserData[0].uLastName);
+                        $("#uEmailID").attr("value", UserData[0].uEmailID);
+                        $("#uMobileNo").attr("value", UserData[0].uMobileNo);
+                        if (UserData[0].uGender !="" && UserData[0].uGender == "M") {
+                            $("#genderMale").attr("checked", "checked");
+                        }
+                        else if (UserData[0].uGender !="" && UserData[0].uGender == "F") {
+                            $("#genderFemale").attr("checked", "checked");
+                        }
+                        else {
+                            $("#genderNotSpecified").attr("checked", "checked");
+                        };
+                    }
+
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            }); //Product ends 
+        }); //Document Ready Ends
+
+
+
+/**********Edit Profile Enable or Disable function Start************/
+
+        /*Enable profile Update and disable when clicked on cancel*/
+        $("#editButton").click(function () {
+            $(".enableEdit").removeAttr("disabled");
             document.getElementById('editButton').style.display = "none";
             document.getElementById('saveButton').style.display = "block";
-        }
+        });
+
+        /*Enable password change and disable when clicked on cancel*/
+        $(".passwdChange").click(function () {
+            $(".input-passwd").removeAttr("disabled");
+            document.getElementById('savePasswdButton').style.display = "block";
+        });
+        $(".disableProfileEdit").click(function () {
+            $(".enableEdit").attr("disabled", "disabled");
+            document.getElementById('editButton').style.display = "inline-block";
+            document.getElementById('saveButton').style.display = "none";
+        });
+        $(".disablePasswdChange").click(function () {
+            $(".input-passwd").attr("disabled", "disabled");
+            document.getElementById('savePasswdButton').style.display = "none";
+        });
+
+/*********Edit Profile Enable or Disable function End*********/
+
     </script>
 
 </asp:Content>
