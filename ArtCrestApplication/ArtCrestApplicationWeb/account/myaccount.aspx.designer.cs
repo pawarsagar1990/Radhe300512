@@ -82,7 +82,7 @@ namespace ArtCrestApplicationWeb.account {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uEmailID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl uEmailID;
         
         /// <summary>
         /// uMobileNo control.
@@ -91,6 +91,51 @@ namespace ArtCrestApplicationWeb.account {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uMobileNo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl uMobileNo;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
+        
+        /// <summary>
+        /// uCurrentPasswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword uCurrentPasswd;
+        
+        /// <summary>
+        /// uNewPasswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword uNewPasswd;
+        
+        /// <summary>
+        /// uConfirmNewPasswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword uConfirmNewPasswd;
+        
+        /// <summary>
+        /// btnPasswdChange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPasswdChange;
     }
 }

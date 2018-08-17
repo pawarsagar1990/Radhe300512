@@ -5,8 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField runat="server" ID="hdnUserID" ClientIDMode="Static" />
     <section class="account-sec">
-        <asp:Label ID="lblErrorMsg" runat="server"></asp:Label><br />
+        
         <div class="container">
+            <div style="margin-top:20px;margin-bottom:20px;padding:10px;">
+                <asp:Label ID="lblErrorMsg" runat="server"></asp:Label><br />
+            </div>
             <div class="myaccount-header">
                 <div class="myaccount-header-link active">
                     <a href="myaccount.aspx">My Profile</a>
@@ -35,8 +38,8 @@
                     Name
                 </div>
                 <div class="personal-info-nm">
-                    <input type="text" required runat="server" placeholder="First Name" id="uFirstName" class="input-nm enableEdit" disabled>
-                    <input type="text" required runat="server" placeholder="Last Name" id="uLastName" class="input-nm enableEdit" disabled>
+                    <input type="text" required runat="server" placeholder="First Name" id="uFirstName" class="input-nm enableEdit" ClientIDMode="static" disabled>
+                    <input type="text" required runat="server" placeholder="Last Name" id="uLastName" class="input-nm enableEdit" ClientIDMode="static" disabled>
                 </div>
 
                 <div class="personal-info-id">
@@ -44,13 +47,13 @@
                 </div>
                 <div class="personal-info-nm">
                     <div class="radio">
-                        <label><input type="radio" runat="server" name="optradio" disabled id="genderMale" class="enableEdit">&nbsp;Male</label>
+                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static" disabled id="genderMale" class="enableEdit">&nbsp;Male</label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" runat="server" name="optradio" disabled id="genderFemale" class="enableEdit">&nbsp;Female</label>
+                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static" disabled id="genderFemale" class="enableEdit">&nbsp;Female</label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" runat="server" name="optradio" disabled id="genderNotSpecified" class="enableEdit">&nbsp;Not Specified</label>
+                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static" disabled id="genderNotSpecified" class="enableEdit">&nbsp;Not Specified</label>
                     </div>
                 </div>
                 
@@ -58,20 +61,21 @@
                     Email ID
                 </div>
                 <div class="personal-info-nm">
-                    <input type="text" required placeholder="Email ID" runat="server" class="input-nm enableEdit" disabled id="uEmailID">
+                    <input type="email" required placeholder="Email ID" runat="server" ClientIDMode="static" class="input-nm enableEdit" disabled id="uEmailID">
                 </div>
 
                 <div class="personal-info-id">
                     Mobile Number
                 </div>
                 <div class="personal-info-nm">
-                    <input type="text" required placeholder="Mobile Number" runat="server" class="input-nm enableEdit" disabled id="uMobileNo">
+                    <input type="number" required placeholder="Mobile Number" runat="server" ClientIDMode="static" class="input-nm enableEdit" disabled id="uMobileNo">
                 </div>
 
                 <div class="save-button" id="saveButton">
-                    <button class="btn btn-primary prod-slid-btn" role="button" OnClick="btnProfileSave">
+                    <!--<button class="btn btn-primary prod-slid-btn" role="button" OnClick="btnProfileSave">
                         SAVE
-                    </button>
+                    </button>-->
+                    <asp:Button Text="SAVE" class="btn btn-primary prod-slid-btn" runat="server" ID="btnSave" OnClick="btnProfileSave" />
                     <button class="btn btn-primary prod-slid-btn disableProfileEdit" role="button">
                         CANCEL
                     </button>
@@ -81,15 +85,16 @@
                     <span class="passwdChange" style="cursor:pointer;">Change Password</span>
                 </div>
                 <div class="personal-info-nm">
-                    <input type="text" required placeholder="Type Current Password" class="input-passwd" disabled>
-                    <input type="text" required placeholder="Enter new Password" class="input-passwd" disabled>
-                    <input type="text" required placeholder="Re-enter new Password" class="input-passwd" disabled>
+                    <input runat="server" type="password" required placeholder="Type Current Password" class="input-passwd" id="uCurrentPasswd" disabled>
+                    <input runat="server" type="password" required placeholder="Enter new Password" class="input-passwd" id="uNewPasswd" disabled>
+                    <input runat="server" type="password" required placeholder="Re-enter new Password" class="input-passwd" id="uConfirmNewPasswd" disabled>
                 </div>
 
                 <div class="save-button-passwd" id="savePasswdButton">
-                    <a href="#" class="btn btn-primary prod-slid-btn" role="button">
+                    <!--<a href="#" class="btn btn-primary prod-slid-btn" role="button">
                         CONFIRM
-                    </a>
+                    </a>-->
+                    <asp:Button Text="CONFIRM" class="btn btn-primary prod-slid-btn" runat="server" ID="btnPasswdChange" OnClick="btnPasswordChange" />
                     <a href="#" class="btn btn-primary prod-slid-btn disablePasswdChange" role="button">
                         CANCEL
                     </a>
