@@ -47,13 +47,13 @@
                 </div>
                 <div class="personal-info-nm">
                     <div class="radio">
-                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static" disabled id="genderMale" class="enableEdit">&nbsp;Male</label>
+                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static"  id="genderMale" class="enableEdit">&nbsp;Male</label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static" disabled id="genderFemale" class="enableEdit">&nbsp;Female</label>
+                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static"  id="genderFemale" class="enableEdit">&nbsp;Female</label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static" disabled id="genderNotSpecified" class="enableEdit">&nbsp;Not Specified</label>
+                        <label><input type="radio" runat="server" name="optradio" ClientIDMode="static"  id="genderNotSpecified" class="enableEdit">&nbsp;Not Specified</label>
                     </div>
                 </div>
                 

@@ -133,7 +133,7 @@
              </div>
 
 
-            <!--Address 1 Dispaly-->
+            <!--Address 1 Display-->
             <div class="user-address-list" id="addressDisplay2">
                 <div class="user-addess-line1">
                     <div class="user-address-line1-left">
