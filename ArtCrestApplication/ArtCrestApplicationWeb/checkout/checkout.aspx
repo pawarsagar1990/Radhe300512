@@ -236,15 +236,6 @@
                     alert(response.d);
                 }
             });
-            //<div class="radio check-address">
-            //        <div class="checkout-address-button">
-            //            <input type="radio" name="optradio">&nbsp;&nbsp;Swapnil Chavan
-            //        </div>                   
-            //        <div class="checkout-address-list">
-            //            <div class="to-address">A-908, Vihana Scoiety, Keshav Nagar, Mundhwa, Pune, Maharashtra-411036</div>
-            //            <div class="to-mobile-no">Mob. No. +91-9075005291</div>
-            //        </div>
-            //    </div>
         }
 
         function clearAllBoxes() {
@@ -265,12 +256,16 @@
                     title: "Are you sure you want to place order along with selected items and address?",
                     text: "Once you place order, we will get back to you on your registered Email ID and Mobile Number.",
                     icon: "warning",
+                    cancelButtonColor: "#DD6B55",
+                    confirmButtonColor: "#DD6B55",
+                    showLoaderOnConfirm: true,
                     buttons: {
                         cancel: {
                             text: "Cancel",
                             value: false,
                             visible: true,
                             className: "",
+                            dangerMode: true,
                             closeModal: true
                         },
                         confirm: {
@@ -278,8 +273,8 @@
                             value: true,
                             visible: true,
                             className: "",
-                            closeModal: true,
-                            showLoaderOnConfirm: true
+                            closeModal: false,
+                            successMode: true
                         }
                     },
                     dangerMode: true,
@@ -287,38 +282,35 @@
             .then((yesSure) => {
                 if (yesSure) {
                     if ($("#selectedAddress") && $("#selectedAddress").val() != "") {
-                        //swal({
-                        //    title: 'Order Placing is in progress!',
-                        //    html: 'Wait till next page appears, We are working on your request.',
-                        //    timer: 2000,
-                        //    onOpen: () => {
-                        //        swal.showLoading()
-                        //        timerInterval = setInterval(() => {
-                        //            swal.getContent().querySelector('strong')
-                        //              .textContent = swal.getTimerLeft()
-                        //        }, 100)
-                        //    },
-                        //    onClose: () => {
-                        //        clearInterval(timerInterval)
-                        //    }
-                        //}).then((result) => {
-                        //    if (
-                        //        // Read more about handling dismissals
-                        //      result.dismiss === swal.DismissReason.timer
-                        //    ) {
-                        //        console.log('I was closed by the timer')
-                        //    }
-                        //})
+                        swal({
+                            title: 'Order Placing is in progress!Wait till next page appears, We are working on your request.',                            
+                            timer: 20000,
+                            buttons: false,
+                            onOpen: () => {
+                                swal.showLoading();
+                            }
+                        });
+                        var dataValue = "{ address: '" + $("#selectedAddress").val() + "'}";
                         $.ajax({
                             type: "POST",
                             url: "../../checkout/checkout.aspx/confirmOrder",
                             contentType: "application/json; charset=utf-8",
+                            data: dataValue,
                             dataType: "json",
                             success: function (response) {
                                 if (response != "" && response.d.Data != 'undefined') {
                                     var parsedData = JSON.parse(response.d.Data);
                                     var orderDetail = JSON.parse(parsedData.orderDetail);
-                                    window.location.href = "/order/orderconfirmation.aspx?oID" + orderDetail[0].oOID;
+                                    if (orderDetail && orderDetail.length > 0)
+                                    { window.location.href = "/order/orderconfirmation.aspx?oID=" + orderDetail[0].oOID; }
+                                    else {
+                                        swal({
+                                            text: "Ooops! Something went wrong. Please try again with proper inputs.",
+                                            icon: "warning",
+                                            buttons: false,
+                                            dangerMode: true,
+                                        });
+                                    }                                    
                                 }//if response ends
                             },
                             failure: function (response) {

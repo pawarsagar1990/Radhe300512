@@ -8,11 +8,13 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Data;
+using System.Text;
 
 namespace ArtCrestApplication.checkout
 {
     public partial class checkout : System.Web.UI.Page
     {
+        BusinessLayer.BusinessLayer objBusinessL = new BusinessLayer.BusinessLayer();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null)
@@ -182,7 +184,7 @@ namespace ArtCrestApplication.checkout
         //    string addre = selectedAddress.Value;
         //}
         [WebMethod]
-        public static JsonResult confirmOrder()
+        public static JsonResult confirmOrder(string address)
         {
             JsonResult objJson = new JsonResult();
             JavaScriptSerializer objJS = new JavaScriptSerializer();
@@ -190,7 +192,7 @@ namespace ArtCrestApplication.checkout
             {
                 string[] strResultArray = new string[1];
                 checkout objCheckout = new checkout();
-                DataSet dtOrderAndOrderItem = objCheckout.actualConfirmOrder();
+                DataSet dtOrderAndOrderItem = objCheckout.actualConfirmOrder(address);
                 if (dtOrderAndOrderItem != null && dtOrderAndOrderItem.Tables.Count > 0)
                 {
                     var orderDetail = (from dt in dtOrderAndOrderItem.Tables[0].AsEnumerable()
@@ -216,11 +218,33 @@ namespace ArtCrestApplication.checkout
             return objJson;
         }
 
-        public DataSet actualConfirmOrder()
-        {
-            BusinessLayer.BusinessLayer objBusinessL = new BusinessLayer.BusinessLayer();
-            DataSet dsOrderAndOrderItem = objBusinessL.CreateConfirmOrder(Convert.ToInt32(Session["UserID"].ToString()), Convert.ToInt32(Session["CartID"].ToString()));
+        public DataSet actualConfirmOrder(string address)
+        {            
+            DataSet dsOrderAndOrderItem = objBusinessL.CreateConfirmOrder(Convert.ToInt32(Session["UserID"].ToString()), Convert.ToInt32(Session["CartID"].ToString()), Convert.ToInt32(address));
+            if (dsOrderAndOrderItem != null && dsOrderAndOrderItem.Tables.Count > 0 && dsOrderAndOrderItem.Tables[0].Rows.Count > 0)
+            { Session["CartID"] = "0"; sendOrderConfirmationEmail(dsOrderAndOrderItem); }  //means order successfully created.
             return dsOrderAndOrderItem;
         }
+
+        public void sendOrderConfirmationEmail(DataSet dtOrderConfirmation)
+        {
+            string mailSubject = "Your Skartif.com order of "+ dtOrderConfirmation.Tables[1].Rows[0]["ProductName"].ToString() + " is successfully placed.";
+            StringBuilder mailBody = new StringBuilder();
+            mailBody.Append("<b>Congratulations! Your order has been placed successfully. <br/> Your order number is "+ dtOrderConfirmation.Tables[1].Rows[0]["fkOrderID"].ToString() + ".<br/>");
+            mailBody.Append("Thank you for your order. We’ll send a confirmation when your order ships.</b><br/>");
+            mailBody.Append("<table style='border:1px;border-style:solid;'><th>Product Name</th><th>Quantity</th><th>Price</th><tbody>");
+            foreach (var dt in dtOrderConfirmation.Tables[1].AsEnumerable())
+            {
+                mailBody.Append("<tr><td>"+ dt["ProductName"].ToString() + "</td><td>" + dt["ProductQuantity"].ToString() + "</td><td>&#8377; " + dt["OrderItemFinalPrice"].ToString() + "</td></tr>");
+            }
+            mailBody.Append("<tr><td></td><td>Total Amount</td><td>&#8377; " + dtOrderConfirmation.Tables[0].Rows[0]["TotalAmount"].ToString() + "</td></tr>");
+            mailBody.Append("</tbody></table>");
+            mailBody.Append("<br/><br/><br/> Thank You.<br/>Skartif Team.");
+
+            objBusinessL.SendMail(Session["UserEmailID"].ToString(), mailSubject, mailBody.ToString());
+        }
+
+
+
     }
 }

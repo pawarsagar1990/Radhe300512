@@ -182,7 +182,7 @@ namespace DataAccessLayer
             return dsData;
         }
 
-        public DataSet CreateConfirmOrder(int UserID, int CartID)
+        public DataSet CreateConfirmOrder(int UserID, int CartID, int fkUserDetailAddressID)
         {
             DataSet dsData = new DataSet();
             try
@@ -195,8 +195,10 @@ namespace DataAccessLayer
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "CreateOrder";
-                cmd.Parameters.AddWithValue("CartID", CartID);                
+                cmd.Parameters.AddWithValue("CartID", CartID);
                 cmd.Parameters.AddWithValue("UserID", UserID);
+                cmd.Parameters.AddWithValue("UserDetailAddressID", fkUserDetailAddressID);
+                
                 cmd.Connection = con;
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 adp.Fill(dsData);

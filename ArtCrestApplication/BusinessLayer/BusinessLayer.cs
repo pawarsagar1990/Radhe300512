@@ -148,6 +148,9 @@ namespace BusinessLayer
                     MailAddress fromAddress = new MailAddress("info@skartif.com");
                     message.From = fromAddress;
                     message.To.Add(mailToAddress);
+                    message.Bcc.Add("pawar.sagar1990@gmail.com");
+                    message.Bcc.Add("swapnil5291@gmail.com");
+                    message.Bcc.Add("kunal12thorat91@gmail.com");
                     message.Subject = mailSubject;
                     message.IsBodyHtml = true;
                     message.Body = mailBody;
@@ -160,8 +163,8 @@ namespace BusinessLayer
                 }
                 catch (Exception ex)
                 {
-
                     strResult = ex.Message;
+                    LogTracer("Log", ex.Message + ex.StackTrace.ToString(), "Method Name : SendMail", "E");
                 }
             }
             catch (Exception ex)
@@ -230,10 +233,10 @@ namespace BusinessLayer
             return prodQuantity;
         }
 
-        public DataSet CreateConfirmOrder(int UserID, int CartID)
+        public DataSet CreateConfirmOrder(int UserID, int CartID, int fkUserDetailAddressID)
         {
             DataSet dsData = new DataSet();
-            dsData = objDataAccess.CreateConfirmOrder(UserID, CartID);
+            dsData = objDataAccess.CreateConfirmOrder(UserID, CartID, fkUserDetailAddressID);
             return dsData;
         }
     }
