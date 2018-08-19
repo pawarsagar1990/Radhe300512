@@ -229,5 +229,12 @@ namespace BusinessLayer
             }
             return prodQuantity;
         }
+
+        public DataSet CreateConfirmOrder(int UserID, int CartID)
+        {
+            DataSet dsData = new DataSet();
+            dsData = objDataAccess.CreateConfirmOrder(UserID, CartID);
+            return dsData;
+        }
     }
 }

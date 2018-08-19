@@ -181,5 +181,33 @@ namespace DataAccessLayer
             }
             return dsData;
         }
+
+        public DataSet CreateConfirmOrder(int UserID, int CartID)
+        {
+            DataSet dsData = new DataSet();
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConnString;
+                con.Close();
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "CreateOrder";
+                cmd.Parameters.AddWithValue("CartID", CartID);                
+                cmd.Parameters.AddWithValue("UserID", UserID);
+                cmd.Connection = con;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dsData);
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                LogTracerDA("Log", "Query Here-> CreateConfirmOrder->" + ex.Message + ex.StackTrace.ToString(), "Method Name : CreateConfirmOrder ", "E");
+            }
+            return dsData;
+        }
     }
 }
