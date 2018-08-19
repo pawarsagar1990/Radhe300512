@@ -58,9 +58,9 @@
 				</div>
 
 				<div class="topbar-child1">
-					<input type="text" placeholder="Search Products Here" class="form-in">
+					<input type="text" placeholder="Search Products Here" class="form-in" id="searchInput">
 					<a href="#">
-						<button class="btn">
+						<button class="btn" onclick="SearchBtnClick();">
 							<i class="fa fa-search" style="color:black;font-size:20px;"></i>
 						</button>
 					</a>
@@ -84,9 +84,9 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="#">Festive</a>
+								<a href="/product/products.aspx">Festive</a>
 								<ul class="sub_menu">
-									<li><a href="#">Rakhi-Bandhan</a></li>
+									<li><a href="/product/products.aspx?scid=0">Rakhi-Bandhan</a></li>
 									<li><a href="#">Diwali</a></li>
 								</ul>
 							</li>
@@ -205,9 +205,9 @@
 				<ul class="main-menu">
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child1-mobile">
-							<input type="text" placeholder="Search Products Here" class="form-in">
+							<input type="text" placeholder="Search Products Here" class="form-in" id="searchInputMob">
 							<a href="#">
-								<button class="btn">
+								<button class="btn" onclick="SearchBtnClickMob();">
 									<i class="fa fa-search" style="color:black;font-size:20px;"></i>
 								</button>
 							</a>
@@ -223,9 +223,9 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="#">Festive</a>
+						<a href="/product/products.aspx">Festive</a>
 						<ul class="sub-menu">
-							<li><a href="#">Rakhi-Bandhan</a></li>
+							<li><a href="/product/products.aspx?scid=0">Rakhi-Bandhan</a></li>
 							<li><a href="#">Diwali</a></li>
 						</ul>
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
@@ -347,8 +347,8 @@
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Search
+						<a href="/product/products.aspx" class="s-text7">
+							Products
 						</a>
 					</li>
 
@@ -364,7 +364,7 @@
 						</a>
 					</li>
 
-					<li class="p-b-9">
+					<li class="p-b-9" style="display:none;">
 						<a href="#" class="s-text7">
 							Our Blogs
 						</a>
@@ -498,6 +498,19 @@
         $(document).ready(function () {
             FetchItemCount();
         });///document ends
+
+        function SearchBtnClick() {
+            if ($("#searchInput").val() != "") {
+                window.location.href = "../product/products.aspx?ss=" + $("#searchInput").val();
+            }  
+        }
+
+        function SearchBtnClickMob() {
+            if ($("#searchInputMob").val() != "") {
+                window.location.href = "../product/products.aspx?ss=" + $("#searchInputMob").val();
+            } 
+        }
+
 
     </script>
 </html>  

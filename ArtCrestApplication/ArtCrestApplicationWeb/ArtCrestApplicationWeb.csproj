@@ -239,6 +239,7 @@
     <Content Include="productimages\Chhota Bhim Rakhi 1_4_0" />
     <Content Include="productimages\item-01.jpg" />
     <Content Include="product\productdetail.aspx" />
+    <Content Include="product\products.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -2953,6 +2954,13 @@
     </Compile>
     <Compile Include="product\productdetail.aspx.designer.cs">
       <DependentUpon>productdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="product\products.aspx.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product\products.aspx.designer.cs">
+      <DependentUpon>products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
