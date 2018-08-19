@@ -122,8 +122,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aboutus.aspx" />
     <Content Include="account\manageaddresses.aspx" />
     <Content Include="account\myaccount.aspx" />
+    <Content Include="contactus.aspx" />
     <Content Include="css\account.css" />
     <Content Include="css\order.css" />
     <Content Include="css\productdetail.css" />
@@ -239,6 +241,7 @@
     <Content Include="productimages\Chhota Bhim Rakhi 1_4_0" />
     <Content Include="productimages\item-01.jpg" />
     <Content Include="product\productdetail.aspx" />
+    <Content Include="product\products.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -2846,6 +2849,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="aboutus.aspx.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aboutus.aspx.designer.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="account\manageaddresses.aspx.cs">
       <DependentUpon>manageaddresses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2902,6 +2912,13 @@
     <Compile Include="checkout\checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="contactus.aspx.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contactus.aspx.designer.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forgotpassword.aspx.cs">
       <DependentUpon>forgotpassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2953,6 +2970,13 @@
     </Compile>
     <Compile Include="product\productdetail.aspx.designer.cs">
       <DependentUpon>productdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="product\products.aspx.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product\products.aspx.designer.cs">
+      <DependentUpon>products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
