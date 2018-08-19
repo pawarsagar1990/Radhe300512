@@ -27,6 +27,16 @@
 	white-space: nowrap; 
 	text-overflow: ellipsis;
 }
+.prod-slid-nm a{
+    font-family: 'Cinzel', serif;
+	font-size:17px;
+	font-weight:bold;
+	color:black;
+	text-align:center;
+	overflow:hidden;
+	white-space: nowrap; 
+	text-overflow: ellipsis;
+}
 .prod-slid-nm:hover {
     overflow: visible;
 }

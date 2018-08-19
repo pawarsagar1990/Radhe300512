@@ -493,9 +493,9 @@
                                         }
                                         eachProductItemDiv = eachProductItemDiv + "<div class='item'>" +
                                                    "<div class='card'>" +
-                                                   "<img src='productimages/" + ProductList.pImageLink + "' alt='img' class='card-img-top'>" +
+                                                   "<a target='_blank' href='/product/productdetail.aspx?pid=" + ProductList.pPID+ "'><img src='productimages/" + ProductList.pImageLink + "' alt='img' class='card-img-top'></a>" +
                                                    "<div class='card-body'>" +
-                                                   "<h3 class='prod-slid-nm'>" + ProductList.pPName + "</h3>";
+                                                   "<h3 class='prod-slid-nm'><a target='_blank' href='/product/productdetail.aspx?pid=" + ProductList.pPID + "'>" + ProductList.pPName + "</a></h3>";
                                         if (ProductList.pPDiscountPercent > 0) {
                                             eachProductItemDiv = eachProductItemDiv + "<h5 class='prod-slid-prc'>" + "<span class='prod_disc_prc'>&#8377;" + ProductList.pPDiscountPrice + "&nbsp;</span>" + "<span class='prod_sale_prc'>&#8377;" + ProductList.pPSellPrice + "</span>" +
                                                    "<span class='prod_disc_percent'>&nbsp;" + ProductList.pPDiscountPercent + "% OFF</span></h5>";

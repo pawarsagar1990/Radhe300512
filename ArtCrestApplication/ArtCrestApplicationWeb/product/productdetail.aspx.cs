@@ -28,7 +28,8 @@ namespace ArtCrestApplicationWeb.product
             else
             {
                 ShowErrorMsg("Oops! looks like you have tried incorrect link, please try correct link from email.", true);
-            }
+            };
+            hdnUserID.Value = Session["UserID"] != null ? Session["UserID"].ToString() : "0";
         }
 
 
@@ -38,6 +39,16 @@ namespace ArtCrestApplicationWeb.product
             fetchProductDetailParameters.Add("productID", productID);
             string fetchProductQuery = "select * from Product prod,ProductSuperCategory sprod,ProductCategory cprod,ProductSubCategory scprod,ProductImage iprod where prod.fkProductSuperCategoryID=sprod.ProductSuperCategoryID and prod.fkProductCategoryID=cprod.ProductCategoryID and prod.fkProductSubCategoryID=scprod.ProductSubCategoryID and prod.ProductID=iprod.fkProductID and prod.ProductID=@productID";
             DataTable dtProducts = DataAccessLayer.DataAccessLayer.getDataFromQueryWithParameters(fetchProductQuery, fetchProductDetailParameters);
+            return dtProducts;
+        }
+
+        public DataTable getRelatedProducts(string productID)
+        {
+            Dictionary<string, string> fetchProductParameters = new Dictionary<string, string>();
+            fetchProductParameters.Add("isActive", true.ToString());
+            fetchProductParameters.Add("productID", productID);
+            string fetchProductQuery = "select * from product left join productimage pimg on Product.ProductID = pimg.fkProductID where IsActive = 'true' and productQuantity > 0 and fkProductCategoryID=(select fkProductCategoryID from product where ProductID=@productID);";
+            DataTable dtProducts = DataAccessLayer.DataAccessLayer.getDataFromQueryWithParameters(fetchProductQuery, fetchProductParameters);
             return dtProducts;
         }
 
@@ -91,6 +102,51 @@ namespace ArtCrestApplicationWeb.product
             return objJson;
         }
 
+
+        [WebMethod]
+        public static JsonResult getRelatedProductList(string productID)
+        {
+            JsonResult objJson = new JsonResult();
+            JavaScriptSerializer objJS = new JavaScriptSerializer();
+            try
+            {
+                int hdnProductID = Convert.ToInt32(productID);
+                productdetails objrelatedProduct = new productdetails();
+                DataTable dtrelatedProducts = objrelatedProduct.getRelatedProducts(hdnProductID.ToString());
+                string[] strResultArray = new string[1];
+                if (dtrelatedProducts != null && dtrelatedProducts.Rows.Count > 0)
+                {
+                    var RelatedProdList = (from dt in dtrelatedProducts.AsEnumerable()
+                                          select new
+                                          {
+                                              pPID = dt["ProductID"],
+                                              pPName = dt["ProductName"],
+                                              pPDesc = dt["ProductDesc"],
+                                              pPFeatures = dt["ProductFeatures"],
+                                              pPDiscountPercent = dt["DiscountPercent"],
+                                              pPSellPrice = dt["ProductSellPrice"],
+                                              pPDiscountPrice = dt["ProductDiscountPrce"],
+                                              pPQuantity = dt["ProductQuantity"],
+                                              pImageLink = dt["ImageLink1"] != DBNull.Value ? dt["ImageLink1"] : "item-01.jpg",
+                                              pProdSubCategoryID = dt["fkProductSubCategoryID"]
+                                          }).ToList();
+
+                    strResultArray[0] = objJS.Serialize(RelatedProdList);
+                }
+
+                var genericResult = new
+                {
+                    RelatedProductList = strResultArray[0],
+                };
+                objJson.Data = objJS.Serialize(genericResult);
+                objJson.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            }
+            catch (Exception ex)
+            {
+                BusinessLayer.BusinessLayer.LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "getRelatedProductList", "E", "admin");
+            }
+            return objJson;
+        }
 
         public void ShowErrorMsg(string msg, bool isError)
         {
