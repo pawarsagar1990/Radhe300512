@@ -17,9 +17,9 @@
                 <div class="myaccount-header-link">
                     <a href="/account/myaccount.aspx">My Profile</a>
                 </div>
-                <div class="myaccount-header-link">
+                <!--<div class="myaccount-header-link">
                     <a href="/account/manageaddresses.aspx">My Addresses</a>
-                </div>
+                </div>-->
                 <div class="myaccount-header-link active">
                     <a href="orderhistory.aspx">My Orders</a>
                 </div>

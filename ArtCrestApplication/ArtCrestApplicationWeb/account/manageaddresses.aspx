@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="account-sec">
-        <div class="container">
+        <div class="container" style="display:none;">
             <!--Header Navigation-->
             <div class="myaccount-header">
                 <div class="myaccount-header-link">
@@ -14,9 +14,9 @@
                 <div class="myaccount-header-link active">
                     <a href="manageaddresses.aspx">My Addresses</a>
                 </div>
-                <div class="myaccount-header-link">
+                <!--<div class="myaccount-header-link">
                     <a href="/order/orderhistory.aspx">My Orders</a>
-                </div>
+                </div>-->
             </div>
 
             <!--Add new address section-->

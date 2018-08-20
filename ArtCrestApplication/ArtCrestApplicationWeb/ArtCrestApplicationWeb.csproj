@@ -242,6 +242,7 @@
     <Content Include="productimages\item-01.jpg" />
     <Content Include="product\productdetail.aspx" />
     <Content Include="product\products.aspx" />
+    <Content Include="returnpolicy.aspx" />
     <Content Include="termsprivacy.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
@@ -2986,6 +2987,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="returnpolicy.aspx.cs">
+      <DependentUpon>returnpolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="returnpolicy.aspx.designer.cs">
+      <DependentUpon>returnpolicy.aspx</DependentUpon>
     </Compile>
     <Compile Include="termsprivacy.aspx.cs">
       <DependentUpon>termsprivacy.aspx</DependentUpon>

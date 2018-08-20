@@ -14,20 +14,20 @@
 	<section class="bgwhite p-t-66 p-b-38">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 p-b-30">
+				<div class="col-md-6 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="images/banner-14.jpg" alt="IMG-ABOUT">
+						<img src="images/banner-14.png" alt="IMG-ABOUT">
 					</div>
 				</div>
 
-				<div class="col-md-8 p-b-30">
+				<div class="col-md-6 p-b-30">
 					<h3 class="m-text26 p-t-15 p-b-16">
 						Our story
 					</h3>
 
 					<p class="p-b-28">
-					The primary operative of artCrest; www.artcrest.in is an e-commerce platform which is built to market and sell products in the arts, festive items, home decor and jewellery category. We offer product customisation, making of different artefacts and artworks across different categories on order; all of it delivered to your home. No Bargaining hassle, No visiting multiple stores to find the perfect gift.
-                    artCrest is also a platform for thousands of artists, especially housewives who design excellent products but do not have proper marketing and sales channel for their products to reach the right customer and be valued. All of our vendors are and will be the artists who make products at a very small scale but to unprecedented uniqueness and beauty.
+					The primary operative of skartif Private Limited; www.skartif.com is an e-commerce platform which is built to market and sell products in the arts, festive items, home decor and jewellery category. We offer product customisation, making of different artefacts and artworks across different categories on order; all of it delivered to your home. No Bargaining hassle, No visiting multiple stores to find the perfect gift.
+                    skartif is also a platform for thousands of artists, especially housewives who design excellent products but do not have proper marketing and sales channel for their products to reach the right customer and be valued. All of our vendors are and will be the artists who make products at a very small scale but to unprecedented uniqueness and beauty.
                     Gift the Feel of hand-crafted works to your loved ones
 					</p>
 
@@ -36,7 +36,7 @@
 							Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
 						</p>
 
-						<span class="s-text7">
+						<span>
 							- Steve Job’s
 						</span>
 					</div>
