@@ -314,14 +314,24 @@
                         $("#productDesc").html(ProductData[0].pPDesc);
                         $("#productAddInfo").html(ProductData[0].pPFeatures);
                         var clickCartFunction = "";
-                        if (parseInt($("#hdnUserID").val()) > 0) {
+                        if (parseInt($("#hdnUserID").val()) > 0 && parseInt(ProductData[0].pPQuantity) > 0) {
                             clickCartFunction = "AddToCart();"
+                        }
+                        else if (parseInt($("#hdnUserID").val()) > 0 && parseInt(ProductData[0].pPQuantity) == 0) {
+                            clickCartFunction = "outOfStock();";
                         }
                         else {
                             clickCartFunction = "RedirectToLogin();";
                         }
                         var addcartbtndiv = "";
-                        addcartbtndiv = "<button class='flex-c-m sizefull prod-slid-btn bo-rad-23 s-text1 trans-0-4' onclick='" + clickCartFunction + "' type='button'>Add to Cart</button>";
+                        var inStock = "";
+                        if (parseInt(ProductData[0].pPQuantity) > 0) {
+                            inStock = "<span style='color:green;display:inline-block;padding:10px;'>In Stock<span>";
+                        }
+                        else {
+                            inStock = "<span style='color:red;display:inline-block;padding:10px;'>Out of Stock<span>";
+                        }
+                        addcartbtndiv = "<button class='flex-c-m sizefull prod-slid-btn bo-rad-23 s-text1 trans-0-4' onclick='" + clickCartFunction + "' type='button'>Add to Cart</button>" + inStock;
                         $("#addCartBtn").append(addcartbtndiv);
                        
                      }
@@ -467,6 +477,26 @@
 
         function RedirectToLogin() {
             window.location.href = "../login.aspx";
+        }
+
+        function outOfStock() {
+            swal({
+                title: "Sorry! This product is currently out of stock.",
+                cancelButtonColor: "#DD6B55",
+                confirmButtonColor: "#DD6B55",
+                showLoaderOnConfirm: true,
+                buttons: {
+                    ok: {
+                        text: "Ok",
+                        value: false,
+                        visible: true,
+                        className: "",
+                        dangerMode: true,
+                        closeModal: true
+                    }
+                },
+                dangerMode: false,
+            })
         }
 
         /* Product Review click function*/

@@ -39,7 +39,7 @@ namespace ArtCrestApplicationWeb.order
                                        {
                                            oID = dt["OrderID"],
                                            pID = dt["fkProductID"],
-                                           oExpectedDeliveryDate = dt["OrderDeliveryDate"].ToString(),
+                                           oExpectedDeliveryDate = dt["expectedDeliveryDate"],
                                            oCustomerName = dt["UserDetailFirstName"],
                                            uDmob = dt["UserDetailMobileNo"],
                                            uDAddress = dt["UserDetailAddressLine1"],
@@ -77,7 +77,7 @@ namespace ArtCrestApplicationWeb.order
             Dictionary<string, string> fetchOrderDetailsParameters = new Dictionary<string, string>();
             fetchOrderDetailsParameters.Add("fkOrderID", Convert.ToInt32(OrderID).ToString());
             fetchOrderDetailsParameters.Add("fkUserID", Convert.ToInt32(Session["UserID"]).ToString());
-            string fetchOrderDetailQuery = "select * from [order] o inner join orderitem oi on o.OrderID = oi.fkOrderID "+ 
+            string fetchOrderDetailQuery = "select *,convert(varchar, oi.OrderDeliveryDate, 107) as expectedDeliveryDate from [order] o inner join orderitem oi on o.OrderID = oi.fkOrderID " + 
                                         " inner join UserDetail ud on o.fkUserDetailAddressID = ud.UserDetailID "+
                                         " left join productimage pimg on oi.fkProductID = pimg.fkProductID "+
                                         " where o.orderID = @fkOrderID and o.isCancelled = 0 and oi.isCancelled = 0 and o.fkUserID = @fkUserID;";

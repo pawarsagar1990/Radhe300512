@@ -22,15 +22,6 @@ namespace ArtCrestApplication {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// guestNameID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor guestNameID;
-        
-        /// <summary>
         /// cartItemCount control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace ArtCrestApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartItemCount;
+        
+        /// <summary>
+        /// guestNameID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor guestNameID;
         
         /// <summary>
         /// form1 control.

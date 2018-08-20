@@ -96,7 +96,7 @@
                         </a>
                     </div>
                     <div class="check-proc-btn">
-					    <a href="home.aspx" class="btn btn-primary prod-slid-btn check-btn" role="button">Continue Shopping</a>
+					    <a href="/product/products.aspx" class="btn btn-primary prod-slid-btn check-btn" role="button">Continue Shopping</a>
                     </div>
 				</div>
 			</div>

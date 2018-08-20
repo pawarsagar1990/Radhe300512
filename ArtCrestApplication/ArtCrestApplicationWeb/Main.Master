@@ -87,7 +87,7 @@
 								<a href="/product/products.aspx">Festive</a>
 								<ul class="sub_menu">
 									<li><a href="/product/products.aspx?scid=0">Rakhi-Bandhan</a></li>
-									<li><a href="#">Diwali</a></li>
+									<li><a href="#">Diwali - Coming Soon</a></li>
 								</ul>
 							</li>
 
@@ -132,7 +132,16 @@
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<ul class="main_menu">
+					<div class="header-wrapicon2">
+						<a href="/cart/cart.aspx">
+							<i class="fa fa-shopping-cart" style="font-size:24px;"></i>
+						</a>
+						<span class="header-icons-noti" id="cartItemCount" runat="server">0</span>
+					</div>
+
+                    <span class="linedivide1"></span>
+
+                    <ul class="main_menu">
 						<li>
 							<span class="header-wrapicon1 dis-block">
 						        <i class="fa fa-user" style="font-size:24px;"></i>
@@ -146,14 +155,7 @@
 					    </li>
                     </ul>
                     <span>&nbsp;&nbsp;Hi, <a href="#" runat="server" id="guestNameID">Guest</a></span>
-					<span class="linedivide1"></span>
-
-					<div class="header-wrapicon2">
-						<a href="/cart/cart.aspx">
-							<i class="fa fa-shopping-cart" style="font-size:24px;"></i>
-						</a>
-						<span class="header-icons-noti" id="cartItemCount" runat="server">0</span>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -226,7 +228,7 @@
 						<a href="/product/products.aspx">Festive</a>
 						<ul class="sub-menu">
 							<li><a href="/product/products.aspx?scid=0">Rakhi-Bandhan</a></li>
-							<li><a href="#">Diwali</a></li>
+							<li><a href="#">Diwali - Coming Soon</a></li>
 						</ul>
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
@@ -308,7 +310,7 @@
 				</div>
 			</div>
 
-			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+			<!--<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 				<h4 class="s-text12 p-b-30">
 					PRODUCTS
 				</h4>
@@ -338,7 +340,7 @@
 						</a>
 					</li>
 				</ul>
-			</div>
+			</div>-->
 
 			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 				<h4 class="s-text12 p-b-30">
@@ -349,6 +351,12 @@
 					<li class="p-b-9">
 						<a href="/product/products.aspx" class="s-text7">
 							Products
+						</a>
+					</li>
+
+                    <li class="p-b-9">
+						<a href="/product/products.aspx?scid=0" class="s-text7">
+							Rakhi Special
 						</a>
 					</li>
 
@@ -379,26 +387,26 @@
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="/order/orderhistory.aspx" class="s-text7">
 							Track Order
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Returns
+						<a href="/account/myaccount.aspx" class="s-text7">
+							My Profile
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Shipping
+						<a href="/termsprivacy.aspx" class="s-text7">
+							Terms & Conditions
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							FAQs
+						<a href="/returnpolicy.aspx" class="s-text7">
+							Return Policy
 						</a>
 					</li>
 				</ul>

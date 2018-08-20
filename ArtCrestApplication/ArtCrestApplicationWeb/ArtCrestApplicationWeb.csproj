@@ -242,6 +242,7 @@
     <Content Include="productimages\item-01.jpg" />
     <Content Include="product\productdetail.aspx" />
     <Content Include="product\products.aspx" />
+    <Content Include="termsprivacy.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -2985,6 +2986,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="termsprivacy.aspx.cs">
+      <DependentUpon>termsprivacy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="termsprivacy.aspx.designer.cs">
+      <DependentUpon>termsprivacy.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

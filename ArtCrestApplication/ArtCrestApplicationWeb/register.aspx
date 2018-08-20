@@ -26,13 +26,13 @@
 			<asp:TextBox runat="server" class="login-input" TextMode="Password" placeholder="Enter Password" ID="txtConfirmPassword" name="txtConfirmPassword" required />
         			
             <asp:Button Text="Register" class="login-btn" runat="server" ID="btnRegister" OnClick="btnRegister_Click" />
-			<p style="text-align:center;">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+			<p style="text-align:center;">By creating an account you agree to our <a target="_blank" href="/termsprivacy.aspx" style="color:dodgerblue">Terms & Privacy</a>.</p>
 			</div>
 		</div>
 		
 		<div class="container">
-			<div class="reg-box" style="text-align:center;>
-				<span class="psw">Already have account?<span>
+			<div class="reg-box" style="text-align:center;">
+				<span class="psw">Already have account?</span>
 				<span class="psw">Click <a href="/login.aspx" style="color:dodgerblue">Here</a> to Login</span>
 			</div>
 		</div>

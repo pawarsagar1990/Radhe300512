@@ -10,7 +10,7 @@
         <!--Order Confirmation Message-->
         <div class="container ord-confirm-msg-block">
             <div class="ord-confirm-msg-head">
-                <h2>Congratulations! Your order has been placed successfully. <br />Your order number is <span id="spanOrderNumber"></span>.</h2>
+                <h2>Congratulations! Your order has been placed successfully. <br />Your Order ID is <span id="spanOrderNumber"></span>.</h2>
             </div>
             <div class="ord-confirm-msg-ship">
                 <span>Expected Delivery Date: <span id="spanExpectedDeliveryDate"></span></span>
@@ -229,9 +229,8 @@
                         var orderDetails = JSON.parse(parsedData.orderDetails);
                         if (orderDetails && orderDetails.length > 0)
                         {
-                            $("#spanOrderNumber").html(orderDetails[0].oID);
-                            var splitDate = (orderDetails[0].oExpectedDeliveryDate).split("/");
-                            $("#spanExpectedDeliveryDate").html(splitDate[1] + "/" + splitDate[0] + "/" + splitDate[2].substr(0,4));
+                            $("#spanOrderNumber").html("ORD" + orderDetails[0].oID);
+                            $("#spanExpectedDeliveryDate").html(orderDetails[0].oExpectedDeliveryDate);
                             $("#delvAddress").html(orderDetails[0].uDAddress + ", " + orderDetails[0].uDAreaLocality + ", " + orderDetails[0].uDLandmark +
                                      ", " + orderDetails[0].uDCity + ", " + orderDetails[0].uDState + "- " + orderDetails[0].uDPinCode);                            
                             $("#delvName").html(orderDetails[0].oCustomerName);
