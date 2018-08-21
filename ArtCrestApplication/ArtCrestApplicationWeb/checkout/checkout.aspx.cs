@@ -257,7 +257,52 @@ namespace ArtCrestApplication.checkout
             objBusinessL.SendMail(Session["UserEmailID"].ToString(), mailSubject, mailBody.ToString());
         }
 
+        public bool checkIfValidPincode(string address)
+        {
+            bool isValidPincode = false;
+            Dictionary<string, string> fetchPinCodeDetails = new Dictionary<string, string>();
+            fetchPinCodeDetails.Add("isActive", true.ToString());
+            fetchPinCodeDetails.Add("userDetailID", Convert.ToInt32(address).ToString());
+            string fetchProductQuery = "select * from UserDetail ud inner join Pincode pc on ud.UserDetailPinCode = pc.pincode " 
+                                        + "where ud.UserDetailID = @userDetailID and ud.IsActive = @isActive and pc.IsActive = @isActive;";
+            DataTable dtPinCode = DataAccessLayer.DataAccessLayer.getDataFromQueryWithParameters(fetchProductQuery, fetchPinCodeDetails);
+            if(dtPinCode != null && dtPinCode.Rows.Count > 0)
+            {
+                isValidPincode = true;
+            }
+            return isValidPincode;
+        }
 
+        [WebMethod]
+        public static JsonResult checkValidPincode(string address)
+        {
+            JsonResult objJson = new JsonResult();
+            JavaScriptSerializer objJS = new JavaScriptSerializer();
+            try
+            {
+                string[] strResultArray = new string[1];
+                checkout objCheckout = new checkout();
+                if (objCheckout.checkIfValidPincode(address))
+                {
+                    strResultArray[0] = objJS.Serialize(true.ToString());
+                }
+                else
+                {
+                    strResultArray[0] = objJS.Serialize(false.ToString());
+                }
+                var genericResult = new
+                {
+                    checkValidPincode = strResultArray[0]
+                };
+                objJson.Data = objJS.Serialize(genericResult);
+                objJson.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            }
+            catch (Exception ex)
+            {
+                BusinessLayer.BusinessLayer.LogTracer(ex.Message + "- stack trace =" + ex.StackTrace.ToString(), "checkValidPincode", "E", "user");
+            }
+            return objJson;
+        }
 
     }
 }

@@ -14,7 +14,7 @@
 			<asp:TextBox runat="server" class="login-input" placeholder="Enter Last Name" ID="txtLastName" name="txtLastName" required />
 
 			<label for="uname"><b>Email ID</b></label>
-			<asp:TextBox runat="server" class="login-input" TextMode="Email" placeholder="Enter EmailID" ID="txtEmailAddress" name="txtEmailAddress" required />
+			<asp:TextBox runat="server" class="login-input" TextMode="Email" placeholder="Enter Email ID" ID="txtEmailAddress" name="txtEmailAddress" required />
 			
 			<label for="uname"><b>Mobile No.</b>&nbsp;&nbsp;&nbsp;(Please enter your 10 digit mobile number)</label>			
             <asp:TextBox runat="server" class="login-input" TextMode="Number" placeholder="Enter 10 digit mobile number" ID="txtMobileNo" name="txtMobileNo" required />

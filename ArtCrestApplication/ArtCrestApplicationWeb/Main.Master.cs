@@ -39,6 +39,7 @@ namespace ArtCrestApplication
             if (Session["CartItemCount"] != null)
             {
                 cartItemCount.InnerHtml = Session["CartItemCount"].ToString();
+                cartItemCountMob.InnerHtml = Session["CartItemCount"].ToString();
             }
 
         }

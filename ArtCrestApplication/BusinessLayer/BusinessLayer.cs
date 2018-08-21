@@ -163,13 +163,13 @@ namespace BusinessLayer
                 }
                 catch (Exception ex)
                 {
-                    strResult = ex.Message;
-                    LogTracer("Log", ex.Message + ex.StackTrace.ToString(), "Method Name : SendMail", "E");
+                    strResult = ex.Message;                    
+                    LogTracer(ex.Message + ex.StackTrace.ToString(), "Method Name : SendMail ", "E", mailToAddress.ToString());
                 }
             }
             catch (Exception ex)
             {
-                LogTracer("Log", ex.Message, "Method Name : SendMail", "E");
+                LogTracer(ex.Message + ex.StackTrace.ToString(), "Method Name : SendMail ", "E", mailToAddress.ToString());
             }
 
             return strResult;
