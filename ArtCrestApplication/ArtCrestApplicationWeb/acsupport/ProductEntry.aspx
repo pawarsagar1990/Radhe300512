@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <section class="">
+        <section style="margin-top:50px;margin-bottom:40px;">
             <div class="container">                
                 <div class="reg-box">
                     <asp:Label ID="lblErrorMsg" runat="server"></asp:Label> <br />
@@ -57,8 +57,8 @@
                         <asp:ListItem Text="There will be no charges if you return product within 24hours after delivery." Value="1"></asp:ListItem>
                     </asp:DropDownList>
 
-                    <label for="uname"><b>Active</b></label>
-                    <asp:CheckBox runat="server" ID="chkIsActive"></asp:CheckBox>
+                    <label for="uname"><b>Is Active</b></label>
+                    <asp:CheckBox runat="server" ID="chkIsActive"></asp:CheckBox><br />
 
                     <label for="uname"><b>Product Image 1</b></label>
                     <asp:FileUpload class="login-input"  runat="server" ID="imageUpload1" />
