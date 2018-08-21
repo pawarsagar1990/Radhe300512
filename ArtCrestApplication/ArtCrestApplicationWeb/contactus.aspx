@@ -55,7 +55,7 @@
                     <span>Sadguru Link Road, Nasik, PIN: 422002</span> <br /><br />
                     <span style="font-weight:bold;color:#1f0a50;">OR</span><br /><br />
                     <span>Email us at info@skartif.com</span><br />
-                    <span>Call us on +91-8839485414</span><br />
+                    <span>Call us on +91-8956678914/+91-8839485414</span><br />
                 </div>
             </div>
         </div>
