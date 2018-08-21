@@ -11,7 +11,11 @@ namespace ArtCrestApplicationWeb.account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == null)
+            {
+                Response.Redirect("/Login.aspx");
+            }
+            else { Response.Redirect("/home.aspx"); }
         }
     }
 }

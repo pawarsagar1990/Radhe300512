@@ -195,13 +195,26 @@ namespace ArtCrestApplication.checkout
                 DataSet dtOrderAndOrderItem = objCheckout.actualConfirmOrder(address);
                 if (dtOrderAndOrderItem != null && dtOrderAndOrderItem.Tables.Count > 0)
                 {
-                    var orderDetail = (from dt in dtOrderAndOrderItem.Tables[0].AsEnumerable()
-                                       select new
-                                       {
-                                           oOID = dt["OrderID"],                                           
-                                       }).ToList();
+                    if (dtOrderAndOrderItem.Tables[0].Rows.Count > 0)
+                    {
+                        var orderDetail = (from dt in dtOrderAndOrderItem.Tables[0].AsEnumerable()
+                                           select new
+                                           {
+                                               oOID = dt["OrderID"],
+                                           }).ToList();
 
-                    strResultArray[0] = objJS.Serialize(orderDetail);
+                        strResultArray[0] = objJS.Serialize(orderDetail);
+                    }
+                    else if (dtOrderAndOrderItem.Tables[2].Rows.Count > 0)
+                    {
+                        var errorDetail = (from dt in dtOrderAndOrderItem.Tables[2].AsEnumerable()
+                                           select new
+                                           {
+                                               errorMessage = dt["ErrorMessage"],
+                                           }).ToList();
+
+                        strResultArray[0] = objJS.Serialize(errorDetail);
+                    }
                 }
 
                 var genericResult = new

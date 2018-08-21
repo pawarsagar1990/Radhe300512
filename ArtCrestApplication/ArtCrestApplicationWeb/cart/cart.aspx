@@ -3,12 +3,12 @@
     <title>My Cart - skartif</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <label id="lblEmptyCart" style="margin-top:50px" visible="false" runat="server"><b>Oops!!Looks like your cart is empty. Please add some products to your cart. <a href="../Home.aspx">Click here</a> to view products.</b></label>
+    <label id="lblEmptyCart" style="margin-top:50px" visible="false" runat="server"><b>Oops!!Looks like your cart is empty. Please add some products to your cart. <a href="/Home.aspx">Click here</a> to view products.</b></label>
     <section class="cart-sec" id="CartSection" runat="server">
 		<div class="container">            
 			<div class="cart-container">
 				<div class="cart-title">
-					<span>My Cart (<span id="myCartItemsCount">2 Items</span>)</span>
+					<span>My Cart (<span id="myCartItemsCount"></span>)</span>
 				</div>
                 <div id="cartDetails">
                     <%--<div class="cart-list-sec">
@@ -312,13 +312,16 @@
 	        success: function (response) {
 	            if (response != "" && response.d.Data != 'undefined') {
 	                var parsedData = JSON.parse(response.d.Data);
-	                var UpdateSuccess = JSON.parse(parsedData.UpdateSuccess);
-	                if (UpdateSuccess != "") {
-	                    swal({ text: UpdateSuccess });
-	                }
-	                else {
-	                    getCartDetails();
-	                }
+	                if (parsedData && parsedData.UpdateSuccess != undefined && parsedData.UpdateSuccess != null)
+	                {
+	                    var UpdateSuccess = JSON.parse(parsedData.UpdateSuccess);
+	                    if (UpdateSuccess != "") {
+	                        swal({ text: UpdateSuccess });
+	                    }
+	                    else {
+	                        getCartDetails();
+	                    }
+	                }	                
 	            }
 	        },
 	        failure: function (response) {

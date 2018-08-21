@@ -254,8 +254,7 @@
             if ($("#selectedAddress") && $("#selectedAddress").val() != "") {
                 swal({
                     title: "Are you sure you want to place order along with selected items and address?",
-                    text: "Once you place order, we will get back to you on your registered Email ID and Mobile Number.",
-                    icon: "warning",
+                    text: "Once you place order, we will get back to you on your registered Email ID and Contact Number.",                    
                     cancelButtonColor: "#DD6B55",
                     confirmButtonColor: "#DD6B55",
                     showLoaderOnConfirm: true,
@@ -277,13 +276,13 @@
                             successMode: true
                         }
                     },
-                    dangerMode: true,
+                    dangerMode: false,
                 })
             .then((yesSure) => {
                 if (yesSure) {
                     if ($("#selectedAddress") && $("#selectedAddress").val() != "") {
                         swal({
-                            title: 'Order Placing is in progress!Wait till next page appears, We are working on your request.',                            
+                            title: 'Please Wait till next page appears, we are working on your request.',                            
                             timer: 20000,
                             buttons: false,
                             onOpen: () => {
@@ -302,7 +301,22 @@
                                     var parsedData = JSON.parse(response.d.Data);
                                     var orderDetail = JSON.parse(parsedData.orderDetail);
                                     if (orderDetail && orderDetail.length > 0)
-                                    { window.location.href = "/order/orderconfirmation.aspx?oID=" + orderDetail[0].oOID; }
+                                    {
+                                        if (orderDetail[0] && orderDetail[0].oOID != undefined && orderDetail[0].oOID != null)
+                                        {
+                                            window.location.href = "/order/orderconfirmation.aspx?oID=" + orderDetail[0].oOID;
+                                        }
+                                        else if (orderDetail[0] && orderDetail[0].errorMessage != undefined && orderDetail[0].errorMessage != null)
+                                        {
+                                            swal({
+                                                text: orderDetail[0].errorMessage,
+                                                icon: "warning",
+                                                buttons: true,
+                                                dangerMode: true                                                
+                                            });
+                                        }
+                                        
+                                    }
                                     else {
                                         swal({
                                             text: "Ooops! Something went wrong. Please try again with proper inputs.",

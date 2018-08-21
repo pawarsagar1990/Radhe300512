@@ -20,9 +20,20 @@ namespace ArtCrestApplication
                 }                
             }
 
-            if(Session["UserFirstName"] != null)
+            if (Session["UserFirstName"] != null)
             {
                 guestNameID.InnerHtml = Session["UserFirstName"].ToString();
+                masterLogin.Visible = false;
+                mobileLoginLoginButton.Visible = false;
+                masterLogout.Visible = true;
+                mobileLoginLogoutButton.Visible = true;
+            }
+            else
+            {
+                masterLogin.Visible = true;
+                mobileLoginLoginButton.Visible = true;
+                masterLogout.Visible = false;
+                mobileLoginLogoutButton.Visible = false;
             }
 
             if (Session["CartItemCount"] != null)

@@ -31,6 +31,24 @@ namespace ArtCrestApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartItemCount;
         
         /// <summary>
+        /// masterLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor masterLogin;
+        
+        /// <summary>
+        /// masterLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor masterLogout;
+        
+        /// <summary>
         /// guestNameID control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,24 @@ namespace ArtCrestApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor guestNameID;
+        
+        /// <summary>
+        /// mobileLoginLoginButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor mobileLoginLoginButton;
+        
+        /// <summary>
+        /// mobileLoginLogoutButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor mobileLoginLogoutButton;
         
         /// <summary>
         /// form1 control.

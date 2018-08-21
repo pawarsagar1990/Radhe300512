@@ -15,6 +15,10 @@ namespace ArtCrestApplicationWeb.order
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+            {
+                Response.Redirect("/Login.aspx");
+            }
             hdnUserID.Value = Session["UserID"] != null ? Session["UserID"].ToString() : "0";
         }
 
