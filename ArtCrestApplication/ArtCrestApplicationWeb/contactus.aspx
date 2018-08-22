@@ -50,9 +50,7 @@
                         Contact Us
                     </h4>
                     <span style="font-weight:bold;color:#1f0a50;">Mailing Address:</span><br />
-                    <span>skartif Private Limited,</span><br />
-                    <span>B-404, Lamboder Avenue, Pushpanjali Nagar,</span><br />
-                    <span>Sadguru Link Road, Nasik, PIN: 422002</span> <br /><br />
+                    <span>B-603, Eisha Footprint, <br />Opposite to Indira National School, </br>Bhumakr Chowk, Tathwade, PIN: 411033 </br></span><br />
                     <span style="font-weight:bold;color:#1f0a50;">OR</span><br /><br />
                     <span>Email us at info@skartif.com</span><br />
                     <span>Call us on +91-8956678914/+91-8839485414</span><br />
