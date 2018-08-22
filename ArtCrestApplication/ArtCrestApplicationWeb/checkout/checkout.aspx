@@ -179,31 +179,55 @@
 
         //name, mobileID, address, pinCode, areaLocality, landMark, city, stateID, stateName
         function saveAddress() {
-            var dataValue = "{ name: '" + $("#txtName").val() + "', mobileID : '" + $("#txtMob").val() + "', address : '" + $("#txtAddress").val() + "', pinCode: '" + $("#txtPinCode").val() + "', areaLocality : '" + $("#txtArea").val() + "', landMark : '" + $("#txtLandMark").val() + "', city : '" + $("#txtCity").val() + "', stateID : '" + $("#drpState").val() + "',stateName : '" + $("#drpState option:selected").text() + "' }";
-            $.ajax({
-                type: "POST",
-                url: "../../checkout/checkout.aspx/saveAddress",
-                contentType: "application/json; charset=utf-8",
-                data: dataValue,
-                dataType: "json",
-                success: function (response) {
-                    if (response != "" && response.d.Data != 'undefined') {
-                        var parsedData = JSON.parse(response.d.Data);
-                        var successAddressSave = JSON.parse(parsedData.successAddressSave);
-                        if (successAddressSave != true) {
-                            swal({ text: "Ooops! looks like there was error while saving address. Please try again." });
+            if ($("#txtName").val() != "" && $("#txtMob").val() != "" && $("#txtAddress").val() != "" && $("#txtPinCode").val() != "" && $("#txtArea").val() != "" && $("#txtLandMark").val() != "" && $("#txtCity").val() != "" && $("#drpState").val() != "" && $("#drpState option:selected").text() != "") {
+
+
+                var dataValue = "{ name: '" + $("#txtName").val() + "', mobileID : '" + $("#txtMob").val() + "', address : '" + $("#txtAddress").val() + "', pinCode: '" + $("#txtPinCode").val() + "', areaLocality : '" + $("#txtArea").val() + "', landMark : '" + $("#txtLandMark").val() + "', city : '" + $("#txtCity").val() + "', stateID : '" + $("#drpState").val() + "',stateName : '" + $("#drpState option:selected").text() + "' }";
+                $.ajax({
+                    type: "POST",
+                    url: "../../checkout/checkout.aspx/saveAddress",
+                    contentType: "application/json; charset=utf-8",
+                    data: dataValue,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != "" && response.d.Data != 'undefined') {
+                            var parsedData = JSON.parse(response.d.Data);
+                            var successAddressSave = JSON.parse(parsedData.successAddressSave);
+                            if (successAddressSave != true) {
+                                swal({ text: "Ooops! looks like there was error while saving address. Please try again." });
+                            }
+                            else {
+                                $("#addNewAddress").trigger("click");
+                                getAddresses();
+                                clearAllBoxes();
+                            }
                         }
-                        else {
-                            $("#addNewAddress").trigger("click");
-                            getAddresses();
-                            clearAllBoxes();
-                        }
+                    },
+                    failure: function (response) {
+                        alert(response.d);
                     }
-                },
-                failure: function (response) {
-                    alert(response.d);
-                }
-            }); //update cart  ajax ends
+                }); //update cart  ajax ends
+
+            }
+            else {
+                swal({
+                    title: "Please enter all required fields",
+                    cancelButtonColor: "#DD6B55",
+                    confirmButtonColor: "#DD6B55",
+                    showLoaderOnConfirm: true,
+                    buttons: {
+                        ok: {
+                            text: "Ok",
+                            value: false,
+                            visible: true,
+                            className: "",
+                            dangerMode: true,
+                            closeModal: true
+                        }
+                    },
+                    dangerMode: false,
+                })
+            }
         };//fn updatecart
 
         function getAddresses() {
@@ -333,7 +357,7 @@
                         }///if pincode valid ends
                         else {
                             swal({
-                                text: "Currently we are not delivering to entered Pincode location, we are working on payment integration methods. However for now please connect with us to complete your order on Contact Number +91-8956678914.",
+                                text: "Thank you for showing interest in the above products, currently we are unable to deliver at the entered Pincode location via cash on delivery option, we are working on payment integration methods. However for now if you wish to place the order connect with us to complete your order on Contact Number +91-8956678914. We will accept the order and dispatch it at the earliest.",
                                 icon: "warning",
                                 buttons: false,
                                 dangerMode: true,
