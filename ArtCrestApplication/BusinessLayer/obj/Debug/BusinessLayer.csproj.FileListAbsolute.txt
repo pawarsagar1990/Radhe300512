@@ -5,3 +5,10 @@ G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\obj\Debu
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\obj\Debug\BusinessLayer.pdb
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\bin\Debug\DataAccessLayer.dll
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\git code base\ArtCrestApplication\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\git code base\ArtCrestApplication\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\git code base\ArtCrestApplication\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\git code base\ArtCrestApplication\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\git code base\ArtCrestApplication\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\git code base\ArtCrestApplication\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\git code base\ArtCrestApplication\BusinessLayer\obj\Debug\BusinessLayer.pdb

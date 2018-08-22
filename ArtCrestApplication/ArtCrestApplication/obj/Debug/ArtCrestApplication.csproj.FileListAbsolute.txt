@@ -46,3 +46,26 @@ G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\ArtCrestApplication\bi
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\ArtCrestApplication\bin\DataAccessLayer.dll
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\ArtCrestApplication\bin\BusinessLayer.pdb
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\ArtCrestApplication\bin\DataAccessLayer.pdb
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\ApplicationInsights.config
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\csc.exe
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\System.Collections.Immutable.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\System.Reflection.Metadata.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\vbc.exe
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\VBCSCompiler.exe
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\roslyn\VBCSCompiler.exe.config
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\ArtCrestApplication.dll.config
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\ArtCrestApplication.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\ArtCrestApplication.pdb
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\BusinessLayer.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\DataAccessLayer.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\BusinessLayer.pdb
+C:\git code base\ArtCrestApplication\ArtCrestApplication\bin\DataAccessLayer.pdb
+C:\git code base\ArtCrestApplication\ArtCrestApplication\obj\Debug\ArtCrestApplication.csprojResolveAssemblyReference.cache
+C:\git code base\ArtCrestApplication\ArtCrestApplication\obj\Debug\ArtCrestApplication.dll
+C:\git code base\ArtCrestApplication\ArtCrestApplication\obj\Debug\ArtCrestApplication.pdb

@@ -3,3 +3,8 @@ G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\bin\De
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 G:\Projects\ArtCrest\GithubSourceCode\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\git code base\ArtCrestApplication\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\git code base\ArtCrestApplication\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\git code base\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\git code base\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\git code base\ArtCrestApplication\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

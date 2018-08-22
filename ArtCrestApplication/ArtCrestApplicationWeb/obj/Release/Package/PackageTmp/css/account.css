@@ -1,0 +1,201 @@
+﻿/********************************************************************************************************
+****************************************SKARTIF PRIVATE LIMITED******************************************
+********************************************Web Style Sheets*********************************************
+********************************************************************************************************/
+
+/*/////////////////////////////////////////////////////////////////////
+Style Sheet: account.css
+Used For: myaccount and manageaddresses pages
+Created by: Swapnil Chavan
+Creadted Date: 7 Aug 2018
+/////////////////////////////////////////////////////////////////////*/
+
+
+/*////////////////////////////////////////////////////
+////////////////////My account page///////////////////
+////////////////////////////////////////////////////*/
+
+.account-sec {
+    margin-top:60px;
+    margin-bottom:40px;
+}
+
+
+
+/*/////////////////////////Account Header///////////////////////////////*/
+
+.myaccount-header {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    font-family:'Cinzel', sans-serif;
+    color:#3c9bed;
+    font-weight:700;
+    margin-bottom:30px;
+}
+.myaccount-header-link{
+    display:inline-block;
+    width:49.81%;
+    text-align:center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration:none;
+    vertical-align:middle;
+}
+.myaccount-header a{
+    font-family:'Cinzel', sans-serif;
+    color:#3c9bed;
+    font-weight:700;
+}
+.active {
+    background-color:#1f0a50;
+    color:white;
+}
+.active a{
+    color:white;
+    font-family:'Cinzel', sans-serif;
+    font-weight:700;
+}
+@media (max-width:760px) {
+    .myaccount-header-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        border-bottom:1px solid #bbb5b5;
+    }
+}
+
+/*Peronal information eidt section*/
+.personal-info{
+    margin-top:20px;
+    margin-bottom:20px;
+    border: 1px solid #bbb5b5;
+    background-color:aliceblue;
+}
+
+.personal-info-title {
+    width:70%;
+    display:inline-block;
+    padding: 10px;
+}
+.personal-info-edit{
+    width:28%;
+    display:inline-block;
+    padding: 10px;
+    text-align:right;
+    color:#1f0a50;
+    font-weight:bold;
+}
+
+.personal-info-nm{
+    padding:10px;
+}
+.input-nm{
+    height:40px;
+    text-align:justify;
+    width:30%;
+    margin-right:10%;
+    padding:5px;
+}
+@media (max-width:760px) {
+    .input-nm {
+        height: 40px;
+        text-align: justify;
+        width: 100%;
+        margin-right: 4%;
+    }
+}
+
+.personal-info-id {
+    padding:10px;
+}
+.radio{
+    display:inline;
+    padding-right:15%;
+}
+
+/*Pasword Change section*/
+.input-passwd{
+    height:40px;
+    text-align:justify;
+    display:block;
+    margin-bottom:10px;
+    width:30%;
+    padding:5px;
+}
+
+@media (max-width:760px){
+    .input-passwd{
+        width:90%;
+    }
+}
+
+.personal-info-passwd {
+    padding:10px;
+    color:#1f0a50;
+    font-weight:bold;
+}
+
+.save-button{
+    text-align:right;
+    color:#1f0a50;
+    font-weight:bold;
+    padding:10px;
+    display:none;
+}
+.save-button-passwd{
+    text-align:left;
+    color:#1f0a50;
+    font-weight:bold;
+    padding:10px;
+    display:none;
+}
+
+
+
+
+/*////////////////////////////////////////////////////
+////////////////Manage Addresses page/////////////////
+////////////////////////////////////////////////////*/
+
+.add-new-address{
+    border: 1px solid #bbb5b5;
+    padding: 10px;
+    background-color:aliceblue;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.user-address-list{
+    border: 1px solid #bbb5b5;
+    padding: 10px;
+    background-color:aliceblue;
+}
+
+.edit-add-list{
+    display:none;
+    margin-bottom:10px;
+    background-color:aliceblue;
+    padding:10px;
+    border: 1px solid #bbb5b5;
+}
+
+.user-address-line1-left {
+    display:inline-block;
+    width:75%;
+}
+.user-address-line1-right {
+    display:inline-block;
+    width:20%;
+    text-align:right;
+    float:right;
+    color:#3c9bed;
+    font-weight:bold;
+}
+.address-edit-buttons {
+    margin-top:60px;
+}
+.address-edit-button{
+    width:45%;
+    display:inline-block;
+    text-align:center;
+}

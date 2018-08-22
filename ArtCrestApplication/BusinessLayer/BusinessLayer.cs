@@ -155,14 +155,14 @@ namespace BusinessLayer
                     message.IsBodyHtml = true;
                     message.Body = mailBody;
                     ///uncommmment below 3 lines to start Local Email sending okay
-                    //smtpClient.Host = "smtp.zoho.com";   //-- Donot change.
-                    //smtpClient.Port = 587; //--- Donot change
-                    //smtpClient.EnableSsl = true;//--- Donot change     
+                    smtpClient.Host = "smtp.zoho.com";   //-- Donot change.
+                    smtpClient.Port = 587; //--- Donot change
+                    smtpClient.EnableSsl = true;//--- Donot change     
                     
                     ///Comment below 3 lines to start Production settings Email sending okay                    
-                    smtpClient.Host = "relay-hosting.secureserver.net";   //-- Donot change.
-                    smtpClient.Port = 25; //--- Donot change
-                    smtpClient.EnableSsl = false;//--- Donot change        
+                    //smtpClient.Host = "relay-hosting.secureserver.net";   //-- Donot change.
+                    //smtpClient.Port = 25; //--- Donot change
+                    //smtpClient.EnableSsl = false;//--- Donot change        
                                                     
                     smtpClient.Credentials = new System.Net.NetworkCredential("info@skartif.com", "Startup@007");
                     smtpClient.Send(message);
