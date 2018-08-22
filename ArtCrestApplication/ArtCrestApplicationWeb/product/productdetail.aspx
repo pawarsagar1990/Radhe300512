@@ -61,8 +61,8 @@
                     <span class="prod_sale_prc" id="productSalePrice"></span>
                     <span class="prod_disc_percent" id="productDiscountPercent"></span>
                 </span>
-                <p style="text-align: justify;" id="productInfo">
-                </p>
+                <!--<p style="text-align: justify;" id="productInfo">
+                </p>-->
 
                 <div class="stars">
                     <form>
@@ -116,15 +116,15 @@
                     </div>
                 </div>
 
-                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
+                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14" id=>
                     <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">Additional information
 						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
                         <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
                     </h5>
 
-                    <div class="dropdown-content dis-none p-t-15 p-b-23">
-                        <p style="text-align: justify;" id="productAddInfo">
-                        </p>
+                    <div class="dropdown-content dis-none p-t-15 p-b-23" id="productfeautres">
+                        <!--<p style="text-align: justify;" id="productAddInfo">
+                        </p>-->
                     </div>
                 </div>
 
@@ -312,6 +312,16 @@
                         }
                         $("#productInfo").html(ProductData[0].pPDesc);
                         $("#productDesc").html(ProductData[0].pPDesc);
+                        var paddfeatures = "";
+                        paddfeatures = ProductData[0].pPFeatures.split("|");//id="productfeautres">
+                        var length=paddfeatures.length;
+                        var productfeatures="";
+                        var x = 0;
+                        while (x<length) {
+                            productfeatures = productfeatures + "<p style='text-align: justify;'>&#8226;&nbsp;" + paddfeatures[x] + "</p>";
+                            x = x + 1;
+                        };
+                        $("#productfeautres").append(productfeatures);
                         $("#productAddInfo").html(ProductData[0].pPFeatures);
                         var clickCartFunction = "";
                         if (parseInt($("#hdnUserID").val()) > 0 && parseInt(ProductData[0].pPQuantity) > 0) {
