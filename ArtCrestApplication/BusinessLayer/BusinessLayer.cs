@@ -150,19 +150,21 @@ namespace BusinessLayer
                     message.To.Add(mailToAddress);
                     message.Bcc.Add("pawar.sagar1990@gmail.com");
                     message.Bcc.Add("swapnil5291@gmail.com");
+                    message.Bcc.Add("info.skartif@gmail.com");
                     message.Bcc.Add("kunal12thorat91@gmail.com");
+                    message.Bcc.Add("r.means.rahul@gmail.com");
                     message.Subject = mailSubject;
                     message.IsBodyHtml = true;
                     message.Body = mailBody;
                     ///uncommmment below 3 lines to start Local Email sending okay
-                    smtpClient.Host = "smtp.zoho.com";   //-- Donot change.
-                    smtpClient.Port = 587; //--- Donot change
-                    smtpClient.EnableSsl = true;//--- Donot change     
+                    //smtpClient.Host = "smtp.zoho.com";   //-- Donot change.
+                    //smtpClient.Port = 587; //--- Donot change
+                    //smtpClient.EnableSsl = true;//--- Donot change     
                     
                     ///Comment below 3 lines to start Production settings Email sending okay                    
-                    //smtpClient.Host = "relay-hosting.secureserver.net";   //-- Donot change.
-                    //smtpClient.Port = 25; //--- Donot change
-                    //smtpClient.EnableSsl = false;//--- Donot change        
+                    smtpClient.Host = "relay-hosting.secureserver.net";   //-- Donot change.
+                    smtpClient.Port = 25; //--- Donot change
+                    smtpClient.EnableSsl = false;//--- Donot change        
                                                     
                     smtpClient.Credentials = new System.Net.NetworkCredential("info@skartif.com", "Startup@007");
                     smtpClient.Send(message);

@@ -297,7 +297,7 @@
 				<div>
 					<p class="s-text7 w-size27">
 						<strong>Write Us at below Address:</strong></br>
-						B-404, Lamboder Avenue, Pushpanjali Nagar, </br>Sadguru Link Road, Nasik, PIN: 422002 </br>
+						B-603, Eisha Footprint, <br />Opposite to Indira National School, </br>Bhumakr Chowk, Tathwade, PIN: 411033 </br>
 						<span style="text-align:center"><strong>Or</strong></span></br>Call us on +91-8956678914/+91-8839485414
 					</p>
 
@@ -466,15 +466,15 @@
 
 
 
-	<!-- Back to top -->
+	<!-- Back to top 
 	<div class="btn-back-to-top bg0-hov" id="myBtn">
 		<span class="symbol-btn-back-to-top">
 			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
 		</span>
 	</div>
 
-	<!-- Container Selection1 -->
-	<div id="dropDownSelect1"></div>
+	<!-- Container Selection1 
+	<div id="dropDownSelect1"></div>-->
 
 
 </body>
@@ -482,13 +482,13 @@
 	<script type="text/javascript" src="/vendor/bootstrap/js/popper.js"></script>
 	<script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="/vendor/select2/select2.min.js"></script>
+	<!--<script type="text/javascript" src="/vendor/select2/select2.min.js"></script>
 	<script type="text/javascript">
 		$(".selection-1").select2({
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect1')
 		});
-	</script>
+	</script>-->
 <!--===============================================================================================-->
     	<script src="/js/main.js"></script>
 
