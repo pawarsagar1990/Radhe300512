@@ -5,7 +5,7 @@
 
     <br />
     <div class="container">
-        <asp:Label ID="lblErrorMsg" runat="server"></asp:Label>
+        <asp:Label ID="lblErrorMsg" runat="server" ClientIDMode="Static"></asp:Label>
         <asp:HiddenField ID="hdnSubCatID" runat="server" ClientIDMode="Static" />
         <asp:HiddenField runat="server" ID="hdnSearchAlias" ClientIDMode="Static" />
         <asp:HiddenField runat="server" ID="hdnUserID" ClientIDMode="Static" />
@@ -396,37 +396,44 @@
                     if (response != "" && response.d.Data != 'undefined') {
                         var parsedData = JSON.parse(response.d.Data);
                         var ProductData = JSON.parse(parsedData.ProductSearchList);
+                        if (ProductData != null) {
+                            var divprodhtml = "";
+                            divprodhtml = "<div class='row'>"
+                            var eachProduct = "";
+                            $.each(ProductData, function (key, ProductData) {
 
-                        var divprodhtml = "";
-                        divprodhtml = "<div class='row'>"
-                        var eachProduct = "";
-                        $.each(ProductData, function (key, ProductData) {
+                                var clickFunction = "";
+                                if (parseInt($("#hdnUserID").val()) > 0) {
+                                    clickFunction = "AddToCartRelated(" + ProductData.pPID + ");"
+                                }
+                                else {
+                                    clickFunction = "RedirectToLogin();";
+                                }
 
-                            var clickFunction = "";
-                            if (parseInt($("#hdnUserID").val()) > 0) {
-                                clickFunction = "AddToCartRelated(" + ProductData.pPID + ");"
-                            }
-                            else {
-                                clickFunction = "RedirectToLogin();";
-                            }
+                                eachProduct = eachProduct + "<div class='col-sm-12 col-md-6 col-lg-4 p-b-50'><div class='block2'><div class='block2-img card'>"
+                                        + "<a target='_blank' href='/product/productdetail.aspx?pid=" + ProductData.pPID + "'><img src='/productimages/" + ProductData.pImageLink + "' class='card-img-top' style='width:100%;' alt='IMG-PRODUCT'></a></div>"
+                                        + "<div class='card-body'><h3 class='prod-slid-nm'><a target='_blank' href='/product/productdetail.aspx?pid=" + ProductData.pPID + "'>" + ProductData.pPName + "</a></h3>"
+                                if (ProductData.pPDiscountPercent > 0) {
+                                    eachProduct = eachProduct + "<h5 class='prod-slid-prc'>" + "<span class='prod_disc_prc'>&#8377;" + ProductData.pPDiscountPrice + "&nbsp;</span>" + "<span class='prod_sale_prc'>&#8377;" + ProductData.pPSellPrice + "</span>" +
+                                           "<span class='prod_disc_percent'>&nbsp;" + ProductData.pPDiscountPercent + "% OFF</span></h5>";
+                                }
+                                else {
+                                    eachProduct = eachProduct + "<h5 class='prod-slid-prc'>" +
+                                           "<span class='prod_disc_prc'>&#8377;" + ProductData.pPDiscountPrice + "&nbsp;</span></h5>";
+                                }
+                                eachProduct = eachProduct + "<button class='btn btn-primary prod-slid-btn' type='button' onclick='" + clickFunction + "'>Add to Cart</button></div></div></div>";
 
-                            eachProduct = eachProduct + "<div class='col-sm-12 col-md-6 col-lg-4 p-b-50'><div class='block2'><div class='block2-img card'>"
-                                    + "<a target='_blank' href='/product/productdetail.aspx?pid=" + ProductData.pPID + "'><img src='/productimages/" + ProductData.pImageLink + "' class='card-img-top' style='width:100%;' alt='IMG-PRODUCT'></a></div>"
-                                    + "<div class='card-body'><h3 class='prod-slid-nm'><a target='_blank' href='/product/productdetail.aspx?pid=" + ProductData.pPID + "'>" + ProductData.pPName + "</a></h3>"
-                            if (ProductData.pPDiscountPercent > 0) {
-                                eachProduct = eachProduct + "<h5 class='prod-slid-prc'>" + "<span class='prod_disc_prc'>&#8377;" + ProductData.pPDiscountPrice + "&nbsp;</span>" + "<span class='prod_sale_prc'>&#8377;" + ProductData.pPSellPrice + "</span>" +
-                                       "<span class='prod_disc_percent'>&nbsp;" + ProductData.pPDiscountPercent + "% OFF</span></h5>";
-                            }
-                            else {
-                                eachProduct = eachProduct + "<h5 class='prod-slid-prc'>" +
-                                       "<span class='prod_disc_prc'>&#8377;" + ProductData.pPDiscountPrice + "&nbsp;</span></h5>";
-                            }
-                            eachProduct = eachProduct + "<button class='btn btn-primary prod-slid-btn' type='button' onclick='" + clickFunction + "'>Add to Cart</button></div></div></div>";
-
-                        });
-                        divprodhtml = divprodhtml + eachProduct + "</div>";
-                        $("#productDataList").append(divprodhtml);
+                            });
+                            divprodhtml = divprodhtml + eachProduct + "</div>";
+                            $("#productDataList").append(divprodhtml);
+                        }
+                        else {
+                            $("#lblErrorMsg").val("You search pattern did not match any product in our inventory. Please try again using suitable words for product you are trying to search.");
+                        }
+                        
                     }
+
+                    
 
                 },
                 failure: function (response) {
