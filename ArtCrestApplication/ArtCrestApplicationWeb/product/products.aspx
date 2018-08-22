@@ -70,6 +70,7 @@
                 </div>
 
                 <div class="col-sm-6 col-md-8 col-lg-9 p-b-50" id="productDataList">
+                    <span id="errorMsg"></span>
                     <!--<div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
                             <div class="block2 ">
@@ -428,7 +429,7 @@
                             $("#productDataList").append(divprodhtml);
                         }
                         else {
-                            $("#lblErrorMsg").val("You search pattern did not match any product in our inventory. Please try again using suitable words for product you are trying to search.");
+                            $("#errorMsg").html("Sorry! You search pattern did not match any product in our inventory. Please try again using suitable words for product you are trying to search.");
                         }
                         
                     }

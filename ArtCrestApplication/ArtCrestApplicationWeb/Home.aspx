@@ -19,16 +19,16 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/master-slide-01.jpg" alt="ms1">
+                    <img src="images/master-slide-01.jpg" alt="ms1" style="width:100%;">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/master-slide-02.jpg" alt="ms2">
+                    <img src="images/master-slide-02.jpg" alt="ms2" style="width:100%;"">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/master-slide-03.jpg" alt="ms3">
+                    <img src="images/master-slide-03.jpg" alt="ms3" style="width:100%;">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/master-slide-04.jpg" alt="ms4">
+                    <img src="images/master-slide-04.jpg" alt="ms4" style="width:100%;">
                 </div>
             </div>
 
