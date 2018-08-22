@@ -22,13 +22,13 @@ namespace ArtCrestApplication {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// cartItemCount control.
+        /// cartItemCountMob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartItemCount;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartItemCountMob;
         
         /// <summary>
         /// masterLogin control.
@@ -74,6 +74,15 @@ namespace ArtCrestApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor mobileLoginLogoutButton;
+        
+        /// <summary>
+        /// cartItemCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartItemCount;
         
         /// <summary>
         /// form1 control.

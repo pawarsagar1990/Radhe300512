@@ -154,22 +154,29 @@ namespace BusinessLayer
                     message.Subject = mailSubject;
                     message.IsBodyHtml = true;
                     message.Body = mailBody;
-                    smtpClient.Host = "smtp.zoho.com";   //-- Donot change.
-                    smtpClient.Port = 587; //--- Donot change
-                    smtpClient.EnableSsl = true;//--- Donot change                    
+                    ///uncommmment below 3 lines to start Local Email sending okay
+                    //smtpClient.Host = "smtp.zoho.com";   //-- Donot change.
+                    //smtpClient.Port = 587; //--- Donot change
+                    //smtpClient.EnableSsl = true;//--- Donot change     
+                    
+                    ///Comment below 3 lines to start Production settings Email sending okay                    
+                    smtpClient.Host = "relay-hosting.secureserver.net";   //-- Donot change.
+                    smtpClient.Port = 25; //--- Donot change
+                    smtpClient.EnableSsl = false;//--- Donot change        
+                                                    
                     smtpClient.Credentials = new System.Net.NetworkCredential("info@skartif.com", "Startup@007");
                     smtpClient.Send(message);
 
                 }
                 catch (Exception ex)
                 {
-                    strResult = ex.Message;
-                    LogTracer("Log", ex.Message + ex.StackTrace.ToString(), "Method Name : SendMail", "E");
+                    strResult = ex.Message;                    
+                    LogTracer(ex.Message + ex.StackTrace.ToString(), "Method Name : SendMail ", "E", mailToAddress.ToString());
                 }
             }
             catch (Exception ex)
             {
-                LogTracer("Log", ex.Message, "Method Name : SendMail", "E");
+                LogTracer(ex.Message + ex.StackTrace.ToString(), "Method Name : SendMail ", "E", mailToAddress.ToString());
             }
 
             return strResult;

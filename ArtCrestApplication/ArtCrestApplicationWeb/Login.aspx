@@ -8,7 +8,7 @@
 			<div class="login-box">
             <asp:Label ID="lblErrorMsg" runat="server"></asp:Label><br />
 			<label for="uname"><b>EmailID</b></label>			
-            <asp:TextBox runat="server" class="login-input" placeholder="Enter EmailID" ID="txtEmailID" name="txtEmailID" required />
+            <asp:TextBox runat="server" class="login-input" placeholder="Enter Email ID" ID="txtEmailID" name="txtEmailID" required />
 			<label for="psw"><b>Password</b></label>			
             <asp:TextBox runat="server" class="login-input" TextMode="Password" placeholder="Enter Password" ID="txtPassword" name="txtPassword" required />			
             <asp:Button Text="Login" class="login-btn" runat="server" ID="btnLogin" OnClick="btnLogin_Click" />

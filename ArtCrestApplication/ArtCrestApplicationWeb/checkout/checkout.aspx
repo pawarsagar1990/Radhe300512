@@ -281,56 +281,64 @@
             .then((yesSure) => {
                 if (yesSure) {
                     if ($("#selectedAddress") && $("#selectedAddress").val() != "") {
-                        swal({
-                            title: 'Please Wait till next page appears, we are working on your request.',                            
-                            timer: 20000,
-                            buttons: false,
-                            onOpen: () => {
-                                swal.showLoading();
-                            }
-                        });
-                        var dataValue = "{ address: '" + $("#selectedAddress").val() + "'}";
-                        $.ajax({
-                            type: "POST",
-                            url: "../../checkout/checkout.aspx/confirmOrder",
-                            contentType: "application/json; charset=utf-8",
-                            data: dataValue,
-                            dataType: "json",
-                            success: function (response) {
-                                if (response != "" && response.d.Data != 'undefined') {
-                                    var parsedData = JSON.parse(response.d.Data);
-                                    var orderDetail = JSON.parse(parsedData.orderDetail);
-                                    if (orderDetail && orderDetail.length > 0)
-                                    {
-                                        if (orderDetail[0] && orderDetail[0].oOID != undefined && orderDetail[0].oOID != null)
-                                        {
-                                            window.location.href = "/order/orderconfirmation.aspx?oID=" + orderDetail[0].oOID;
+                        var checkPincodeValid = checkIfValidPincode();
+                        if (checkPincodeValid == "True") {
+                            swal({
+                                title: 'Please Wait till next page appears, we are working on your request.',
+                                timer: 20000,
+                                buttons: false,
+                                onOpen: () => {
+                                    swal.showLoading();
+                                }
+                            });
+                            var dataValue = "{ address: '" + $("#selectedAddress").val() + "'}";
+                            $.ajax({
+                                type: "POST",
+                                url: "../../checkout/checkout.aspx/confirmOrder",
+                                contentType: "application/json; charset=utf-8",
+                                data: dataValue,
+                                dataType: "json",
+                                success: function (response) {
+                                    if (response != "" && response.d.Data != 'undefined') {
+                                        var parsedData = JSON.parse(response.d.Data);
+                                        var orderDetail = JSON.parse(parsedData.orderDetail);
+                                        if (orderDetail && orderDetail.length > 0) {
+                                            if (orderDetail[0] && orderDetail[0].oOID != undefined && orderDetail[0].oOID != null) {
+                                                window.location.href = "/order/orderconfirmation.aspx?oID=" + orderDetail[0].oOID;
+                                            }
+                                            else if (orderDetail[0] && orderDetail[0].errorMessage != undefined && orderDetail[0].errorMessage != null) {
+                                                swal({
+                                                    text: orderDetail[0].errorMessage,
+                                                    icon: "warning",
+                                                    buttons: true,
+                                                    dangerMode: true
+                                                });
+                                            }
+
                                         }
-                                        else if (orderDetail[0] && orderDetail[0].errorMessage != undefined && orderDetail[0].errorMessage != null)
-                                        {
+                                        else {
                                             swal({
-                                                text: orderDetail[0].errorMessage,
+                                                text: "Ooops! Something went wrong. Please try again with proper inputs.",
                                                 icon: "warning",
-                                                buttons: true,
-                                                dangerMode: true                                                
+                                                buttons: false,
+                                                dangerMode: true,
                                             });
                                         }
-                                        
-                                    }
-                                    else {
-                                        swal({
-                                            text: "Ooops! Something went wrong. Please try again with proper inputs.",
-                                            icon: "warning",
-                                            buttons: false,
-                                            dangerMode: true,
-                                        });
-                                    }                                    
-                                }//if response ends
-                            },
-                            failure: function (response) {
-                                alert(response.d);
-                            }
-                        });
+                                    }//if response ends
+                                },
+                                failure: function (response) {
+                                    alert(response.d);
+                                }
+                            });  //ajax ends
+                        }///if pincode valid ends
+                        else {
+                            swal({
+                                text: "Currently we are not delivering to entered Pincode location, we are working on payment integration methods. However for now please connect with us to complete your order on Contact Number +91-8956678914.",
+                                icon: "warning",
+                                buttons: false,
+                                dangerMode: true,
+                            });
+                        }
                     }
                     else {
                         swal({
@@ -354,7 +362,32 @@
             }
         }//btnconfirmorder ends
 
-
+        function checkIfValidPincode() {
+            var dataValue = "{ address: '" + $("#selectedAddress").val() + "'}";
+            var result = false;
+            $.ajax({
+                type: "POST",
+                url: "../../checkout/checkout.aspx/checkValidPincode",
+                contentType: "application/json; charset=utf-8",
+                data: dataValue,
+                async: false,
+                dataType: "json",
+                success: function (response) {                    
+                    if (response != "" && response.d.Data != 'undefined') {
+                        var parsedData = JSON.parse(response.d.Data);
+                        if (parsedData != null && parsedData != undefined) {
+                            var checkValidPincode = JSON.parse(parsedData.checkValidPincode);
+                            result =  checkValidPincode;
+                        }
+                        else { result =  false; }
+                    }//if response ends
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+            return result;
+        };//getcartdetails ends
 
 
         function selectAddress(selectedAddress) {

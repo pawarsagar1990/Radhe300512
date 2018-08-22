@@ -136,7 +136,7 @@
 						<a href="/cart/cart.aspx">
 							<i class="fa fa-shopping-cart" style="font-size:24px;"></i>
 						</a>
-						<span class="header-icons-noti" id="cartItemCount" runat="server">0</span>
+						<span class="header-icons-noti" id="cartItemCountMob" runat="server">0</span>
 					</div>
 
                     <span class="linedivide1"></span>
@@ -189,7 +189,7 @@
 
 					<div class="header-wrapicon2">						
 						<a href="/cart/cart.aspx"><i class="fa fa-shopping-cart" style="font-size:24px;"></i></a>
-						<span class="header-icons-noti">0</span>
+						<span class="header-icons-noti" id="cartItemCount" runat="server">0</span>
 					</div>
 				</div>
 

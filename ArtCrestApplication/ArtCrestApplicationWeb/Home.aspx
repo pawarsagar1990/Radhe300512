@@ -580,6 +580,7 @@
                         var CartItemCount = JSON.parse(parsedData.CartItemCount);
                         if (CartItemCount != null && CartItemCount != undefined && CartItemCount != "") {
                             $("#cartItemCount").html(CartItemCount);
+                            $("#cartItemCountMob").html(CartItemCount);
                         }
                     }
                 },
