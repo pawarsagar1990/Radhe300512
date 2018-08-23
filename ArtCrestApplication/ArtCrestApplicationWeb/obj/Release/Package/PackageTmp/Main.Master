@@ -46,15 +46,17 @@
 </head>
 <body class="animsition">    
 	<!--Header Section-->
+
 	<header class="header1">
 		<!-- Header Section for desktop -->
 		<div class="container-menu-header">
 			<div class="topbar">
 				<div class="topbar-social">
-					<a href="#" class="topbar-social-item fa fa-facebook"></a>
+					<!--<a href="#" class="topbar-social-item fa fa-facebook"></a>
 					<a href="#" class="topbar-social-item fa fa-instagram"></a>
 					<a href="#" class="topbar-social-item fa fa-twitter"></a>
-					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>-->
+                    <span style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size-adjust:inherit;">Free shipping on orders above Rs.150</span>
 				</div>
 
 				<div class="topbar-child1">

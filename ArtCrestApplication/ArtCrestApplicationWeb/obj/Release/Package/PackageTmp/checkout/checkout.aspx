@@ -357,7 +357,7 @@
                         }///if pincode valid ends
                         else {
                             swal({
-                                text: "Thank you for showing interest in the above products, currently we are unable to deliver at the entered Pincode location via cash on delivery option, we are working on payment integration methods. However for now if you wish to place the order connect with us to complete your order on Contact Number +91-8956678914. We will accept the order and dispatch it at the earliest.",
+                                text: "Thank you for showing interest in the above products, currently we are unable to deliver outside Pune region via cash on delivery option, we are working on payment integration methods. However for now if you wish to place the order connect with us to complete your order on Contact Number +91-8956678914. We will accept the order and dispatch it at the earliest.",
                                 icon: "warning",
                                 buttons: false,
                                 dangerMode: true,

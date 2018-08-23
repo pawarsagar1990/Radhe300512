@@ -42,6 +42,10 @@
         </div>
     </section>
 
+    <div class="container" style="text-align:center;color:#fd0e91;padding-top:20px;font-weight:bold;font-size:20px;">
+        <span>Free shipping on orders above Rs.150 & 1 day delivery available within Pune.</span>
+    </div>
+
     <div id="ProductSlider">
         <!--Product Slider 1-->
         <%--<section class="product-slider">
