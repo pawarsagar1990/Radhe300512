@@ -476,7 +476,7 @@
                             $.each(ProductSubCatList, function (key, ProductSubCatList) {
                                 divHtml = "<section class='product-slider'><div class='container mt-4'>" +
                                        "<div class='row'>" +
-                                       "<div class='col-md-12 text-center'><span class='product-slider-title'>" + ProductSubCatList.pSName + "</span></div>" +
+                                       "<div class='col-md-12'><div style='text-align:left;display:inline-block;width:70%;'><span class='product-slider-title'>" + ProductSubCatList.pSName + "</span></div><div style='text-align:right;display:inline-block;width:25%;vertical-align: middle;'><a class='btn btn-primary prod-slid-btn' href='/product/products.aspx?scid=" + ProductSubCatList.pSID + "' role='button'>View More</a></div></div>" +
                                        "</div></div>" +
                                        "<div class='container mt-3'>" +
                                        "<div class='row'>" +

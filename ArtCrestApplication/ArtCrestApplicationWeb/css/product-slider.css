@@ -17,6 +17,15 @@
     font-size: 28px;
     color: black;
 }
+@media (max-width:760px) {
+    .product-slider-title {
+        font-family: 'Cinzel Decorative', serif;
+        font-weight: 400;
+        font-size: 18px;
+        color: black;
+    }
+}
+
 .prod-slid-nm{
 	font-family: 'Cinzel', serif;
 	font-size:17px;
