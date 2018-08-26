@@ -150,7 +150,9 @@ namespace BusinessLayer
                     message.To.Add(mailToAddress);
                     message.Bcc.Add("pawar.sagar1990@gmail.com");
                     message.Bcc.Add("swapnil5291@gmail.com");
+                    message.Bcc.Add("info.skartif@gmail.com");
                     message.Bcc.Add("kunal12thorat91@gmail.com");
+                    message.Bcc.Add("r.means.rahul@gmail.com");
                     message.Subject = mailSubject;
                     message.IsBodyHtml = true;
                     message.Body = mailBody;

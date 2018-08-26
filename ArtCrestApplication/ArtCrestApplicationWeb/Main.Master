@@ -46,15 +46,17 @@
 </head>
 <body class="animsition">    
 	<!--Header Section-->
+
 	<header class="header1">
 		<!-- Header Section for desktop -->
 		<div class="container-menu-header">
 			<div class="topbar">
 				<div class="topbar-social">
-					<a href="#" class="topbar-social-item fa fa-facebook"></a>
+					<!--<a href="#" class="topbar-social-item fa fa-facebook"></a>
 					<a href="#" class="topbar-social-item fa fa-instagram"></a>
 					<a href="#" class="topbar-social-item fa fa-twitter"></a>
-					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>-->
+                    <span style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size-adjust:inherit;">Free shipping on orders above Rs.150</span>
 				</div>
 
 				<div class="topbar-child1">
@@ -68,7 +70,7 @@
 
 				<div class="topbar-child2">
 					<span class="topbar-email" style="color:black;">
-						info@skartif.com&nbsp;/&nbsp;+91-8956678914
+						info@skartif.com
 					</span>
 				</div>
 			</div>
@@ -106,7 +108,7 @@
 							</li>
 
 							<li>
-								<a href="#">Stationary</a>
+								<a href="#">Stationery</a>
 								<ul class="sub_menu">
 									<li><a href="#">Coming Soon</a></li>
 								</ul>
@@ -219,7 +221,7 @@
                     <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email" style="color:black;text-align:center;">
-								Contact: info@skartif.com / +91-8839485414
+								Contact: info@skartif.com
 							</span>
 						</div>
 					</li>
@@ -250,7 +252,7 @@
 					</li>
 					
 					<li class="item-menu-mobile">
-						<a href="#">Stationary</a>
+						<a href="#">Stationery</a>
 						<ul class="sub-menu">
 							<li><a href="#">Coming Soon</a></li>
 						</ul>
@@ -297,7 +299,7 @@
 				<div>
 					<p class="s-text7 w-size27">
 						<strong>Write Us at below Address:</strong></br>
-						B-404, Lamboder Avenue, Pushpanjali Nagar, </br>Sadguru Link Road, Nasik, PIN: 422002 </br>
+						B-603, Eisha Footprint, <br />Opposite to Indira National School, </br>Bhumakr Chowk, Tathwade, PIN: 411033 </br>
 						<span style="text-align:center"><strong>Or</strong></span></br>Call us on +91-8956678914/+91-8839485414
 					</p>
 
@@ -466,15 +468,15 @@
 
 
 
-	<!-- Back to top -->
+	<!-- Back to top 
 	<div class="btn-back-to-top bg0-hov" id="myBtn">
 		<span class="symbol-btn-back-to-top">
 			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
 		</span>
 	</div>
 
-	<!-- Container Selection1 -->
-	<div id="dropDownSelect1"></div>
+	<!-- Container Selection1 
+	<div id="dropDownSelect1"></div>-->
 
 
 </body>
@@ -482,13 +484,13 @@
 	<script type="text/javascript" src="/vendor/bootstrap/js/popper.js"></script>
 	<script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script type="text/javascript" src="/vendor/select2/select2.min.js"></script>
+	<!--<script type="text/javascript" src="/vendor/select2/select2.min.js"></script>
 	<script type="text/javascript">
 		$(".selection-1").select2({
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect1')
 		});
-	</script>
+	</script>-->
 <!--===============================================================================================-->
     	<script src="/js/main.js"></script>
 

@@ -1,0 +1,526 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="ArtCrestApplication.Main" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+	<title>skartif - Online store for festive, decorative, gift & other art items</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/jpg" href="/images/icons/headicon.png"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/fonts/themify/themify-icons.css"/>
+	<link rel="stylesheet" type="text/css" href="/fonts/Linearicons-Free-v1.0.0/icon-font.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/fonts/elegant-font/html-css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/lightbox2/css/lightbox.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/util.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/owl/owl.carousel.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/owl/owl.carousel.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/owl/owl.theme.default.css"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/owl/owl.theme.default.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/product-slider.css"/>
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
+    <link href="https://fonts.googleapis.com/css?family=Philosopher:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:700" rel="stylesheet">
+<!--===============================================================================================-->
+	<script type="text/javascript" src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+	<script type="text/javascript" src="/vendor/owl/js/owl.carousel.js"></script>
+<!--===============================================================================================-->	
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="animsition">    
+	<!--Header Section-->
+
+	<header class="header1">
+		<!-- Header Section for desktop -->
+		<div class="container-menu-header">
+			<div class="topbar">
+				<div class="topbar-social">
+					<!--<a href="#" class="topbar-social-item fa fa-facebook"></a>
+					<a href="#" class="topbar-social-item fa fa-instagram"></a>
+					<a href="#" class="topbar-social-item fa fa-twitter"></a>
+					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>-->
+                    <span style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size-adjust:inherit;">Free shipping on orders above Rs.150</span>
+				</div>
+
+				<div class="topbar-child1">
+					<input type="text" placeholder="Search Products Here" class="form-in" id="searchInput">
+					<a href="#">
+						<button class="btn" onclick="SearchBtnClick();">
+							<i class="fa fa-search" style="color:black;font-size:20px;"></i>
+						</button>
+					</a>
+				</div>
+
+				<div class="topbar-child2">
+					<span class="topbar-email" style="color:black;">
+						info@skartif.com
+					</span>
+				</div>
+			</div>
+
+			<div class="wrap_header">
+				<!-- Logo -->
+				<a href="/Home.aspx" class="logo">
+					<img src="/images/icons/logo.png" alt="IMG-LOGO">
+				</a>
+
+				<!-- Menu -->
+				<div class="wrap_menu">
+					<nav class="menu">
+						<ul class="main_menu">
+							<li>
+								<a href="/product/products.aspx">Festive</a>
+								<ul class="sub_menu">
+									<li><a href="/product/products.aspx?scid=0">Rakhi-Bandhan</a></li>
+									<li><a href="#">Diwali - Coming Soon</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Decor</a>
+								<ul class="sub_menu">
+									<li><a href="#">Coming Soon</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Gifts</a>
+								<ul class="sub_menu">
+									<li><a href="#">Coming Soon</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Stationary</a>
+								<ul class="sub_menu">
+									<li><a href="#">Coming Soon</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Jewellery</a>
+								<ul class="sub_menu">
+									<li><a href="#">Coming Soon</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Food Items</a>
+								<ul class="sub_menu">
+									<li><a href="#">Coming Soon</a></li>
+								</ul>
+							</li>
+							
+						</ul>
+					</nav>
+				</div>
+
+				<!-- Header Icon -->
+				<div class="header-icons">
+					<div class="header-wrapicon2">
+						<a href="/cart/cart.aspx">
+							<i class="fa fa-shopping-cart" style="font-size:24px;"></i>
+						</a>
+						<span class="header-icons-noti" id="cartItemCountMob" runat="server">0</span>
+					</div>
+
+                    <span class="linedivide1"></span>
+
+                    <ul class="main_menu">
+						<li>
+							<span class="header-wrapicon1 dis-block">
+						        <i class="fa fa-user" style="font-size:24px;"></i>
+					        </span>
+							<ul class="sub_menu user-sub-menu">
+								<li><a id="masterLogin" runat="server" href="/Login.aspx"><i class="fa fa-sign-in fa-user-menu" aria-hidden="true"></i>&nbsp;&nbsp;Login / Register</a></li>
+								<li><a href="/account/myaccount.aspx"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;My Account</a></li>
+                                <li><a href="/order/orderhistory.aspx"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;My Orders</a></li>
+                                <li><a id="masterLogout" href="/Logout.aspx" runat="server"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</a></li>
+							</ul>
+					    </li>
+                    </ul>
+                    <span>&nbsp;&nbsp;Hi, <a href="#" runat="server" id="guestNameID">Guest</a></span>
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- Header Section for Mobile -->
+		<div class="wrap_header_mobile">
+			<!-- Logo moblie -->
+			<a href="/Home.aspx" class="logo-mobile">
+				<img src="/images/icons/logo.png" alt="IMG-LOGO">
+			</a>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu">
+				<!-- Header Icon mobile -->
+				<div class="header-icons-mobile">
+                    <ul class="main_menu">
+						<li>
+							<span class="header-wrapicon1 dis-block">
+						        <i class="fa fa-user" style="font-size:24px;"></i>
+					        </span>
+							<ul class="sub_menu user-sub-menu">
+								<li><a id="mobileLoginLoginButton" href="/Login.aspx" runat="server"><i class="fa fa-sign-in fa-user-menu" aria-hidden="true"></i>&nbsp;&nbsp;Login / Register</a></li>
+								<li><a href="/account/myaccount.aspx"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;My Account</a></li>
+                                <li><a href="/order/orderhistory.aspx"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;My Orders</a></li>
+                                <li><a id="mobileLoginLogoutButton" href="/Logout.aspx" runat="server"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</a></li>
+							</ul>
+					    </li>
+                    </ul>
+
+					<span class="linedivide2"></span>
+
+					<div class="header-wrapicon2">						
+						<a href="/cart/cart.aspx"><i class="fa fa-shopping-cart" style="font-size:24px;"></i></a>
+						<span class="header-icons-noti" id="cartItemCount" runat="server">0</span>
+					</div>
+				</div>
+
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Menu Mobile -->
+		<div class="wrap-side-menu" >
+			<nav class="side-menu">
+				<ul class="main-menu">
+					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<div class="topbar-child1-mobile">
+							<input type="text" placeholder="Search Products Here" class="form-in" id="searchInputMob">
+							<a href="#">
+								<button class="btn" onclick="SearchBtnClickMob();">
+									<i class="fa fa-search" style="color:black;font-size:20px;"></i>
+								</button>
+							</a>
+						</div>
+					</li>
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<div class="topbar-child2-mobile">
+							<span class="topbar-email" style="color:black;text-align:center;">
+								Contact: info@skartif.com
+							</span>
+						</div>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="/product/products.aspx">Festive</a>
+						<ul class="sub-menu">
+							<li><a href="/product/products.aspx?scid=0">Rakhi-Bandhan</a></li>
+							<li><a href="#">Diwali - Coming Soon</a></li>
+						</ul>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+					</li>
+					
+					<li class="item-menu-mobile">
+						<a href="#">Decor</a>
+						<ul class="sub-menu">
+							<li><a href="#">Coming Soon</a></li>
+						</ul>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="#">Gifts</a>
+						<ul class="sub-menu">
+							<li><a href="#">Coming Soon</a></li>
+						</ul>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+					</li>
+					
+					<li class="item-menu-mobile">
+						<a href="#">Stationary</a>
+						<ul class="sub-menu">
+							<li><a href="#">Coming Soon</a></li>
+						</ul>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+					</li>
+					
+					<li class="item-menu-mobile">
+						<a href="#">Jewellery</a>
+						<ul class="sub-menu">
+							<li><a href="#">Coming Soon</a></li>
+						</ul>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+					</li>
+					
+					<li class="item-menu-mobile">
+						<a href="#">Food Items</a>
+						<ul class="sub-menu">
+							<li><a href="#">Coming Soon</a></li>
+						</ul>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+					</li>
+					
+					
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+    <!-- Add actual child Page data under ContentPlace Holder page -->
+	<form id="form1" runat="server">    
+        <asp:HiddenField runat="server" ID="hdnPages" Value="productentry,productedit,acsupportmenu"/>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>    
+    </form>
+	<!-- Footer -->
+	<footer class="bg-ft p-t-20 p-b-20 p-l-45 p-r-45">
+		<div class="flex-w p-b-10">
+			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					REACH US
+				</h4>
+
+				<div>
+					<p class="s-text7 w-size27">
+						<strong>Write Us at below Address:</strong></br>
+						B-603, Eisha Footprint, <br />Opposite to Indira National School, </br>Bhumakr Chowk, Tathwade, PIN: 411033 </br>
+						<span style="text-align:center"><strong>Or</strong></span></br>Call us on +91-8956678914/+91-8839485414
+					</p>
+
+					<div class="flex-m p-t-30">
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-twitter"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+					</div>
+				</div>
+			</div>
+
+			<!--<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					PRODUCTS
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Rakhi
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Diyas
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Pooja Samagri
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Lanterns
+						</a>
+					</li>
+				</ul>
+			</div>-->
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Links
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="/product/products.aspx" class="s-text7">
+							Products
+						</a>
+					</li>
+
+                    <li class="p-b-9">
+						<a href="/product/products.aspx?scid=0" class="s-text7">
+							Rakhi Special
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="/aboutus.aspx" class="s-text7">
+							About Us
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="/contactus.aspx" class="s-text7">
+							Contact Us
+						</a>
+					</li>
+
+					<li class="p-b-9" style="display:none;">
+						<a href="#" class="s-text7">
+							Our Blogs
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Help
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="/order/orderhistory.aspx" class="s-text7">
+							Track Order
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="/account/myaccount.aspx" class="s-text7">
+							My Profile
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="/termsprivacy.aspx" class="s-text7">
+							Terms & Conditions
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="/returnpolicy.aspx" class="s-text7">
+							Return Policy
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					Newsletter
+				</h4>
+
+				<form>
+					<div class="effect1 w-size9">
+						<input class="s-text7 bg6 w-full p-b-5 form-in" type="text" name="email" placeholder="email@example.com">
+						<span class="effect1-line"></span>
+					</div>
+
+					<div class="w-size2 p-t-20">
+						<!-- Button -->
+						<button class="btn btn-primary prod-slid-btn subscribe-button">
+							Subscribe
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+		<div class="t-center p-l-15 p-r-15">
+			<!--<a href="#">
+				<img class="h-size2" src="images/icons/paypal.png" alt="IMG-PAYPAL">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="images/icons/visa.png" alt="IMG-VISA">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="images/icons/mastercard.png" alt="IMG-MASTERCARD">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="images/icons/express.png" alt="IMG-EXPRESS">
+			</a>-->
+
+			<a href="#">
+				<img class="h-size2" src="/images/icons/paytm.jpg" alt="IMG-PAYTM">
+			</a>
+			<a href="#">
+				<img class="h-size2" src="/images/icons/cod.jpg" alt="IMG-COD">
+			</a>
+			
+			<div class="t-center s-text8 p-t-10">
+				Copyright © 2018 All rights reserved with SKARTIF PRIVATE LIMITED.
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- Back to top 
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection1 
+	<div id="dropDownSelect1"></div>-->
+
+
+</body>
+    <!--===============================================================================================-->
+	<script type="text/javascript" src="/vendor/bootstrap/js/popper.js"></script>
+	<script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<!--<script type="text/javascript" src="/vendor/select2/select2.min.js"></script>
+	<script type="text/javascript">
+		$(".selection-1").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>-->
+<!--===============================================================================================-->
+    	<script src="/js/main.js"></script>
+
+    
+	<script type="text/javascript" src="/vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="/js/slick-custom.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="/vendor/lightbox2/js/lightbox.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="/vendor/sweetalert/sweetalert.min.js"></script>
+<!--===============================================================================================-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            FetchItemCount();
+        });///document ends
+
+        function SearchBtnClick() {
+            if ($("#searchInput").val() != "") {
+                window.location.href = "../product/products.aspx?ss=" + $("#searchInput").val();
+            }  
+        }
+
+        function SearchBtnClickMob() {
+            if ($("#searchInputMob").val() != "") {
+                window.location.href = "../product/products.aspx?ss=" + $("#searchInputMob").val();
+            } 
+        }
+
+
+    </script>
+</html>  

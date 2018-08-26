@@ -241,20 +241,33 @@ namespace ArtCrestApplication.checkout
 
         public void sendOrderConfirmationEmail(DataSet dtOrderConfirmation)
         {
-            string mailSubject = "Your Skartif.com order of "+ dtOrderConfirmation.Tables[1].Rows[0]["ProductName"].ToString() + " is successfully placed.";
+            string mailSubject = "";
+            if (dtOrderConfirmation.Tables[1].Rows.Count>1)
+            {
+                var otherproductcount = (dtOrderConfirmation.Tables[1].Rows.Count - 1);
+                mailSubject = "Your Skartif.com order of " + dtOrderConfirmation.Tables[1].Rows[0]["ProductName"].ToString() + " and " + otherproductcount + " other products is successfully placed.";
+            }
+            else
+            {
+                mailSubject = "Your Skartif.com order of " + dtOrderConfirmation.Tables[1].Rows[0]["ProductName"].ToString() + " is successfully placed.";
+            }
+            
             StringBuilder mailBody = new StringBuilder();
-            mailBody.Append("<b>Congratulations! Your order has been placed successfully. <br/> Your order number is "+ dtOrderConfirmation.Tables[1].Rows[0]["fkOrderID"].ToString() + ".<br/>");
-            mailBody.Append("Thank you for your order. We’ll send a confirmation when your order ships.</b><br/>");
-            mailBody.Append("<table style='border:1px;border-style:solid;'><th>Product Name</th><th>Quantity</th><th>Price</th><tbody>");
+            mailBody.Append("<!DOCTYPE html><html><head><link rel='stylesheet' type='text/css' href='http://skartif.com/vendor/bootstrap/css/bootstrap.min.css'/></head>");
+            mailBody.Append("<body><div class='container' style='padding-bottom:20px;'><div style = 'width:30%;display:inline-block;'><img src='http://skartif.com/images/icons/logo.png' style='width:80%;padding:20px;'/></div><div style = 'width:30%;display:inline-block;padding:20px;vertical-align:middle;text-align:center;font-family:Verdana;font-size:24px;color:#3c9bed;'> Order Confirmation</div><div style = 'width:30%;display:inline-block;padding:20px;vertical-align:middle;text-align:center;font-family:Verdana;font-size:12px;color:#3c9bed;'> info@skartif.com</div><hr />");
+            mailBody.Append("<div><span style = 'color:#1f0a50;font-weight:bold;'> Dear Customer,</span><br /><p> Thank you for your order with skartif.com.Estimated date for your order delivery is mentioned below.You may track your order from skartif.com my orders section.</p></div><hr />");
+            mailBody.Append("<div><span> Estimated Date of Delivery: " + dtOrderConfirmation.Tables[1].Rows[0]["EstimatedDeliveryDate"].ToString() + "</span></div><hr />");
+            mailBody.Append("<div><span style = 'color:#1f0a50;font-weight:bold;'> Order Details </span></div><div><span style = 'color:#1f0a50;font-weight:bold;'> ORD" + dtOrderConfirmation.Tables[0].Rows[0]["OrderID"].ToString() + " </span></div><hr />");
+
             foreach (var dt in dtOrderConfirmation.Tables[1].AsEnumerable())
             {
-                mailBody.Append("<tr><td>"+ dt["ProductName"].ToString() + "</td><td>" + dt["ProductQuantity"].ToString() + "</td><td>&#8377; " + dt["OrderItemFinalPrice"].ToString() + "</td></tr>");
+                mailBody.Append("<div style='verticle-align:middle;'><div style = 'max-width:30%;display:inline-block;padding:10px;'><img src = 'http://skartif.com/productimages/" + dt["fkProductID"].ToString() + ".1.jpg' style = 'width:100px;' /></div><div style = 'width:45%;display:inline-block;padding:10px;' ><span> " + dt["ProductName"].ToString() + "</span></div><div style = 'width:18%;display:inline-block;padding:10px;' ><span> Rs. " + dt["OrderItemFinalPrice"].ToString() + " </span></div><hr /></div>");
             }
-            mailBody.Append("<tr><td></td><td>Total Amount</td><td>&#8377; " + dtOrderConfirmation.Tables[0].Rows[0]["TotalAmount"].ToString() + "</td></tr>");
-            mailBody.Append("</tbody></table>");
-            mailBody.Append("<br/><br/><br/> Thank You.<br/>Skartif Team.");
 
-            objBusinessL.SendMail(Session["UserEmailID"].ToString(), mailSubject, mailBody.ToString());
+            mailBody.Append("<div style = 'text-align:right;color:#3c9bed;'><div><span> Subtotal: Rs. " + dtOrderConfirmation.Tables[0].Rows[0]["SubTotal"].ToString() + " </span></div><div><span> Shipping: Rs. " + dtOrderConfirmation.Tables[0].Rows[0]["ShippingCharge"].ToString() + "</span></div><div><span> Total Amount: Rs." + dtOrderConfirmation.Tables[0].Rows[0]["TotalAmount"].ToString() + " </span></div></div><hr />");
+            mailBody.Append("<div><span> We hope you had awesome experience with skartif.com and hope to see you again soon.</span></div><div><span style = 'color:#1f0a50;font-weight:bold;text-decoration:none;'> skartif.com </span></div></div></body></html>");
+
+                        objBusinessL.SendMail(Session["UserEmailID"].ToString(), mailSubject, mailBody.ToString());
         }
 
         public bool checkIfValidPincode(string address)

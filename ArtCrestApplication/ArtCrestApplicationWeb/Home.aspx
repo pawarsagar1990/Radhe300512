@@ -19,16 +19,16 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/master-slide-01.jpg" alt="ms1">
+                    <img src="images/master-slide-01.jpg" alt="ms1" style="width:100%;">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/master-slide-02.jpg" alt="ms2">
+                    <img src="images/master-slide-02.jpg" alt="ms2" style="width:100%;"">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/master-slide-03.jpg" alt="ms3">
+                    <img src="images/master-slide-03.jpg" alt="ms3" style="width:100%;">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/master-slide-04.jpg" alt="ms4">
+                    <img src="images/master-slide-04.jpg" alt="ms4" style="width:100%;">
                 </div>
             </div>
 
@@ -41,6 +41,10 @@
             </a>
         </div>
     </section>
+
+    <div class="container" style="text-align:center;color:#fd0e91;padding-top:20px;font-weight:bold;font-size:20px;">
+        <span>Free shipping on orders above Rs.150 & 1 day delivery available within Pune.</span>
+    </div>
 
     <div id="ProductSlider">
         <!--Product Slider 1-->
@@ -476,7 +480,7 @@
                             $.each(ProductSubCatList, function (key, ProductSubCatList) {
                                 divHtml = "<section class='product-slider'><div class='container mt-4'>" +
                                        "<div class='row'>" +
-                                       "<div class='col-md-12 text-center'><span class='product-slider-title'>" + ProductSubCatList.pSName + "</span></div>" +
+                                       "<div class='col-md-12'><div style='text-align:left;display:inline-block;width:70%;'><span class='product-slider-title'>" + ProductSubCatList.pSName + "</span></div><div style='text-align:right;display:inline-block;width:25%;vertical-align: middle;'><a class='btn btn-primary prod-slid-btn' href='/product/products.aspx?scid=" + ProductSubCatList.pSID + "' role='button'>View More</a></div></div>" +
                                        "</div></div>" +
                                        "<div class='container mt-3'>" +
                                        "<div class='row'>" +

@@ -1,0 +1,7 @@
+C:\git code base\ArtCrestApplication\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\git code base\ArtCrestApplication\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\git code base\ArtCrestApplication\BusinessLayer\bin\Release\DataAccessLayer.dll
+C:\git code base\ArtCrestApplication\BusinessLayer\bin\Release\DataAccessLayer.pdb
+C:\git code base\ArtCrestApplication\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\git code base\ArtCrestApplication\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\git code base\ArtCrestApplication\BusinessLayer\obj\Release\BusinessLayer.pdb

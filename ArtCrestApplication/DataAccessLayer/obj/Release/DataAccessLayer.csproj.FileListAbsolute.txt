@@ -1,0 +1,4 @@
+C:\git code base\ArtCrestApplication\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\git code base\ArtCrestApplication\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\git code base\ArtCrestApplication\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\git code base\ArtCrestApplication\DataAccessLayer\obj\Release\DataAccessLayer.pdb

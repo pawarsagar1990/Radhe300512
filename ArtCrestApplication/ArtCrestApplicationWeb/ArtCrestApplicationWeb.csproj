@@ -261,6 +261,7 @@
     <Content Include="vendor\slick\slick-theme.scss" />
     <Content Include="vendor\slick\slick.less" />
     <Content Include="vendor\slick\slick.scss" />
+    <None Include="Properties\PublishProfiles\skartif publish.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

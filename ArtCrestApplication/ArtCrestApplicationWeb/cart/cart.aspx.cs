@@ -69,7 +69,7 @@ namespace ArtCrestApplication.cart
                                             .Sum().ToString();
 
                     strResultArray[2] = objJS.Serialize(cartItemsSubTotal);
-                    strResultArray[3] = cartItemsSubTotal != null && (Convert.ToInt32(cartItemsSubTotal) > 300 || Convert.ToInt32(cartItemsSubTotal) == 0) ? 0.ToString() : 30.ToString();
+                    strResultArray[3] = cartItemsSubTotal != null && (Convert.ToInt32(cartItemsSubTotal) > 150 || Convert.ToInt32(cartItemsSubTotal) == 0) ? 0.ToString() : 30.ToString();
                     strResultArray[4] = (Convert.ToInt32(cartItemsSubTotal) + Convert.ToInt32(strResultArray[3])).ToString();
 
                 }                

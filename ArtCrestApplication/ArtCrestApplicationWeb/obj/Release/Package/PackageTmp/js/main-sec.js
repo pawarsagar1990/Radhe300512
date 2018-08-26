@@ -1,0 +1,20 @@
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:20,
+    nav:true,
+	navText:['<i class="fa fa-angle-left" style="font-size:48px;"></i>','<i class="fa fa-angle-right" style="font-size:48px;"></i>'],
+    responsive:{
+        0:{
+            items:1
+        },
+		100:{
+            items:2
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+	})
