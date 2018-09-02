@@ -11,27 +11,6 @@
                     <span>Select Delivery Address</span>
                 </div>
                 <div id="addressDiv"></div>
-                <%--<div class="radio check-address">
-                    <div class="checkout-address-button">
-                        <input type="radio" name="optradio">&nbsp;&nbsp;Swapnil Chavan
-                    </div>                   
-                    <div class="checkout-address-list">
-                        <div class="to-address">A-908, Vihana Scoiety, Keshav Nagar, Mundhwa, Pune, Maharashtra-411036</div>
-                        <div class="to-mobile-no">Mob. No. +91-9075005291</div>
-                    </div>
-                </div>--%>
-                <%--                <div class="radio check-address">
-                    <div class="checkout-address-button">
-                        <input type="radio" name="optradio">&nbsp;&nbsp;Sagar Pawar
-                    </div>
-                    <!--<div class="checkout-address-edit">
-						UPDATE
-					</div>-->
-                    <div class="checkout-address-list">
-                        <div class="to-address">A-202, Eisha Footprint, Tathawade, Pune, Maharashtra-411046</div>
-                        <div class="to-mobile-no">Mob. No. +91-8675825248</div>
-                    </div>
-                </div>--%>
                 <div class="check-address address-new-sec">
                     <a href="#newadd" id="addNewAddress" data-toggle="collapse">
                         <div class="check-address-new">
@@ -71,10 +50,7 @@
                     </div>
                     <div class="checkout-pymt-button">
                         <input type="radio" name="optpaymtmethod" checked="checked" onclick="showConfirmOrdButton()">&nbsp;&nbsp;Cash on Delivery
-                    </div>
-                    <%--<div class="checkout-pymt-button">
-                        <input type="radio" name="optpaymtmethod" onclick="showProceedPymtButton()">&nbsp;&nbsp;Paytm
-                    </div>--%>
+                    </div>                    
                 </div>
 
             </div>
@@ -98,10 +74,7 @@
                     </div>
                 </div>
                 <div class="check-ord-confirm-btn" style="display: none;" id="confirm-ord">
-                    <div class="check-proc-btn">
-                        <%--<a href="/order/orderconfirmation.aspx" class="btn btn-primary prod-slid-btn check-btn" role="button">Confirm Order
-                        </a>--%>
-                        <%--<asp:Button runat="server" ID="btnConfirmOrder" OnClick="btnConfirmOrder_Click" OnClientClick="return btnConfirmOrderClientClick();" class="btn btn-primary prod-slid-btn check-btn" Text="Confirm Order" ClientIDMode="Static" />--%>
+                    <div class="check-proc-btn">                        
                         <button id="btnConfirmOrder" class="btn btn-primary prod-slid-btn check-btn" type="button" value="Confirm Order" onclick="btnConfirmOrderClientClick();">Confirm Order</button>
                     </div>
                 </div>
@@ -119,305 +92,19 @@
         function showConfirmOrdButton() {
             document.getElementById('confirm-ord').style.display = "block";
             //document.getElementById('proceed-to-pay').style.display = "none";
-        }
+        };
+
         function showProceedPymtButton() {
             //document.getElementById('proceed-to-pay').style.display = "block";
             document.getElementById('confirm-ord').style.display = "none";
-        }
+        };
 
         $(document).ready(function () {
             getCartDetails();
             getAddresses();
             getState();
             showConfirmOrdButton();
-        });///document ends
-
-
-        function getCartDetails() {
-            $.ajax({
-                type: "POST",
-                url: "../../Cart/Cart.aspx/getCartDetails",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    if (response != "" && response.d.Data != 'undefined') {
-                        var parsedData = JSON.parse(response.d.Data);
-                        var cDetails = JSON.parse(parsedData.cDetail);
-                        var cIDetails = JSON.parse(parsedData.cIDetails);
-                        $("#spanSubTotal").html(JSON.parse(parsedData.cISubTotal));
-                        $("#spanShippingCharges").html(JSON.parse(parsedData.cIShippingCharges));
-                        $("#spanTotalAmount").html(JSON.parse(parsedData.cITotaAmount));
-                    }
-                },
-                failure: function (response) {
-                    alert(response.d);
-                }
-            });
-        };//getcartdetails ends
-
-        function getState() {
-            $.ajax({
-                type: "POST",
-                url: "../../checkout/checkout.aspx/getState",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    if (response != "" && response.d.Data != 'undefined') {
-                        var parsedData = JSON.parse(response.d.Data);
-                        var stateList = JSON.parse(parsedData.stateList);
-                        $.each(stateList, function (key, stateList) {
-                            $("#drpState").append("<option value='" + stateList.sID + "'>" + stateList.sName + "</option>");
-                        });//each ends
-                    }//if response ends
-                },
-                failure: function (response) {
-                    alert(response.d);
-                }
-            });
-        };//getcartdetails ends
-
-
-        //name, mobileID, address, pinCode, areaLocality, landMark, city, stateID, stateName
-        function saveAddress() {
-            if ($("#txtName").val() != "" && $("#txtMob").val() != "" && $("#txtAddress").val() != "" && $("#txtPinCode").val() != "" && $("#txtArea").val() != "" && $("#txtLandMark").val() != "" && $("#txtCity").val() != "" && $("#drpState").val() != "" && $("#drpState option:selected").text() != "") {
-
-
-                var dataValue = "{ name: '" + $("#txtName").val() + "', mobileID : '" + $("#txtMob").val() + "', address : '" + $("#txtAddress").val() + "', pinCode: '" + $("#txtPinCode").val() + "', areaLocality : '" + $("#txtArea").val() + "', landMark : '" + $("#txtLandMark").val() + "', city : '" + $("#txtCity").val() + "', stateID : '" + $("#drpState").val() + "',stateName : '" + $("#drpState option:selected").text() + "' }";
-                $.ajax({
-                    type: "POST",
-                    url: "../../checkout/checkout.aspx/saveAddress",
-                    contentType: "application/json; charset=utf-8",
-                    data: dataValue,
-                    dataType: "json",
-                    success: function (response) {
-                        if (response != "" && response.d.Data != 'undefined') {
-                            var parsedData = JSON.parse(response.d.Data);
-                            var successAddressSave = JSON.parse(parsedData.successAddressSave);
-                            if (successAddressSave != true) {
-                                swal({ text: "Ooops! looks like there was error while saving address. Please try again." });
-                            }
-                            else {
-                                $("#addNewAddress").trigger("click");
-                                getAddresses();
-                                clearAllBoxes();
-                            }
-                        }
-                    },
-                    failure: function (response) {
-                        alert(response.d);
-                    }
-                }); //update cart  ajax ends
-
-            }
-            else {
-                swal({
-                    title: "Please enter all required fields",
-                    cancelButtonColor: "#DD6B55",
-                    confirmButtonColor: "#DD6B55",
-                    showLoaderOnConfirm: true,
-                    buttons: {
-                        ok: {
-                            text: "Ok",
-                            value: false,
-                            visible: true,
-                            className: "",
-                            dangerMode: true,
-                            closeModal: true
-                        }
-                    },
-                    dangerMode: false,
-                })
-            }
-        };//fn updatecart
-
-        function getAddresses() {
-            $.ajax({
-                type: "POST",
-                url: "../../checkout/checkout.aspx/getUserAddresses",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    if (response != "" && response.d.Data != 'undefined') {
-                        var parsedData = JSON.parse(response.d.Data);
-                        var addressList = JSON.parse(parsedData.addressList);
-                        var divHtml = "";
-                        $("#addressDiv").empty();
-                        $.each(addressList, function (key, addressList) {
-                            var radioSelected = "";
-                            if (key == 0) { radioSelected = "checked = 'checked'"; $("#selectedAddress").val(addressList.uDID); }
-                            divHtml = "<div class='radio check-address'>" +
-                                    "<div class='checkout-address-button'><input id='userAddressID" + addressList.uDID + "' onclick='selectAddress(" + addressList.uDID + ");' type='radio' " + radioSelected + " name='optradio'>&nbsp;&nbsp;" + addressList.uDName + "</div>" +
-                                    "<div class='checkout-address-list'>" +
-                                    "<div class='to-address'>" + addressList.uDAddress + ", " + addressList.uDAreaLocality + ", " + addressList.uDLandmark +
-                                     ", " + addressList.uDCity + ", " + addressList.uDState + "- " + addressList.uDPinCode + "</div>" +
-                                    "<div class='to-mobile-no'>Mob. No. +91-" + addressList.uDmob + "</div>" +
-                                    "</div></div>";
-                            $("#addressDiv").append(divHtml);
-                        });//each ends
-                    }//if response ends
-                },
-                failure: function (response) {
-                    alert(response.d);
-                }
-            });
-        }
-
-        function clearAllBoxes() {
-            $("#txtName").val("");
-            $("#txtMob").val("");
-            $("#txtAddress").val("");
-            $("#txtPinCode").val("");
-            $("#txtArea").val("");
-            $("#drpState").val("1");
-            $("#txtCity").val("");
-            $("#txtLandMark").val("");
-        }
-
-
-        function btnConfirmOrderClientClick() {
-            if ($("#selectedAddress") && $("#selectedAddress").val() != "") {
-                swal({
-                    title: "Are you sure you want to place order along with selected items and address?",
-                    text: "Once you place order, we will get back to you on your registered Email ID and Contact Number.",                    
-                    cancelButtonColor: "#DD6B55",
-                    confirmButtonColor: "#DD6B55",
-                    showLoaderOnConfirm: true,
-                    buttons: {
-                        cancel: {
-                            text: "Cancel",
-                            value: false,
-                            visible: true,
-                            className: "",
-                            dangerMode: true,
-                            closeModal: true
-                        },
-                        confirm: {
-                            text: "Yes, Confirm Order",
-                            value: true,
-                            visible: true,
-                            className: "",
-                            closeModal: false,
-                            successMode: true
-                        }
-                    },
-                    dangerMode: false,
-                })
-            .then((yesSure) => {
-                if (yesSure) {
-                    if ($("#selectedAddress") && $("#selectedAddress").val() != "") {
-                        var checkPincodeValid = checkIfValidPincode();
-                        if (checkPincodeValid == "True") {
-                            swal({
-                                title: 'Please Wait till next page appears, we are working on your request.',
-                                timer: 20000,
-                                buttons: false,
-                                onOpen: () => {
-                                    swal.showLoading();
-                                }
-                            });
-                            var dataValue = "{ address: '" + $("#selectedAddress").val() + "'}";
-                            $.ajax({
-                                type: "POST",
-                                url: "../../checkout/checkout.aspx/confirmOrder",
-                                contentType: "application/json; charset=utf-8",
-                                data: dataValue,
-                                dataType: "json",
-                                success: function (response) {
-                                    if (response != "" && response.d.Data != 'undefined') {
-                                        var parsedData = JSON.parse(response.d.Data);
-                                        var orderDetail = JSON.parse(parsedData.orderDetail);
-                                        if (orderDetail && orderDetail.length > 0) {
-                                            if (orderDetail[0] && orderDetail[0].oOID != undefined && orderDetail[0].oOID != null) {
-                                                window.location.href = "/order/orderconfirmation.aspx?oID=" + orderDetail[0].oOID;
-                                            }
-                                            else if (orderDetail[0] && orderDetail[0].errorMessage != undefined && orderDetail[0].errorMessage != null) {
-                                                swal({
-                                                    text: orderDetail[0].errorMessage,
-                                                    icon: "warning",
-                                                    buttons: true,
-                                                    dangerMode: true
-                                                });
-                                            }
-
-                                        }
-                                        else {
-                                            swal({
-                                                text: "Ooops! Something went wrong. Please try again with proper inputs.",
-                                                icon: "warning",
-                                                buttons: false,
-                                                dangerMode: true,
-                                            });
-                                        }
-                                    }//if response ends
-                                },
-                                failure: function (response) {
-                                    alert(response.d);
-                                }
-                            });  //ajax ends
-                        }///if pincode valid ends
-                        else {
-                            swal({
-                                text: "Thank you for showing interest in the above products, currently we are unable to deliver outside Pune region via cash on delivery option, we are working on payment integration methods. However for now if you wish to place the order connect with us to complete your order on Contact Number +91-8956678914. We will accept the order and dispatch it at the earliest.",
-                                icon: "warning",
-                                buttons: false,
-                                dangerMode: true,
-                            });
-                        }
-                    }
-                    else {
-                        swal({
-                            text: "Ooops! Looks like you have not selected address for your order. Please select any address from your existing address list else add New Address.",
-                            icon: "warning",
-                            buttons: false,
-                            dangerMode: true,
-                        });
-                    }
-                }
-                else { return false; }
-            });///swal ends      
-            }//select address ends     
-            else {
-                swal({
-                    text: "Ooops! Looks like you have not selected address for your order. Please select any address from your existing address list else add New Address.",
-                    icon: "warning",
-                    buttons: false,
-                    dangerMode: true,
-                });
-            }
-        }//btnconfirmorder ends
-
-        function checkIfValidPincode() {
-            var dataValue = "{ address: '" + $("#selectedAddress").val() + "'}";
-            var result = false;
-            $.ajax({
-                type: "POST",
-                url: "../../checkout/checkout.aspx/checkValidPincode",
-                contentType: "application/json; charset=utf-8",
-                data: dataValue,
-                async: false,
-                dataType: "json",
-                success: function (response) {                    
-                    if (response != "" && response.d.Data != 'undefined') {
-                        var parsedData = JSON.parse(response.d.Data);
-                        if (parsedData != null && parsedData != undefined) {
-                            var checkValidPincode = JSON.parse(parsedData.checkValidPincode);
-                            result =  checkValidPincode;
-                        }
-                        else { result =  false; }
-                    }//if response ends
-                },
-                failure: function (response) {
-                    alert(response.d);
-                }
-            });
-            return result;
-        };//getcartdetails ends
-
-
-        function selectAddress(selectedAddress) {
-            $("#selectedAddress").val(selectedAddress);
-        }//selectAddres ends
-
+        });///document ends        
 
     </script>
 </asp:Content>

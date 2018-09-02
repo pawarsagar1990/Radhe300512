@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtCrestApplication", "ArtCrestApplication\ArtCrestApplication.csproj", "{F9170F6D-21C4-4AE8-8AA9-7418FF70D144}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{13F29B1B-2ACC-461F-A7F1-63D77238C09C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{6692CAD0-BA22-4129-8091-A56B596F40D4}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F9170F6D-21C4-4AE8-8AA9-7418FF70D144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9170F6D-21C4-4AE8-8AA9-7418FF70D144}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9170F6D-21C4-4AE8-8AA9-7418FF70D144}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9170F6D-21C4-4AE8-8AA9-7418FF70D144}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13F29B1B-2ACC-461F-A7F1-63D77238C09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13F29B1B-2ACC-461F-A7F1-63D77238C09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13F29B1B-2ACC-461F-A7F1-63D77238C09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
